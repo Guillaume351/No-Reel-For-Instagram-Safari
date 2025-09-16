@@ -1,0 +1,21 @@
+{
+    "title": "Get started",
+    "contact": {
+        "title": "Contact",
+        "description": "Questions or feedback? Email me at"
+    },
+    "ios": {
+        "steps": [
+            "Open Settings ▸ Safari ▸ Extensions.",
+            "Enable “No Reel For Instagram” and allow it on the sites you browse.",
+            "Open instagram.com and reload to apply your preferences."
+        ]
+    },
+    "mac": {
+        "steps": [
+            "Open Safari ▸ Settings ▸ Extensions.",
+            "Check “No Reel For Instagram” and grant it access to instagram.com.",
+            "Refresh instagram.com to apply your toolbar preferences."
+        ]
+    }
+}

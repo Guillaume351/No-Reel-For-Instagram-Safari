@@ -1,0 +1,21 @@
+{
+    "title": "Guía de activación",
+    "contact": {
+        "title": "Contacto",
+        "description": "¿Preguntas o sugerencias? Escríbeme a"
+    },
+    "ios": {
+        "steps": [
+            "Abre Ajustes ▸ Safari ▸ Extensiones.",
+            "Activa “No Reel For Instagram” y permítele funcionar en los sitios que visitas.",
+            "Abre instagram.com y recarga para aplicar tus preferencias."
+        ]
+    },
+    "mac": {
+        "steps": [
+            "Abre Safari ▸ Ajustes ▸ Extensiones.",
+            "Marca “No Reel For Instagram” y permite el acceso a instagram.com.",
+            "Actualiza instagram.com para aplicar tus preferencias."
+        ]
+    }
+}

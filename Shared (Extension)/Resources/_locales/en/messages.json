@@ -4,7 +4,108 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Hide Instagram Reels, For You posts, and other addictive suggestions on the web.",
+        "message": "Hide Instagram Reels, For You posts, Stories, and other addictive suggestions on the web.",
         "description": "Description of what the extension does."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Heading for the popup window."
+    },
+    "popup_subtitle": {
+        "message": "Choose which Instagram distractions to hide.",
+        "description": "Subtitle explaining the popup purpose."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Hide Reels surfaces",
+        "description": "Title for hide Reels toggle."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Removes Reels buttons and shelf rows.",
+        "description": "Description for hide Reels toggle."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Hide For You posts",
+        "description": "Title for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Filters suggested and recommended feed items.",
+        "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Hide Suggested users",
+        "description": "Title for hide suggested users toggle."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Clears people recommendations and carousels.",
+        "description": "Description for hide suggested users toggle."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Hide Stories bar",
+        "description": "Title for hide stories toggle."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Removes the story carousel at the top of the feed.",
+        "description": "Description for hide stories toggle."
+    },
+    "status_loading": {
+        "message": "Loading settings…",
+        "description": "Status message while settings load."
+    },
+    "status_saving": {
+        "message": "Saving…",
+        "description": "Status message while saving."
+    },
+    "status_success": {
+        "message": "All set!",
+        "description": "Status message when save completes."
+    },
+    "status_load_error": {
+        "message": "Couldn't reach the extension. Try again.",
+        "description": "Error when load fails."
+    },
+    "status_save_error": {
+        "message": "Couldn't save changes.",
+        "description": "Error when save fails."
+    },
+    "hint_autosave": {
+        "message": "Changes save instantly and apply to open instagram.com tabs.",
+        "description": "Hint beneath toggles."
+    },
+    "instructions_title": {
+        "message": "Get started",
+        "description": "Heading for instructions section."
+    },
+    "instructions_step1": {
+        "message": "Enable No Reel For Instagram in Safari: on Mac, open Safari ▸ Settings ▸ Extensions; on iPhone/iPad, go to Settings ▸ Safari ▸ Extensions.",
+        "description": "First instruction step."
+    },
+    "instructions_step2": {
+        "message": "Open instagram.com and sign in. Reload any tabs you already have open.",
+        "description": "Second instruction step."
+    },
+    "instructions_step3": {
+        "message": "Use this popup to turn features on or off whenever you need a calmer feed.",
+        "description": "Third instruction step."
+    },
+    "instructions_note": {
+        "message": "Tip: allow Safari to run the extension in Private Browsing if you use it there.",
+        "description": "Extra instructions note."
+    },
+    "contact_title": {
+        "message": "Contact",
+        "description": "Heading for contact section."
+    },
+    "contact_description": {
+        "message": "Questions or feedback? Email me at",
+        "description": "Sentence before the email link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Label for email link.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
     }
 }

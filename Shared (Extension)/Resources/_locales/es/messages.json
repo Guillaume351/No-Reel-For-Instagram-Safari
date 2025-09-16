@@ -1,0 +1,111 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "Nombre de la extensión."
+    },
+    "extension_description": {
+        "message": "Oculta Reels, publicaciones Para ti, Stories y otras sugerencias adictivas en Instagram web.",
+        "description": "Descripción de la extensión."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Título de la ventana emergente."
+    },
+    "popup_subtitle": {
+        "message": "Elige qué distracciones de Instagram ocultar.",
+        "description": "Subtítulo de la ventana emergente."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Ocultar superficies de Reels",
+        "description": "Título del ajuste de Reels."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Elimina los botones y carruseles de Reels.",
+        "description": "Descripción del ajuste de Reels."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Ocultar publicaciones \"Para ti\"",
+        "description": "Título del ajuste de publicaciones sugeridas."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Filtra los elementos sugeridos y recomendados del feed.",
+        "description": "Descripción del ajuste de publicaciones sugeridas."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Ocultar usuarios sugeridos",
+        "description": "Título del ajuste de usuarios sugeridos."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Quita las recomendaciones de personas y los carruseles.",
+        "description": "Descripción del ajuste de usuarios sugeridos."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Ocultar barra de Stories",
+        "description": "Título del ajuste de Stories."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Elimina el carrusel de historias de la parte superior del feed.",
+        "description": "Descripción del ajuste de Stories."
+    },
+    "status_loading": {
+        "message": "Cargando ajustes…",
+        "description": "Mensaje durante la carga."
+    },
+    "status_saving": {
+        "message": "Guardando…",
+        "description": "Mensaje durante el guardado."
+    },
+    "status_success": {
+        "message": "¡Listo!",
+        "description": "Mensaje de éxito."
+    },
+    "status_load_error": {
+        "message": "No se pudo acceder a la extensión. Inténtalo de nuevo.",
+        "description": "Error al cargar."
+    },
+    "status_save_error": {
+        "message": "No se pudieron guardar los cambios.",
+        "description": "Error al guardar."
+    },
+    "hint_autosave": {
+        "message": "Los cambios se guardan al instante y se aplican a las pestañas de instagram.com abiertas.",
+        "description": "Consejo sobre el guardado automático."
+    },
+    "instructions_title": {
+        "message": "Primeros pasos",
+        "description": "Título de las instrucciones."
+    },
+    "instructions_step1": {
+        "message": "Activa No Reel For Instagram en Safari: en Mac abre Safari ▸ Ajustes ▸ Extensiones; en iPhone/iPad ve a Ajustes ▸ Safari ▸ Extensiones.",
+        "description": "Primera instrucción."
+    },
+    "instructions_step2": {
+        "message": "Abre instagram.com e inicia sesión. Recarga las pestañas que ya tengas abiertas.",
+        "description": "Segunda instrucción."
+    },
+    "instructions_step3": {
+        "message": "Usa esta ventana para activar o desactivar funciones cuando quieras un feed más tranquilo.",
+        "description": "Tercera instrucción."
+    },
+    "instructions_note": {
+        "message": "Consejo: permite que Safari ejecute la extensión en la navegación privada si la utilizas.",
+        "description": "Nota adicional."
+    },
+    "contact_title": {
+        "message": "Contacto",
+        "description": "Título de la sección de contacto."
+    },
+    "contact_description": {
+        "message": "¿Tienes preguntas o comentarios? Escríbeme a",
+        "description": "Texto previo al enlace de correo."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Texto del enlace de correo.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    }
+}

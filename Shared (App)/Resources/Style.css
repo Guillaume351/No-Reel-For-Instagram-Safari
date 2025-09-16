@@ -59,3 +59,51 @@ body.state-off :is(.state-on, .state-unknown) {
 button {
     font-size: 1em;
 }
+
+.instructions,
+.contact {
+    width: min(640px, 100%);
+    text-align: left;
+    background: color-mix(in srgb, currentColor 8%, transparent);
+    padding: 16px 20px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.instructions h2,
+.contact h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+.instructions ol {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.instructions ol[dir="rtl"] {
+    padding-left: 0;
+    padding-right: 20px;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    margin: 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+.contact a {
+    color: inherit;
+    text-decoration: underline;
+}

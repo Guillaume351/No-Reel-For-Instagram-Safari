@@ -16,8 +16,8 @@ Adopt XCTest for unit and UI coverage. Place shared test targets under a `Tests`
 Write imperative, concise commit subjects (`Add shared media downloader`). Use the body to summarize intent and mention impacted targets (`Shared (App)`, `iOS (App)`). Pull requests should describe user-facing changes, list manual test steps (simulator model, Safari extension enablement), and link to tracking issues. Attach screenshots or screen recordings whenever UI or Safari extension dialogs change.
 
 ## Safari Extension Status (2025-09-16)
-- Popup toggles persist three features via `storage.sync`: hiding Reels surfaces, "For You" posts, and suggested users. Each toggle drives page-side controllers injected from `content.js`.
 - Popup toggles persist four features via `storage.sync`: hiding Reels surfaces, "For You" posts, suggested users, and the Stories carousel. Each toggle drives page-side controllers injected from `content.js`.
+- Popup UI is localized (English, French, Spanish, German, Arabic) with in-window activation steps and a direct contact link (guillaume.claverie@mail.com).
 - `Hide For You posts` removes the first instagram.com feed tab, activates the following feed, and forces a `/?variant=following` navigation if the UI click fails.
 - `Hide Suggested users` strips the "Suggestions pour vous" rail and any regenerated recommendation blocks, including the follow buttons.
 - `Hide Reels surfaces` currently removes discover/Reels links from the left navigation menu and will be extended to page modules next.
@@ -27,4 +27,5 @@ Write imperative, concise commit subjects (`Add shared media downloader`). Use t
 1. Expand the Reels controller to target in-feed reels carousels and modal reels players.
 2. Extend the Stories controller to handle mobile web markup and story modals.
 3. Audit mobile (m.instagram.com) markup for equivalent selectors across all toggles.
-4. Add automated smoke coverage (Playwright or XCTest) around enabled/disabled toggles once selectors stabilise.
+4. Localize the macOS/iOS host app views if multilingual onboarding becomes necessary.
+5. Add automated smoke coverage (Playwright or XCTest) around enabled/disabled toggles once selectors stabilise.

@@ -1,0 +1,111 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "Name der Erweiterung."
+    },
+    "extension_description": {
+        "message": "Blendet Reels, Für dich-Beiträge, Stories und andere süchtig machende Vorschläge auf Instagram im Web aus.",
+        "description": "Beschreibung der Erweiterung."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Titel des Pop-ups."
+    },
+    "popup_subtitle": {
+        "message": "Bestimme, welche Instagram-Ablenkungen ausgeblendet werden sollen.",
+        "description": "Untertitel des Pop-ups."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Reels-Bereiche ausblenden",
+        "description": "Titel der Reels-Option."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Entfernt Reels-Schaltflächen und -Reihen.",
+        "description": "Beschreibung der Reels-Option."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "\"Für dich\"-Beiträge ausblenden",
+        "description": "Titel der empfohlenen Beiträge-Option."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Filtert vorgeschlagene und empfohlene Beiträge aus dem Feed.",
+        "description": "Beschreibung der empfohlenen Beiträge-Option."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Vorgeschlagene Personen ausblenden",
+        "description": "Titel der vorgeschlagenen Personen-Option."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Entfernt Personenempfehlungen und Karussells.",
+        "description": "Beschreibung der vorgeschlagenen Personen-Option."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Story-Leiste ausblenden",
+        "description": "Titel der Stories-Option."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Entfernt das Story-Karussell oben im Feed.",
+        "description": "Beschreibung der Stories-Option."
+    },
+    "status_loading": {
+        "message": "Einstellungen werden geladen…",
+        "description": "Meldung beim Laden."
+    },
+    "status_saving": {
+        "message": "Wird gespeichert…",
+        "description": "Meldung beim Speichern."
+    },
+    "status_success": {
+        "message": "Fertig!",
+        "description": "Erfolgsmeldung."
+    },
+    "status_load_error": {
+        "message": "Die Erweiterung konnte nicht erreicht werden. Bitte erneut versuchen.",
+        "description": "Fehler beim Laden."
+    },
+    "status_save_error": {
+        "message": "Änderungen konnten nicht gespeichert werden.",
+        "description": "Fehler beim Speichern."
+    },
+    "hint_autosave": {
+        "message": "Änderungen werden sofort gespeichert und auf offene instagram.com-Tabs angewendet.",
+        "description": "Hinweis zum automatischen Speichern."
+    },
+    "instructions_title": {
+        "message": "So geht’s los",
+        "description": "Titel des Anleitungsbereichs."
+    },
+    "instructions_step1": {
+        "message": "Aktiviere No Reel For Instagram in Safari: auf dem Mac Safari ▸ Einstellungen ▸ Erweiterungen öffnen; auf iPhone/iPad zu Einstellungen ▸ Safari ▸ Erweiterungen gehen.",
+        "description": "Erster Schritt."
+    },
+    "instructions_step2": {
+        "message": "Öffne instagram.com und melde dich an. Aktualisiere bereits geöffnete Tabs.",
+        "description": "Zweiter Schritt."
+    },
+    "instructions_step3": {
+        "message": "Nutze dieses Fenster, um Funktionen ein- oder auszuschalten, wann immer du einen ruhigeren Feed brauchst.",
+        "description": "Dritter Schritt."
+    },
+    "instructions_note": {
+        "message": "Tipp: Erlaube Safari, die Erweiterung auch im privaten Surfen zu verwenden, falls du das nutzt.",
+        "description": "Zusätzlicher Hinweis."
+    },
+    "contact_title": {
+        "message": "Kontakt",
+        "description": "Titel des Kontaktbereichs."
+    },
+    "contact_description": {
+        "message": "Fragen oder Feedback? Schreib mir an",
+        "description": "Text vor dem E-Mail-Link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Text des E-Mail-Links.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    }
+}

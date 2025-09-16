@@ -1,0 +1,111 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "اسم الإضافة."
+    },
+    "extension_description": {
+        "message": "أخفِ محتوى الريلز ومنشورات \"لك\" والقصص وغيرها من الاقتراحات المسببة للإدمان على إنستجرام للويب.",
+        "description": "وصف الإضافة."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "عنوان النافذة المنبثقة."
+    },
+    "popup_subtitle": {
+        "message": "اختَر العناصر المشتتة على إنستجرام التي تريد إخفاءها.",
+        "description": "النص التوضيحي تحت العنوان."
+    },
+    "toggle_hide_reels_title": {
+        "message": "إخفاء عناصر الريلز",
+        "description": "عنوان زر الريلز."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "يزيل أزرار الريلز وصفوفها من الواجهة.",
+        "description": "وصف زر الريلز."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "إخفاء منشورات \"لك\"",
+        "description": "عنوان زر منشورات الاقتراحات."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "يصفّي المنشورات المقترحة والمُوصى بها في الخلاصة.",
+        "description": "وصف زر منشورات الاقتراحات."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "إخفاء المستخدمين المقترحين",
+        "description": "عنوان زر المستخدمين المقترحين."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "يحذف اقتراحات الأشخاص والقوائم الدوارة.",
+        "description": "وصف زر المستخدمين المقترحين."
+    },
+    "toggle_hide_stories_title": {
+        "message": "إخفاء شريط القصص",
+        "description": "عنوان زر القصص."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "يزيل شريط القصص أعلى الخلاصة.",
+        "description": "وصف زر القصص."
+    },
+    "status_loading": {
+        "message": "جارٍ تحميل الإعدادات…",
+        "description": "رسالة أثناء التحميل."
+    },
+    "status_saving": {
+        "message": "جارٍ الحفظ…",
+        "description": "رسالة أثناء الحفظ."
+    },
+    "status_success": {
+        "message": "تم كل شيء!",
+        "description": "رسالة نجاح."
+    },
+    "status_load_error": {
+        "message": "تعذّر الوصول إلى الإضافة. حاول مرة أخرى.",
+        "description": "رسالة خطأ عند التحميل."
+    },
+    "status_save_error": {
+        "message": "تعذّر حفظ التغييرات.",
+        "description": "رسالة خطأ عند الحفظ."
+    },
+    "hint_autosave": {
+        "message": "يتم حفظ التغييرات فورًا وتطبيقها على تبويبات instagram.com المفتوحة.",
+        "description": "تلميح حول الحفظ التلقائي."
+    },
+    "instructions_title": {
+        "message": "ابدأ الآن",
+        "description": "عنوان قسم الإرشادات."
+    },
+    "instructions_step1": {
+        "message": "فعّل إضافة No Reel For Instagram في Safari: على جهاز ماك افتح Safari ▸ الإعدادات ▸ الامتدادات؛ على iPhone/iPad انتقل إلى الإعدادات ▸ Safari ▸ الامتدادات.",
+        "description": "الخطوة الأولى."
+    },
+    "instructions_step2": {
+        "message": "افتح instagram.com وسجّل الدخول. أعد تحميل أي تبويبات مفتوحة.",
+        "description": "الخطوة الثانية."
+    },
+    "instructions_step3": {
+        "message": "استخدم هذه النافذة لتفعيل الميزات أو إيقافها متى رغبت في تجربة أكثر هدوءًا.",
+        "description": "الخطوة الثالثة."
+    },
+    "instructions_note": {
+        "message": "نصيحة: اسمح لـ Safari بتشغيل الإضافة في التصفح الخاص إذا كنت تستخدمه.",
+        "description": "ملاحظة إضافية."
+    },
+    "contact_title": {
+        "message": "التواصل",
+        "description": "عنوان قسم التواصل."
+    },
+    "contact_description": {
+        "message": "لديك سؤال أو ملاحظة؟ راسلني على",
+        "description": "النص قبل رابط البريد."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "نص رابط البريد الإلكتروني.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    }
+}

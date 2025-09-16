@@ -1,0 +1,111 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "Nom de l’extension."
+    },
+    "extension_description": {
+        "message": "Masquez les Reels, les publications Pour vous, les Stories et autres contenus addictifs sur Instagram Web.",
+        "description": "Description de l’extension."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Titre de la fenêtre contextuelle."
+    },
+    "popup_subtitle": {
+        "message": "Choisissez les distractions d’Instagram à masquer.",
+        "description": "Sous-titre de la fenêtre contextuelle."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Masquer les contenus Reels",
+        "description": "Titre du réglage Reels."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Supprime les boutons et rayons Reels.",
+        "description": "Description du réglage Reels."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Masquer les publications \"Pour vous\"",
+        "description": "Titre du réglage publications suggérées."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Filtre les publications suggérées et recommandées du fil.",
+        "description": "Description du réglage publications suggérées."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Masquer les utilisateurs suggérés",
+        "description": "Titre du réglage utilisateurs suggérés."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Retire les recommandations de personnes et les carrousels.",
+        "description": "Description du réglage utilisateurs suggérés."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Masquer la barre de Stories",
+        "description": "Titre du réglage Stories."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Supprime le carrousel de Stories en haut du fil.",
+        "description": "Description du réglage Stories."
+    },
+    "status_loading": {
+        "message": "Chargement des réglages…",
+        "description": "Message pendant le chargement."
+    },
+    "status_saving": {
+        "message": "Enregistrement…",
+        "description": "Message pendant l’enregistrement."
+    },
+    "status_success": {
+        "message": "C’est fait !",
+        "description": "Message de succès."
+    },
+    "status_load_error": {
+        "message": "Impossible d’atteindre l’extension. Réessayez.",
+        "description": "Erreur de chargement."
+    },
+    "status_save_error": {
+        "message": "Impossible d’enregistrer les modifications.",
+        "description": "Erreur d’enregistrement."
+    },
+    "hint_autosave": {
+        "message": "Les modifications sont enregistrées instantanément et s’appliquent aux onglets instagram.com ouverts.",
+        "description": "Astuce d’enregistrement automatique."
+    },
+    "instructions_title": {
+        "message": "Pour commencer",
+        "description": "Titre des instructions."
+    },
+    "instructions_step1": {
+        "message": "Activez No Reel For Instagram dans Safari : sur Mac, ouvrez Safari ▸ Réglages ▸ Extensions ; sur iPhone/iPad, allez dans Réglages ▸ Safari ▸ Extensions.",
+        "description": "Première étape."
+    },
+    "instructions_step2": {
+        "message": "Ouvrez instagram.com et connectez-vous. Rechargez les onglets déjà ouverts.",
+        "description": "Deuxième étape."
+    },
+    "instructions_step3": {
+        "message": "Utilisez cette fenêtre pour activer ou désactiver les fonctions dès que vous voulez un fil plus serein.",
+        "description": "Troisième étape."
+    },
+    "instructions_note": {
+        "message": "Astuce : autorisez Safari à exécuter l’extension en navigation privée si vous l’utilisez.",
+        "description": "Note complémentaire."
+    },
+    "contact_title": {
+        "message": "Contact",
+        "description": "Titre de la section contact."
+    },
+    "contact_description": {
+        "message": "Une question ou un retour ? Écrivez-moi à",
+        "description": "Texte précédent l’adresse e-mail."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Texte du lien e-mail.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    }
+}

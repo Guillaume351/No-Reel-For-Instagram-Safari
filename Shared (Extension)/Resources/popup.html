@@ -7,42 +7,48 @@
 </head>
 <body>
     <header class="header">
-        <h1>No Reel For Instagram</h1>
-        <p class="subtitle">Choose which Instagram distractions to hide.</p>
+        <h1 data-i18n="popup_title"></h1>
+        <p class="subtitle" data-i18n="popup_subtitle"></p>
     </header>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
 
     <form id="settingsForm" class="settings" autocomplete="off">
         <label class="setting">
             <input type="checkbox" name="hideReels">
             <span>
-                <strong>Hide Reels surfaces</strong>
-                <em>Removes Reels buttons and shelf rows.</em>
+                <strong data-i18n="toggle_hide_reels_title"></strong>
+                <em data-i18n="toggle_hide_reels_desc"></em>
             </span>
         </label>
         <label class="setting">
             <input type="checkbox" name="hideSuggestedPosts">
             <span>
-                <strong>Hide For You posts</strong>
-                <em>Filters suggested and recommended feed items.</em>
+                <strong data-i18n="toggle_hide_suggested_posts_title"></strong>
+                <em data-i18n="toggle_hide_suggested_posts_desc"></em>
             </span>
         </label>
         <label class="setting">
             <input type="checkbox" name="hideSuggestedUsers">
             <span>
-                <strong>Hide Suggested users</strong>
-                <em>Clears people recommendations and carousels.</em>
+                <strong data-i18n="toggle_hide_suggested_users_title"></strong>
+                <em data-i18n="toggle_hide_suggested_users_desc"></em>
             </span>
         </label>
         <label class="setting">
             <input type="checkbox" name="hideStories">
             <span>
-                <strong>Hide Stories bar</strong>
-                <em>Removes the story carousel at the top of the feed.</em>
+                <strong data-i18n="toggle_hide_stories_title"></strong>
+                <em data-i18n="toggle_hide_stories_desc"></em>
             </span>
         </label>
     </form>
 
-    <p id="status" class="status" role="status" aria-live="polite"></p>
-    <p class="hint">Changes save instantly and apply to open instagram.com tabs.</p>
+    <p class="hint" data-i18n="hint_autosave"></p>
+
+    <section class="contact">
+        <h2 data-i18n="contact_title"></h2>
+        <p><span data-i18n="contact_description"></span> <a id="contactEmail" data-i18n="contact_email_label"></a></p>
+    </section>
 </body>
 </html>
