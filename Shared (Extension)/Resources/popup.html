@@ -6,6 +6,43 @@
     <script type="module" src="popup.js"></script>
 </head>
 <body>
-    <strong>Hello World!</strong>
+    <header class="header">
+        <h1>No Reel For Instagram</h1>
+        <p class="subtitle">Choose which Instagram distractions to hide.</p>
+    </header>
+
+    <form id="settingsForm" class="settings" autocomplete="off">
+        <label class="setting">
+            <input type="checkbox" name="hideReels">
+            <span>
+                <strong>Hide Reels surfaces</strong>
+                <em>Removes Reels buttons and shelf rows.</em>
+            </span>
+        </label>
+        <label class="setting">
+            <input type="checkbox" name="hideSuggestedPosts">
+            <span>
+                <strong>Hide For You posts</strong>
+                <em>Filters suggested and recommended feed items.</em>
+            </span>
+        </label>
+        <label class="setting">
+            <input type="checkbox" name="hideSuggestedUsers">
+            <span>
+                <strong>Hide Suggested users</strong>
+                <em>Clears people recommendations and carousels.</em>
+            </span>
+        </label>
+        <label class="setting">
+            <input type="checkbox" name="hideStories">
+            <span>
+                <strong>Hide Stories bar</strong>
+                <em>Removes the story carousel at the top of the feed.</em>
+            </span>
+        </label>
+    </form>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <p class="hint">Changes save instantly and apply to open instagram.com tabs.</p>
 </body>
 </html>

@@ -15,19 +15,50 @@
     },
 
     "background": {
-        "scripts": [ "background.js" ],
-        "type": "module"
+        "service_worker": "background.js"
     },
-
-    "content_scripts": [{
-        "js": [ "content.js" ],
-        "matches": [ "*://example.com/*" ]
-    }],
 
     "action": {
         "default_popup": "popup.html",
         "default_icon": "images/toolbar-icon.svg"
     },
 
-    "permissions": [ ]
+    "permissions": [
+        "storage"
+    ],
+
+    "host_permissions": [
+        "https://www.instagram.com/*",
+        "https://instagram.com/*",
+        "https://m.instagram.com/*"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.instagram.com/*",
+                "https://instagram.com/*",
+                "https://m.instagram.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "snippets/hide-reels.html",
+                "snippets/hide-suggested-posts.html",
+                "snippets/hide-suggested-users.html"
+            ],
+            "matches": [
+                "https://www.instagram.com/*",
+                "https://instagram.com/*",
+                "https://m.instagram.com/*"
+            ]
+        }
+    ]
 }

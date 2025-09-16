@@ -1,0 +1,75 @@
+<style>
+    [data-nrfi-hidden-tab] {
+        display: none !important;
+    }
+</style>
+<script>
+(function hideSuggestedTabs() {
+    const KEYWORDS = [
+        "for you",
+        "pour vous",
+        "para voce",
+        "para ti",
+        "per te"
+    ];
+
+    const normalizedKeywords = KEYWORDS.map((keyword) => keyword.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase());
+
+    function normalize(text) {
+        return text
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .trim()
+            .toLowerCase();
+    }
+
+    function isSuggestedTab(element) {
+        const label = normalize(element.textContent || "");
+        if (!label) {
+            return false;
+        }
+
+        return normalizedKeywords.some((keyword) => label.includes(keyword));
+    }
+
+    function hideTab(element) {
+        const tab = element.closest('[role="tab"]') || element;
+        if (!(tab instanceof HTMLElement) || tab.dataset.nrfiHiddenTab === "true") {
+            return;
+        }
+
+        tab.dataset.nrfiHiddenTab = "true";
+    }
+
+    function sweep(root) {
+        root.querySelectorAll('[role="tab"]').forEach((candidate) => {
+            if (isSuggestedTab(candidate)) {
+                hideTab(candidate);
+            }
+        });
+    }
+
+    const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            mutation.addedNodes.forEach((node) => {
+                if (!(node instanceof HTMLElement)) {
+                    return;
+                }
+
+                if (isSuggestedTab(node)) {
+                    hideTab(node);
+                    return;
+                }
+
+                sweep(node);
+            });
+        }
+    });
+
+    sweep(document);
+    observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+    });
+})();
+</script>
