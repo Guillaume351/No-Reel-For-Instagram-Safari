@@ -20,7 +20,10 @@
 
     "action": {
         "default_popup": "popup.html",
-        "default_icon": "images/toolbar-icon.svg"
+        "default_icon": {
+            "32": "images/toolbar-icon-32.png",
+            "64": "images/toolbar-icon-64.png"
+        }
     },
 
     "permissions": [
@@ -43,7 +46,7 @@
             "js": [
                 "content.js"
             ],
-            "run_at": "document_idle"
+            "run_at": "document_start"
         }
     ],
 

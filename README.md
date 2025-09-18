@@ -11,6 +11,7 @@
 - Hides Reels links and carousels across the desktop and mobile web experience.
 - Removes the Stories bar and keeps it hidden as Instagram re-renders the feed.
 - Strips the "For You" tab and Suggested Users rail in the home feed.
+- Optionally blocks feed posts that autoplay videos.
 - Lightweight extension with no tracking or performance overhead.
 - Works seamlessly with Safari on macOS.
 
