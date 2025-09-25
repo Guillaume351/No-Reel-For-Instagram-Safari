@@ -24,6 +24,7 @@ function createNoopController(name) {
 
 function createReelsController() {
     const hiddenNavItems = new Set();
+    const adjustedNavContainers = new Set();
     let observer = null;
     const styleId = "nrfi-reels-style";
 
@@ -39,7 +40,34 @@ function createReelsController() {
 
         const style = document.createElement("style");
         style.id = styleId;
-        style.textContent = "[data-nrfi-hidden-nav=\"true\"]{display:none!important;}";
+        style.textContent = `
+            [data-nrfi-hidden-nav="true"] { display: none !important; }
+            @media (max-width: 700px) {
+                nav[data-nrfi-mobile-nav="true"],
+                [role="navigation"][data-nrfi-mobile-nav="true"] {
+                    display: flex !important;
+                    justify-content: space-evenly !important;
+                    align-items: stretch !important;
+                    gap: 0 !important;
+                }
+
+                nav[data-nrfi-mobile-nav="true"] > *,
+                [role="navigation"][data-nrfi-mobile-nav="true"] > * {
+                    flex: 1 1 auto !important;
+                    display: flex !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                }
+
+                nav[data-nrfi-mobile-nav="true"] a,
+                [role="navigation"][data-nrfi-mobile-nav="true"] a {
+                    flex: 1 1 auto !important;
+                    display: inline-flex !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                }
+            }
+        `;
         (document.head || document.documentElement).appendChild(style);
     }
 
@@ -65,6 +93,25 @@ function createReelsController() {
 
         navItem.dataset.nrfiHiddenNav = "true";
         hiddenNavItems.add(navItem);
+        markMobileNavigation(navItem);
+    }
+
+    function markMobileNavigation(navItem) {
+        if (!(navItem instanceof HTMLElement)) {
+            return;
+        }
+
+        const container = navItem.closest("nav, [role='navigation']");
+        if (!(container instanceof HTMLElement)) {
+            return;
+        }
+
+        if (container.dataset.nrfiMobileNav === "true") {
+            return;
+        }
+
+        container.dataset.nrfiMobileNav = "true";
+        adjustedNavContainers.add(container);
     }
 
     function sweep(root) {
@@ -112,6 +159,13 @@ function createReelsController() {
         });
         hiddenNavItems.clear();
 
+        adjustedNavContainers.forEach((container) => {
+            if (container instanceof HTMLElement) {
+                delete container.dataset.nrfiMobileNav;
+            }
+        });
+        adjustedNavContainers.clear();
+
         const style = document.getElementById(styleId);
         if (style) {
             style.remove();
@@ -129,6 +183,28 @@ function createStoriesController() {
     let observer = null;
     const styleId = "nrfi-stories-style";
     const STORY_SELECTORS = ['[data-pagelet="story_tray"]', 'ul._acay'];
+    const CHAT_PAGELET_SELECTOR = '[data-pagelet^="IGDChat"]';
+    const STORY_LINK_SELECTOR = 'a[href^="/stories/"]';
+
+    function isInChatExperience(element) {
+        return element instanceof HTMLElement && Boolean(element.closest(CHAT_PAGELET_SELECTOR));
+    }
+
+    function looksLikeStoryTray(element) {
+        if (!(element instanceof HTMLElement)) {
+            return false;
+        }
+
+        if (element.matches('[data-pagelet="story_tray"]')) {
+            return true;
+        }
+
+        if (element.querySelector('[data-pagelet="story_tray"]')) {
+            return true;
+        }
+
+        return Boolean(element.querySelector(STORY_LINK_SELECTOR));
+    }
 
     function ensureStyle() {
         if (document.getElementById(styleId)) {
@@ -178,6 +254,11 @@ function createStoriesController() {
         if (tray instanceof HTMLElement) {
             // Guard against hiding regular feed carousels
             if (tray.closest('article')) {
+                return;
+            }
+
+            if (!looksLikeStoryTray(tray) || isInChatExperience(tray)) {
+                // Chat panes reuse similar structure so skip anything under the messaging surfaces.
                 return;
             }
 
