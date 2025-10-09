@@ -1,43 +1,109 @@
 const api = typeof browser !== "undefined" ? browser : chrome;
+const isBrowserApi = typeof browser !== "undefined";
+
+const storageCandidates = (() => {
+    const storage = api?.storage;
+    if (!storage) {
+        return [];
+    }
+
+    const candidates = [];
+    if (storage.sync && typeof storage.sync.get === "function") {
+        candidates.push({ name: "sync", area: storage.sync });
+    }
+    if (storage.local && typeof storage.local.get === "function") {
+        candidates.push({ name: "local", area: storage.local });
+    }
+    return candidates;
+})();
+
+let activeStorage = storageCandidates[0] || null;
+
 const defaultSettings = Object.freeze({
     hideReels: true,
+    hideExploreTab: true,
     hideSuggestedPosts: true,
     hideSuggestedUsers: true,
     hideStories: true
 });
 
-function storageGet(keys) {
-    if (typeof browser !== "undefined") {
-        return browser.storage.sync.get(keys);
+function invokeStorage(area, method, payload) {
+    if (!area || typeof area[method] !== "function") {
+        return Promise.reject(new Error("storage method unavailable"));
+    }
+
+    if (isBrowserApi) {
+        return area[method](payload);
     }
 
     return new Promise((resolve, reject) => {
-        api.storage.sync.get(keys, (items) => {
-            const error = api.runtime.lastError;
+        area[method](payload, (result) => {
+            const error = api.runtime?.lastError;
             if (error) {
                 reject(error);
             } else {
-                resolve(items);
+                resolve(result);
             }
         });
     });
 }
 
-function storageSet(items) {
-    if (typeof browser !== "undefined") {
-        return browser.storage.sync.set(items);
+async function storageGet(keys) {
+    const attempts = activeStorage
+        ? [activeStorage, ...storageCandidates.filter((candidate) => candidate !== activeStorage)]
+        : storageCandidates;
+
+    let lastError = null;
+
+    for (const candidate of attempts) {
+        if (!candidate) {
+            continue;
+        }
+
+        try {
+            const result = await invokeStorage(candidate.area, "get", keys);
+            activeStorage = candidate;
+            return result && typeof result === "object" ? result : {};
+        } catch (error) {
+            lastError = error;
+        }
     }
 
-    return new Promise((resolve, reject) => {
-        api.storage.sync.set(items, () => {
-            const error = api.runtime.lastError;
-            if (error) {
-                reject(error);
-            } else {
-                resolve();
-            }
-        });
-    });
+    if (lastError) {
+        throw lastError;
+    }
+
+    return {};
+}
+
+async function storageSet(items) {
+    const attempts = activeStorage
+        ? [activeStorage, ...storageCandidates.filter((candidate) => candidate !== activeStorage)]
+        : storageCandidates;
+
+    if (attempts.length === 0) {
+        throw new Error("storage unavailable");
+    }
+
+    let lastError = null;
+
+    for (const candidate of attempts) {
+        if (!candidate) {
+            continue;
+        }
+
+        try {
+            await invokeStorage(candidate.area, "set", items);
+            activeStorage = candidate;
+            return;
+        } catch (error) {
+            lastError = error;
+        }
+    }
+
+    if (lastError) {
+        throw lastError;
+    }
 }
 
 function withDefaults(settings) {

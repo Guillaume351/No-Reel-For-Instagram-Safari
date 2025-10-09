@@ -17,12 +17,14 @@ html {
 body {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
 
     gap: var(--spacing);
-    margin: 0 calc(var(--spacing) * 2);
-    height: 100%;
+    padding: var(--spacing) calc(var(--spacing) * 2);
+    min-height: 100%;
+    height: auto;
+    overflow-y: auto;
 
     font: -apple-system-short-body;
     text-align: center;
@@ -56,12 +58,19 @@ body.state-off :is(.state-on, .state-unknown) {
     display: none;
 }
 
+@media (min-height: 900px) {
+    body {
+        justify-content: center;
+    }
+}
+
 button {
     font-size: 1em;
 }
 
 .instructions,
-.contact {
+.contact,
+.ios-video {
     width: min(640px, 100%);
     text-align: left;
     background: color-mix(in srgb, currentColor 8%, transparent);
@@ -73,7 +82,8 @@ button {
 }
 
 .instructions h2,
-.contact h2 {
+.contact h2,
+.ios-video h2 {
     margin: 0;
     text-align: center;
     font-size: 18px;
@@ -91,6 +101,41 @@ button {
 .instructions ol[dir="rtl"] {
     padding-left: 0;
     padding-right: 20px;
+}
+
+.ios-video {
+    align-items: center;
+    gap: 16px;
+}
+
+.ios-video .video-wrapper {
+    width: min(320px, 100%);
+    aspect-ratio: 9 / 16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, currentColor 14%, transparent);
+    border-radius: 18px;
+    overflow: hidden;
+    max-height: 60vh;
+}
+
+.ios-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: black;
+}
+
+.ios-video .video-fallback {
+    margin: 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+.ios-video .video-fallback a {
+    color: inherit;
+    text-decoration: underline;
 }
 
 .contact {

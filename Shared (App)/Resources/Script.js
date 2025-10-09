@@ -1,4 +1,5 @@
 const EMAIL = "guillaume.claverie@mail.com";
+const IOS_INSTALLATION_VIDEO_URL = "https://nextcloud.d1.guillaumeclaverie.com/s/tMNzFji7m9Ka8ZX/download";
 
 function getUILocale() {
     if (navigator.languages && navigator.languages.length) {
@@ -56,6 +57,7 @@ function renderInstructions(platform, strings, locale) {
     const instructionsTitle = document.getElementById('instructionsTitle');
     const instructionsList = document.getElementById('instructionsList');
     const contactSection = document.getElementById('contactSection');
+    const iosVideoSection = document.getElementById('iosVideoSection');
 
     const defaults = {
         title: "Activation guide",
@@ -68,7 +70,11 @@ function renderInstructions(platform, strings, locale) {
                 "Open Settings ▸ Safari ▸ Extensions.",
                 "Enable No Reel For Instagram and allow it on the sites you browse.",
                 "Reload instagram.com to apply your preferences."
-            ]
+            ],
+            video: {
+                title: "Watch the iOS installation video",
+                cta: "Open the tutorial in Safari"
+            }
         },
         mac: {
             steps: [
@@ -82,11 +88,13 @@ function renderInstructions(platform, strings, locale) {
     const bundle = strings || defaults;
     const section = platform === 'ios' ? (bundle.ios || defaults.ios) : (bundle.mac || defaults.mac);
 
+    const rtl = isRTL(locale);
+
     instructionsTitle.textContent = bundle.title || defaults.title;
-    instructionsTitle.dir = isRTL(locale) ? 'rtl' : 'ltr';
+    instructionsTitle.dir = rtl ? 'rtl' : 'ltr';
 
     instructionsList.textContent = '';
-    instructionsList.dir = isRTL(locale) ? 'rtl' : 'ltr';
+    instructionsList.dir = rtl ? 'rtl' : 'ltr';
 
     (section.steps || defaults.ios.steps).forEach((step) => {
         const li = document.createElement('li');
@@ -99,11 +107,11 @@ function renderInstructions(platform, strings, locale) {
 
     const contactTitle = document.createElement('h2');
     contactTitle.textContent = contactBundle.title || defaults.contact.title;
-    contactTitle.dir = isRTL(locale) ? 'rtl' : 'ltr';
+    contactTitle.dir = rtl ? 'rtl' : 'ltr';
     contactSection.appendChild(contactTitle);
 
     const contactParagraph = document.createElement('p');
-    contactParagraph.dir = isRTL(locale) ? 'rtl' : 'ltr';
+    contactParagraph.dir = rtl ? 'rtl' : 'ltr';
     const descriptionText = document.createTextNode(`${contactBundle.description || defaults.contact.description} `);
     contactParagraph.appendChild(descriptionText);
     const link = document.createElement('a');
@@ -111,6 +119,41 @@ function renderInstructions(platform, strings, locale) {
     link.textContent = EMAIL;
     contactParagraph.appendChild(link);
     contactSection.appendChild(contactParagraph);
+
+    if (iosVideoSection) {
+        if (platform === 'ios') {
+            const videoBundle = section.video || defaults.ios.video;
+            const titleElement = document.getElementById('iosVideoTitle');
+            const fallbackParagraph = iosVideoSection.querySelector('.video-fallback');
+            const linkElement = document.getElementById('iosVideoLink');
+            const sourceElement = document.getElementById('iosVideoSource');
+            const videoElement = document.getElementById('iosInstallationVideo');
+
+            iosVideoSection.hidden = false;
+
+            if (titleElement) {
+                titleElement.textContent = videoBundle?.title || defaults.ios.video.title;
+                titleElement.dir = rtl ? 'rtl' : 'ltr';
+            }
+
+            if (fallbackParagraph instanceof HTMLElement) {
+                fallbackParagraph.dir = rtl ? 'rtl' : 'ltr';
+            }
+
+            if (linkElement) {
+                linkElement.href = IOS_INSTALLATION_VIDEO_URL;
+                linkElement.textContent = videoBundle?.cta || defaults.ios.video.cta;
+                linkElement.dir = rtl ? 'rtl' : 'ltr';
+            }
+
+            if (sourceElement && sourceElement.getAttribute('src') !== IOS_INSTALLATION_VIDEO_URL) {
+                sourceElement.setAttribute('src', IOS_INSTALLATION_VIDEO_URL);
+                videoElement?.load();
+            }
+        } else {
+            iosVideoSection.hidden = true;
+        }
+    }
 }
 
 function isRTL(locale) {

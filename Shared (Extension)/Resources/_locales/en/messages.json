@@ -23,6 +23,14 @@
         "message": "Removes Reels buttons and shelf rows.",
         "description": "Description for hide Reels toggle."
     },
+    "toggle_hide_explore_title": {
+        "message": "Hide Explore tab",
+        "description": "Title for hide Explore toggle."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Removes the magnifying glass shortcut to Explore.",
+        "description": "Description for hide Explore toggle."
+    },
     "toggle_hide_suggested_posts_title": {
         "message": "Hide For You posts",
         "description": "Title for hide suggested posts toggle."

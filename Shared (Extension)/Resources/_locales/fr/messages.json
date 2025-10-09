@@ -23,6 +23,14 @@
         "message": "Supprime les boutons et rayons Reels.",
         "description": "Description du réglage Reels."
     },
+    "toggle_hide_explore_title": {
+        "message": "Masquer l’onglet Découvrir",
+        "description": "Titre du réglage Découvrir."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Supprime l’icône loupe qui ouvre Découvrir.",
+        "description": "Description du réglage Découvrir."
+    },
     "toggle_hide_suggested_posts_title": {
         "message": "Masquer les publications \"Pour vous\"",
         "description": "Titre du réglage publications suggérées."

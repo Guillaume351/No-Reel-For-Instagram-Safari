@@ -27,10 +27,6 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
 
         self.webView.navigationDelegate = self
 
-#if os(iOS)
-        self.webView.scrollView.isScrollEnabled = false
-#endif
-
         self.webView.configuration.userContentController.add(self, name: "controller")
 
         self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)

@@ -23,6 +23,14 @@
         "message": "يزيل أزرار الريلز وصفوفها من الواجهة.",
         "description": "وصف زر الريلز."
     },
+    "toggle_hide_explore_title": {
+        "message": "إخفاء تبويب الاستكشاف",
+        "description": "عنوان زر تبويب الاستكشاف."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "يزيل أيقونة العدسة التي تفتح صفحة الاستكشاف.",
+        "description": "وصف زر تبويب الاستكشاف."
+    },
     "toggle_hide_suggested_posts_title": {
         "message": "إخفاء منشورات \"لك\"",
         "description": "عنوان زر منشورات الاقتراحات."

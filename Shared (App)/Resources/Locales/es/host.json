@@ -9,7 +9,11 @@
             "Abre Ajustes ▸ Safari ▸ Extensiones.",
             "Activa “No Reel For Instagram” y permítele funcionar en los sitios que visitas.",
             "Abre instagram.com y recarga para aplicar tus preferencias."
-        ]
+        ],
+        "video": {
+            "title": "Ver el vídeo de instalación en iOS",
+            "cta": "Abrir el tutorial en Safari"
+        }
     },
     "mac": {
         "steps": [

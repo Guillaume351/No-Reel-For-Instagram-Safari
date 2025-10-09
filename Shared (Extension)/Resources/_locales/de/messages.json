@@ -23,6 +23,14 @@
         "message": "Entfernt Reels-Schaltflächen und -Reihen.",
         "description": "Beschreibung der Reels-Option."
     },
+    "toggle_hide_explore_title": {
+        "message": "Entdecken-Tab ausblenden",
+        "description": "Titel der Entdecken-Option."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Entfernt das Lupen-Symbol für Entdecken.",
+        "description": "Beschreibung der Entdecken-Option."
+    },
     "toggle_hide_suggested_posts_title": {
         "message": "\"Für dich\"-Beiträge ausblenden",
         "description": "Titel der empfohlenen Beiträge-Option."

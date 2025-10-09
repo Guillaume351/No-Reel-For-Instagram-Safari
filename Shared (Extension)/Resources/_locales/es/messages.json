@@ -23,6 +23,14 @@
         "message": "Elimina los botones y carruseles de Reels.",
         "description": "Descripción del ajuste de Reels."
     },
+    "toggle_hide_explore_title": {
+        "message": "Ocultar pestaña Explorar",
+        "description": "Título del ajuste de Explorar."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Quita el acceso con la lupa a Explorar.",
+        "description": "Descripción del ajuste de Explorar."
+    },
     "toggle_hide_suggested_posts_title": {
         "message": "Ocultar publicaciones \"Para ti\"",
         "description": "Título del ajuste de publicaciones sugeridas."

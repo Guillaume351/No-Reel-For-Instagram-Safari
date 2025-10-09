@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; media-src 'self' https://nextcloud.d1.guillaumeclaverie.com; frame-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -20,6 +20,18 @@
     <section class="instructions">
         <h2 id="instructionsTitle"></h2>
         <ol id="instructionsList"></ol>
+    </section>
+
+    <section class="ios-video platform-ios" id="iosVideoSection" hidden>
+        <h2 id="iosVideoTitle"></h2>
+        <div class="video-wrapper">
+            <video id="iosInstallationVideo" controls playsinline preload="metadata">
+                <source id="iosVideoSource" type="video/mp4">
+            </video>
+        </div>
+        <p class="video-fallback">
+            <a id="iosVideoLink" target="_blank" rel="noopener noreferrer"></a>
+        </p>
     </section>
 
     <section class="contact" id="contactSection"></section>

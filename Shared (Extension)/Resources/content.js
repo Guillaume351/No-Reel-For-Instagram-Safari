@@ -1,7 +1,32 @@
 const api = typeof browser !== "undefined" ? browser : chrome;
+const isBrowserApi = typeof browser !== "undefined";
+
+const storageCandidates = (() => {
+    const storage = api?.storage;
+    if (!storage) {
+        return [];
+    }
+
+    const candidates = [];
+    if (storage.sync && typeof storage.sync.get === "function") {
+        candidates.push({ name: "sync", area: storage.sync });
+    }
+    if (storage.local && typeof storage.local.get === "function") {
+        candidates.push({ name: "local", area: storage.local });
+    }
+    return candidates;
+})();
+
+let activeStorage = storageCandidates[0] || null;
+let currentSettings = {};
+let initialized = false;
+let storageListenerRegistered = false;
+
+const NAV_STYLE_ID = "nrfi-nav-style";
 
 const controllers = {
     hideReels: createReelsController(),
+    hideExploreTab: createExploreController(),
     hideSuggestedPosts: createSuggestedPostsController(),
     hideSuggestedUsers: createSuggestedUsersController(),
     hideStories: createStoriesController()
@@ -9,114 +34,226 @@ const controllers = {
 
 // Video posts controller intentionally not registered until bug fixes land.
 
-let currentSettings = {};
+const defaultSettings = Object.freeze({
+    hideReels: true,
+    hideExploreTab: true,
+    hideSuggestedPosts: true,
+    hideSuggestedUsers: true,
+    hideStories: true
+});
 
-function createNoopController(name) {
-    return {
-        enable() {
-            console.debug(`No Reel For Instagram: controller ${name} not implemented yet.`);
-        },
-        disable() {
-            // Intentionally empty until we have a strategy for this surface.
-        }
-    };
-}
+currentSettings = { ...defaultSettings };
 
-function createReelsController() {
-    const hiddenNavItems = new Set();
-    const adjustedNavContainers = new Set();
-    let observer = null;
-    const styleId = "nrfi-reels-style";
-
-    const LINK_PATTERNS = [
-        /\/reels\/?/,
-        /\/explore\/?/
-    ];
-
-    function ensureStyle() {
-        if (document.getElementById(styleId)) {
-            return;
-        }
-
-        const style = document.createElement("style");
-        style.id = styleId;
-        style.textContent = `
-            [data-nrfi-hidden-nav="true"] { display: none !important; }
-            @media (max-width: 700px) {
-                nav[data-nrfi-mobile-nav="true"],
-                [role="navigation"][data-nrfi-mobile-nav="true"] {
-                    display: flex !important;
-                    justify-content: space-evenly !important;
-                    align-items: stretch !important;
-                    gap: 0 !important;
-                }
-
-                nav[data-nrfi-mobile-nav="true"] > *,
-                [role="navigation"][data-nrfi-mobile-nav="true"] > * {
-                    flex: 1 1 auto !important;
-                    display: flex !important;
-                    justify-content: center !important;
-                    align-items: center !important;
-                }
-
-                nav[data-nrfi-mobile-nav="true"] a,
-                [role="navigation"][data-nrfi-mobile-nav="true"] a {
-                    flex: 1 1 auto !important;
-                    display: inline-flex !important;
-                    justify-content: center !important;
-                    align-items: center !important;
-                }
-            }
-        `;
-        (document.head || document.documentElement).appendChild(style);
+function invokeStorage(area, method, payload) {
+    if (!area || typeof area[method] !== "function") {
+        return Promise.reject(new Error("storage method unavailable"));
     }
 
-    function isReelsLink(link) {
+    if (isBrowserApi) {
+        return area[method](payload);
+    }
+
+    return new Promise((resolve, reject) => {
+        area[method](payload, (result) => {
+            const error = api.runtime?.lastError;
+            if (error) {
+                reject(error);
+            } else {
+                resolve(result);
+            }
+        });
+    });
+}
+
+async function storageGet(keys) {
+    const attempts = activeStorage
+        ? [activeStorage, ...storageCandidates.filter((candidate) => candidate !== activeStorage)]
+        : storageCandidates;
+
+    let lastError = null;
+
+    for (const candidate of attempts) {
+        if (!candidate) {
+            continue;
+        }
+
+        try {
+            const result = await invokeStorage(candidate.area, "get", keys);
+            activeStorage = candidate;
+            return result && typeof result === "object" ? result : {};
+        } catch (error) {
+            lastError = error;
+        }
+    }
+
+    if (lastError) {
+        throw lastError;
+    }
+
+    return {};
+}
+
+async function loadSettingsDirectly() {
+    try {
+        const stored = await storageGet(Object.keys(defaultSettings));
+        return { ...defaultSettings, ...stored };
+    } catch (error) {
+        console.warn("No Reel For Instagram: storage.get failed while reading settings", error);
+        return { ...defaultSettings };
+    }
+}
+
+function ensureNavLayoutStyle() {
+    if (document.getElementById(NAV_STYLE_ID)) {
+        return;
+    }
+
+    const style = document.createElement("style");
+    style.id = NAV_STYLE_ID;
+    style.textContent = `
+        [data-nrfi-hidden-nav="true"] { display: none !important; }
+        @media (max-width: 700px) {
+            nav[data-nrfi-mobile-nav="true"],
+            [role="navigation"][data-nrfi-mobile-nav="true"] {
+                display: flex !important;
+                justify-content: space-evenly !important;
+                align-items: stretch !important;
+                gap: 0 !important;
+            }
+
+            nav[data-nrfi-mobile-nav="true"] > *,
+            [role="navigation"][data-nrfi-mobile-nav="true"] > * {
+                flex: 1 1 auto !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            nav[data-nrfi-mobile-nav="true"] a,
+            [role="navigation"][data-nrfi-mobile-nav="true"] a {
+                flex: 1 1 auto !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+        }
+    `;
+    (document.head || document.documentElement).appendChild(style);
+}
+
+function createNavLinkController(options) {
+    const { linkPatterns = [], labelKeywords = [] } = options || {};
+    const hiddenNavItems = new Map();
+    const adjustedNavContainers = new Set();
+    let observer = null;
+
+    function matches(link) {
         if (!(link instanceof HTMLElement)) {
             return false;
         }
 
-        const href = link.getAttribute("href") || "";
-        if (LINK_PATTERNS.some((pattern) => pattern.test(href))) {
+        const href = (link.getAttribute("href") || "").toLowerCase();
+        if (linkPatterns.some((pattern) => pattern.test(href))) {
             return true;
         }
 
-        const label = (link.textContent || "").trim().toLowerCase();
-        return label.includes("reels") || label.includes("découvrir") || label.includes("explore");
-    }
-
-    function hideNavLink(link) {
-        const navItem = link.closest('a[role="link"]') || link.closest("a") || link;
-        if (!(navItem instanceof HTMLElement) || navItem.dataset.nrfiHiddenNav === "true") {
-            return;
-        }
-
-        navItem.dataset.nrfiHiddenNav = "true";
-        hiddenNavItems.add(navItem);
-        markMobileNavigation(navItem);
+        const ariaLabel = (link.getAttribute("aria-label") || "").toLowerCase();
+        const label = `${link.textContent || ""} ${ariaLabel}`.trim().toLowerCase();
+        return labelKeywords.some((keyword) => label.includes(keyword));
     }
 
     function markMobileNavigation(navItem) {
-        if (!(navItem instanceof HTMLElement)) {
-            return;
-        }
-
         const container = navItem.closest("nav, [role='navigation']");
         if (!(container instanceof HTMLElement)) {
             return;
         }
 
-        if (container.dataset.nrfiMobileNav === "true") {
-            return;
+        if (container.dataset.nrfiMobileNav !== "true") {
+            container.dataset.nrfiMobileNav = "true";
         }
 
-        container.dataset.nrfiMobileNav = "true";
         adjustedNavContainers.add(container);
     }
 
+    function findNavCell(navItem) {
+        if (!(navItem instanceof HTMLElement)) {
+            return navItem;
+        }
+
+        const nav = navItem.closest("nav, [role='navigation']");
+        if (!(nav instanceof HTMLElement)) {
+            return navItem;
+        }
+
+        let current = navItem;
+        while (current?.parentElement instanceof HTMLElement && current.parentElement !== nav) {
+            current = current.parentElement;
+        }
+
+        return current instanceof HTMLElement ? current : navItem;
+    }
+
+    function incrementHiddenTarget(element) {
+        if (!(element instanceof HTMLElement)) {
+            return;
+        }
+
+        const count = Number(element.dataset.nrfiHiddenNavCount || "0") + 1;
+        element.dataset.nrfiHiddenNavCount = String(count);
+        element.dataset.nrfiHiddenNav = "true";
+    }
+
+    function decrementHiddenTarget(element) {
+        if (!(element instanceof HTMLElement)) {
+            return;
+        }
+
+        const count = Number(element.dataset.nrfiHiddenNavCount || "0") - 1;
+
+        if (count <= 0) {
+            delete element.dataset.nrfiHiddenNavCount;
+            delete element.dataset.nrfiHiddenNav;
+        } else {
+            element.dataset.nrfiHiddenNavCount = String(count);
+        }
+    }
+
+    function hideNavLink(link) {
+        const navItem = link.closest("a[role='link']") || link.closest("a") || link;
+        if (!(navItem instanceof HTMLElement) || hiddenNavItems.has(navItem)) {
+            return;
+        }
+
+        const navCell = findNavCell(navItem);
+
+        incrementHiddenTarget(navItem);
+        if (navCell && navCell !== navItem) {
+            incrementHiddenTarget(navCell);
+        }
+
+        hiddenNavItems.set(navItem, navCell);
+        markMobileNavigation(navCell || navItem);
+    }
+
     function sweep(root) {
-        root.querySelectorAll('a[href]').forEach((link) => {
-            if (isReelsLink(link)) {
+        if (!root) {
+            return;
+        }
+
+        const targets = [];
+
+        if (root instanceof HTMLAnchorElement) {
+            targets.push(root);
+        }
+
+        if (root instanceof HTMLElement || root instanceof Document || root instanceof DocumentFragment) {
+            root.querySelectorAll?.("a[href]").forEach((candidate) => {
+                targets.push(candidate);
+            });
+        }
+
+        targets.forEach((link) => {
+            if (matches(link)) {
                 hideNavLink(link);
             }
         });
@@ -127,20 +264,20 @@ function createReelsController() {
             return;
         }
 
-        ensureStyle();
+        ensureNavLayoutStyle();
         sweep(document);
 
         observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 mutation.addedNodes.forEach((node) => {
-                    if (node instanceof HTMLElement) {
+                    if (node instanceof HTMLElement || node instanceof DocumentFragment) {
                         sweep(node);
                     }
                 });
             });
         });
 
-        observer.observe(document.body || document.documentElement, {
+        observer.observe(document.documentElement, {
             childList: true,
             subtree: true
         });
@@ -152,30 +289,57 @@ function createReelsController() {
             observer = null;
         }
 
-        hiddenNavItems.forEach((item) => {
-            if (item instanceof HTMLElement) {
-                delete item.dataset.nrfiHiddenNav;
+        hiddenNavItems.forEach((navCell, navItem) => {
+            if (!(navItem instanceof HTMLElement)) {
+                return;
+            }
+
+            decrementHiddenTarget(navItem);
+            if (navCell && navCell !== navItem) {
+                decrementHiddenTarget(navCell);
             }
         });
         hiddenNavItems.clear();
 
         adjustedNavContainers.forEach((container) => {
-            if (container instanceof HTMLElement) {
+            if (!(container instanceof HTMLElement)) {
+                return;
+            }
+
+            if (!container.querySelector('[data-nrfi-hidden-nav="true"]')) {
                 delete container.dataset.nrfiMobileNav;
             }
         });
         adjustedNavContainers.clear();
-
-        const style = document.getElementById(styleId);
-        if (style) {
-            style.remove();
-        }
     }
 
     return {
         enable: start,
         disable: stop
     };
+}
+
+function createReelsController() {
+    return createNavLinkController({
+        linkPatterns: [/\/reels\/?/i],
+        labelKeywords: ["reels"]
+    });
+}
+
+function createExploreController() {
+    return createNavLinkController({
+        linkPatterns: [/\/explore\/?/i, /\/search\/?/i],
+        labelKeywords: [
+            "explore",
+            "search",
+            "découvrir",
+            "decouvrir",
+            "entdecken",
+            "explorar",
+            "esplora",
+            "buscar"
+        ]
+    });
 }
 
 function createStoriesController() {
@@ -946,18 +1110,37 @@ function sendMessage(message) {
 async function requestSettings() {
     try {
         const response = await sendMessage({ type: "getSettings" });
-        return response?.settings ?? {};
+        const settings = response?.settings;
+        if (settings && typeof settings === "object") {
+            return { ...defaultSettings, ...settings };
+        }
     } catch (error) {
-        console.error("No Reel For Instagram: failed to request settings", error);
-        return {};
+        console.warn("No Reel For Instagram: failed to request settings via background", error);
+    }
+
+    try {
+        return await loadSettingsDirectly();
+    } catch (error) {
+        console.error("No Reel For Instagram: unable to read settings from storage", error);
+        return { ...defaultSettings };
     }
 }
 
 function applySettings(settings) {
-    currentSettings = { ...settings };
+    const sanitized = {};
+
+    for (const [key, defaultValue] of Object.entries(defaultSettings)) {
+        if (Object.prototype.hasOwnProperty.call(settings, key)) {
+            sanitized[key] = Boolean(settings[key]);
+        } else {
+            sanitized[key] = Boolean(defaultValue);
+        }
+    }
+
+    currentSettings = sanitized;
 
     Object.entries(controllers).forEach(([feature, controller]) => {
-        const isEnabled = Boolean(settings[feature]);
+        const isEnabled = Boolean(sanitized[feature]);
         if (isEnabled && controller && typeof controller.enable === "function") {
             controller.enable();
         } else if (!isEnabled && controller && typeof controller.disable === "function") {
@@ -967,7 +1150,7 @@ function applySettings(settings) {
 }
 
 function handleStorageChanges(changes, areaName) {
-    if (areaName !== "sync") {
+    if (areaName && storageCandidates.length > 0 && !storageCandidates.some((candidate) => candidate.name === areaName)) {
         return;
     }
 
@@ -976,8 +1159,15 @@ function handleStorageChanges(changes, areaName) {
 
     Object.keys(controllers).forEach((key) => {
         if (Object.prototype.hasOwnProperty.call(changes, key)) {
-            nextSettings[key] = changes[key].newValue;
-            didUpdate = true;
+            const change = changes[key];
+            if (change && Object.prototype.hasOwnProperty.call(change, "newValue")) {
+                if (typeof change.newValue === "undefined") {
+                    delete nextSettings[key];
+                } else {
+                    nextSettings[key] = change.newValue;
+                }
+                didUpdate = true;
+            }
         }
     });
 
@@ -987,13 +1177,27 @@ function handleStorageChanges(changes, areaName) {
 }
 
 async function init() {
-    const settings = await requestSettings();
-    applySettings(settings);
-    api.storage.onChanged.addListener(handleStorageChanges);
+    if (initialized) {
+        return;
+    }
+
+    initialized = true;
+
+    try {
+        const settings = await requestSettings();
+        applySettings(settings);
+    } catch (error) {
+        console.error("No Reel For Instagram: initialization failed", error);
+    }
+
+    if (!storageListenerRegistered && api?.storage?.onChanged?.addListener) {
+        api.storage.onChanged.addListener(handleStorageChanges);
+        storageListenerRegistered = true;
+    }
 }
 
+init();
+
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-} else {
-    init();
+    document.addEventListener("DOMContentLoaded", init, { once: true });
 }
