@@ -4,6 +4,7 @@ const EMAIL = "guillaume.claverie@mail.com";
 
 const defaultSettings = Object.freeze({
     hideReels: true,
+    hideSearchReels: true,
     hideExploreTab: true,
     hideSuggestedPosts: true,
     hideSuggestedUsers: true,

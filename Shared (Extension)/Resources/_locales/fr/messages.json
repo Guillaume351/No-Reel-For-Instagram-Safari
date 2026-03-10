@@ -23,6 +23,14 @@
         "message": "Supprime les boutons et rayons Reels.",
         "description": "Description du réglage Reels."
     },
+    "toggle_hide_search_reels_title": {
+        "message": "Masquer les Reels de recherche",
+        "description": "Titre du réglage Reels en recherche."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Supprime les cartes Reel affichées sous la barre de recherche.",
+        "description": "Description du réglage Reels en recherche."
+    },
     "toggle_hide_explore_title": {
         "message": "Masquer l’onglet Découvrir",
         "description": "Titre du réglage Découvrir."

@@ -23,6 +23,14 @@
         "message": "Elimina los botones y carruseles de Reels.",
         "description": "Descripción del ajuste de Reels."
     },
+    "toggle_hide_search_reels_title": {
+        "message": "Ocultar Reels en búsqueda",
+        "description": "Título del ajuste de Reels en búsqueda."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Quita las tarjetas de Reel que aparecen debajo de la barra de búsqueda.",
+        "description": "Descripción del ajuste de Reels en búsqueda."
+    },
     "toggle_hide_explore_title": {
         "message": "Ocultar pestaña Explorar",
         "description": "Título del ajuste de Explorar."

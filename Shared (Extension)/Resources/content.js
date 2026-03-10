@@ -26,6 +26,7 @@ const NAV_STYLE_ID = "nrfi-nav-style";
 
 const controllers = {
     hideReels: createReelsController(),
+    hideSearchReels: createSearchReelsController(),
     hideExploreTab: createExploreController(),
     hideSuggestedPosts: createSuggestedPostsController(),
     hideSuggestedUsers: createSuggestedUsersController(),
@@ -36,6 +37,7 @@ const controllers = {
 
 const defaultSettings = Object.freeze({
     hideReels: true,
+    hideSearchReels: true,
     hideExploreTab: true,
     hideSuggestedPosts: true,
     hideSuggestedUsers: true,
@@ -324,6 +326,208 @@ function createReelsController() {
         linkPatterns: [/\/reels\/?/i],
         labelKeywords: ["reels"]
     });
+}
+
+function createSearchReelsController() {
+    const hiddenElements = new Set();
+    let observer = null;
+    const styleId = "nrfi-search-reels-style";
+    const CARD_LINK_SELECTOR = 'a[href^="/p/"], a[href^="/reel/"]';
+    const SEARCH_LOADING_SELECTOR = '[data-visualcompletion="loading-state"][role="progressbar"]';
+    const SEARCH_PATH_PATTERNS = [/^\/explore(\/|$)/i, /^\/search(\/|$)/i];
+
+    function isSearchSurfacePath() {
+        if (typeof window === "undefined" || !window.location) {
+            return false;
+        }
+
+        const path = window.location.pathname || "";
+        return SEARCH_PATH_PATTERNS.some((pattern) => pattern.test(path));
+    }
+
+    function ensureStyle() {
+        if (document.getElementById(styleId)) {
+            return;
+        }
+
+        const style = document.createElement("style");
+        style.id = styleId;
+        style.textContent = "[data-nrfi-hidden-search-reel=\"true\"]{display:none!important;}";
+        (document.head || document.documentElement).appendChild(style);
+    }
+
+    function clearHidden() {
+        hiddenElements.forEach((element) => {
+            if (element instanceof HTMLElement) {
+                delete element.dataset.nrfiHiddenSearchReel;
+            }
+        });
+        hiddenElements.clear();
+    }
+
+    function findHideTarget(link) {
+        if (!(link instanceof HTMLElement)) {
+            return link;
+        }
+
+        let current = link;
+
+        while (current instanceof HTMLElement) {
+            const parent = current.parentElement;
+            if (!(parent instanceof HTMLElement)) {
+                break;
+            }
+
+            if (parent === document.body || parent === document.documentElement) {
+                break;
+            }
+
+            if (parent.matches("main, [role='main'], [role='feed']")) {
+                break;
+            }
+
+            const siblingCards = Array.from(parent.children).filter((candidate) => (
+                candidate instanceof HTMLElement && candidate.querySelector(CARD_LINK_SELECTOR)
+            ));
+
+            if (siblingCards.length >= 2) {
+                return current;
+            }
+
+            current = parent;
+        }
+
+        return link;
+    }
+
+    function hideReelCard(link) {
+        if (!(link instanceof HTMLElement)) {
+            return;
+        }
+
+        const target = findHideTarget(link);
+        if (!(target instanceof HTMLElement) || target.dataset.nrfiHiddenSearchReel === "true") {
+            return;
+        }
+
+        target.dataset.nrfiHiddenSearchReel = "true";
+        hiddenElements.add(target);
+    }
+
+    function findLoadingTarget(indicator) {
+        if (!(indicator instanceof HTMLElement)) {
+            return indicator;
+        }
+
+        const container = indicator.parentElement;
+        if (!(container instanceof HTMLElement)) {
+            return indicator;
+        }
+
+        if (container.childElementCount !== 1) {
+            return indicator;
+        }
+
+        if ((container.textContent || "").trim().length > 0) {
+            return indicator;
+        }
+
+        return container;
+    }
+
+    function hideSearchLoading(root) {
+        if (!(root instanceof HTMLElement || root instanceof Document || root instanceof DocumentFragment)) {
+            return;
+        }
+
+        const indicators = [];
+
+        if (root instanceof HTMLElement && root.matches(SEARCH_LOADING_SELECTOR)) {
+            indicators.push(root);
+        }
+
+        root.querySelectorAll?.(SEARCH_LOADING_SELECTOR).forEach((candidate) => {
+            indicators.push(candidate);
+        });
+
+        indicators.forEach((indicator) => {
+            if (!(indicator instanceof HTMLElement)) {
+                return;
+            }
+
+            const target = findLoadingTarget(indicator);
+            if (!(target instanceof HTMLElement) || target.dataset.nrfiHiddenSearchReel === "true") {
+                return;
+            }
+
+            target.dataset.nrfiHiddenSearchReel = "true";
+            hiddenElements.add(target);
+        });
+    }
+
+    function sweep(root) {
+        if (!isSearchSurfacePath()) {
+            clearHidden();
+            return;
+        }
+
+        if (root instanceof HTMLElement && root.matches(CARD_LINK_SELECTOR)) {
+            hideReelCard(root);
+        }
+
+        if (!(root instanceof HTMLElement || root instanceof Document || root instanceof DocumentFragment)) {
+            return;
+        }
+
+        root.querySelectorAll?.(CARD_LINK_SELECTOR).forEach((candidate) => {
+            hideReelCard(candidate);
+        });
+
+        hideSearchLoading(root);
+    }
+
+    function start() {
+        if (observer) {
+            return;
+        }
+
+        ensureStyle();
+        sweep(document);
+
+        observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                mutation.addedNodes.forEach((node) => {
+                    if (node instanceof HTMLElement || node instanceof DocumentFragment) {
+                        sweep(node);
+                    }
+                });
+            });
+        });
+
+        observer.observe(document.body || document.documentElement, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    function stop() {
+        if (observer) {
+            observer.disconnect();
+            observer = null;
+        }
+
+        clearHidden();
+
+        const style = document.getElementById(styleId);
+        if (style) {
+            style.remove();
+        }
+    }
+
+    return {
+        enable: start,
+        disable: stop
+    };
 }
 
 function createExploreController() {

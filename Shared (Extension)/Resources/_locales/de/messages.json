@@ -23,6 +23,14 @@
         "message": "Entfernt Reels-Schaltflächen und -Reihen.",
         "description": "Beschreibung der Reels-Option."
     },
+    "toggle_hide_search_reels_title": {
+        "message": "Reels in der Suche ausblenden",
+        "description": "Titel für das Ausblenden von Reels in der Suche."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Entfernt Reel-Karten unter der Suchleiste.",
+        "description": "Beschreibung für das Ausblenden von Reels in der Suche."
+    },
     "toggle_hide_explore_title": {
         "message": "Entdecken-Tab ausblenden",
         "description": "Titel der Entdecken-Option."

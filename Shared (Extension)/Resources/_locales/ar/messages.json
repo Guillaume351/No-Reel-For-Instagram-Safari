@@ -23,6 +23,14 @@
         "message": "يزيل أزرار الريلز وصفوفها من الواجهة.",
         "description": "وصف زر الريلز."
     },
+    "toggle_hide_search_reels_title": {
+        "message": "إخفاء ريلز في البحث",
+        "description": "عنوان زر إخفاء ريلز في صفحة البحث."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "يزيل بطاقات الريلز الظاهرة أسفل شريط البحث.",
+        "description": "وصف زر إخفاء ريلز في صفحة البحث."
+    },
     "toggle_hide_explore_title": {
         "message": "إخفاء تبويب الاستكشاف",
         "description": "عنوان زر تبويب الاستكشاف."

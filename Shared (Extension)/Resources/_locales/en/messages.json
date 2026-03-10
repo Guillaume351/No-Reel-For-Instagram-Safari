@@ -23,6 +23,14 @@
         "message": "Removes Reels buttons and shelf rows.",
         "description": "Description for hide Reels toggle."
     },
+    "toggle_hide_search_reels_title": {
+        "message": "Hide Search Reels",
+        "description": "Title for hiding Reel cards in Search."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Removes Reel cards shown under the search bar.",
+        "description": "Description for hiding Reel cards in Search."
+    },
     "toggle_hide_explore_title": {
         "message": "Hide Explore tab",
         "description": "Title for hide Explore toggle."

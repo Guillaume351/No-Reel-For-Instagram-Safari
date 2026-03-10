@@ -56,11 +56,18 @@ async function show(platform, enabled, useSettingsInsteadOfPreferences) {
 function renderInstructions(platform, strings, locale) {
     const instructionsTitle = document.getElementById('instructionsTitle');
     const instructionsList = document.getElementById('instructionsList');
+    const wellbeingSection = document.getElementById('wellbeingSection');
+    const wellbeingTitle = document.getElementById('wellbeingTitle');
+    const wellbeingBody = document.getElementById('wellbeingBody');
     const contactSection = document.getElementById('contactSection');
     const iosVideoSection = document.getElementById('iosVideoSection');
 
     const defaults = {
         title: "Activation guide",
+        wellbeing: {
+            title: "Reduce unintended screen time",
+            body: "No Reel For Instagram is a Safari extension for Instagram Web. To reduce unintended screen time, the most effective setup is to uninstall the Instagram app, use instagram.com in Safari, and use an app like Beeper (or an equivalent) to keep message notifications."
+        },
         contact: {
             title: "Contact",
             description: "Questions or feedback? Email me at"
@@ -101,6 +108,15 @@ function renderInstructions(platform, strings, locale) {
         li.textContent = step;
         instructionsList.appendChild(li);
     });
+
+    const wellbeingBundle = bundle.wellbeing || defaults.wellbeing;
+    if (wellbeingSection && wellbeingTitle && wellbeingBody) {
+        wellbeingSection.hidden = false;
+        wellbeingTitle.textContent = wellbeingBundle.title || defaults.wellbeing.title;
+        wellbeingBody.textContent = wellbeingBundle.body || defaults.wellbeing.body;
+        wellbeingTitle.dir = rtl ? 'rtl' : 'ltr';
+        wellbeingBody.dir = rtl ? 'rtl' : 'ltr';
+    }
 
     contactSection.textContent = '';
     const contactBundle = bundle.contact || defaults.contact;

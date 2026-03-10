@@ -1,5 +1,9 @@
 {
     "title": "Guide d’activation",
+    "wellbeing": {
+        "title": "Réduire le temps d’écran involontaire",
+        "body": "No Reel For Instagram est une extension Safari pour Instagram Web. Pour réduire au maximum le temps d’écran involontaire, le plus efficace est de désinstaller l’app Instagram, d’utiliser instagram.com dans Safari, puis d’utiliser une app du type Beeper (ou équivalent) pour garder les notifications de messages."
+    },
     "contact": {
         "title": "Contact",
         "description": "Questions ou retours ? Écrivez-moi à"

@@ -21,6 +21,7 @@ let activeStorage = storageCandidates[0] || null;
 
 const defaultSettings = Object.freeze({
     hideReels: true,
+    hideSearchReels: true,
     hideExploreTab: true,
     hideSuggestedPosts: true,
     hideSuggestedUsers: true,
