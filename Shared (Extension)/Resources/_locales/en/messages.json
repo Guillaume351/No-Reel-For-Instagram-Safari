@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Hide Instagram Reels, For You posts, Stories, and other addictive suggestions on the web.",
+        "message": "Hide Reels, Stories, Explore, suggested posts and accounts, and sponsored posts on Instagram Web.",
         "description": "Description of what the extension does."
     },
     "popup_title": {
@@ -16,19 +16,44 @@
         "description": "Subtitle explaining the popup purpose."
     },
     "toggle_hide_reels_title": {
-        "message": "Hide Reels surfaces",
+        "message": "Hide Reels",
         "description": "Title for hide Reels toggle."
     },
     "toggle_hide_reels_desc": {
-        "message": "Removes Reels buttons and shelf rows.",
+        "message": "Removes Reels navigation and Reel posts from Home.",
         "description": "Description for hide Reels toggle."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Keep a collapsed Reel row",
+        "description": "Title for the compact Reel row sub-option."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Shows the author and a Show anyway button without loading the video.",
+        "description": "Description for the compact Reel row sub-option."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reel hidden",
+        "description": "Label displayed in place of a hidden Home Reel."
+    },
+    "hidden_reel_from": {
+        "message": "Reel from $AUTHOR$",
+        "description": "Label for a collapsed Reel with its author.",
+        "placeholders": { "author": { "content": "$1" } }
+    },
+    "hidden_post_placeholder": {
+        "message": "Post hidden",
+        "description": "Label for a compact hidden Home post."
+    },
+    "show_reel_anyway": {
+        "message": "Show anyway",
+        "description": "Button that reveals one collapsed Reel."
     },
     "toggle_hide_search_reels_title": {
         "message": "Hide Search Reels",
         "description": "Title for hiding Reel cards in Search."
     },
     "toggle_hide_search_reels_desc": {
-        "message": "Removes Reel cards shown under the search bar.",
+        "message": "Removes Reel cards in Search and Explore.",
         "description": "Description for hiding Reel cards in Search."
     },
     "toggle_hide_explore_title": {
@@ -40,12 +65,20 @@
         "description": "Description for hide Explore toggle."
     },
     "toggle_hide_suggested_posts_title": {
-        "message": "Hide For You posts",
+        "message": "Hide suggested posts",
         "description": "Title for hide suggested posts toggle."
     },
     "toggle_hide_suggested_posts_desc": {
-        "message": "Filters suggested and recommended feed items.",
+        "message": "Hides recommended feed posts and switches Home to Following when available.",
         "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Hide sponsored posts",
+        "description": "Title for hide sponsored posts toggle."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Removes posts labelled Sponsored from the Home feed.",
+        "description": "Description for hide sponsored posts toggle."
     },
     "toggle_hide_suggested_users_title": {
         "message": "Hide Suggested users",

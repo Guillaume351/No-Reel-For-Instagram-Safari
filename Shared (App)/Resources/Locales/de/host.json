@@ -1,10 +1,15 @@
 {
     "title": "Aktivierungsanleitung",
+    "wellbeing": {
+        "title": "Unbeabsichtigte Bildschirmzeit reduzieren",
+        "body": "No Reel For Instagram ist eine Safari-Erweiterung für Instagram Web. Nutze instagram.com in Safari und eine App wie Beeper (oder eine Alternative) für Nachrichtenbenachrichtigungen, um unbeabsichtigte Bildschirmzeit zu reduzieren."
+    },
     "contact": {
         "title": "Kontakt",
         "description": "Fragen oder Feedback? Schreib mir an"
     },
     "ios": {
+        "intro": "Aktiviere die Safari-Erweiterung, um ausgewählte Ablenkungen auf instagram.com auszublenden.",
         "steps": [
             "Öffne Einstellungen ▸ Safari ▸ Erweiterungen.",
             "Aktiviere „No Reel For Instagram“ und erlaube es auf den Websites, die du besuchst.",
@@ -16,6 +21,10 @@
         }
     },
     "mac": {
+        "stateOn": "No Reel For Instagram ist aktiv. Wähle über die Schaltfläche in der Safari-Symbolleiste aus, was ausgeblendet wird.",
+        "stateOff": "No Reel For Instagram ist deaktiviert. Aktiviere es unter Safari ▸ Einstellungen ▸ Erweiterungen.",
+        "stateUnknown": "Aktiviere No Reel For Instagram unter Safari ▸ Einstellungen ▸ Erweiterungen.",
+        "openPreferences": "Beenden und Safari-Einstellungen öffnen…",
         "steps": [
             "Öffne Safari ▸ Einstellungen ▸ Erweiterungen.",
             "Aktiviere „No Reel For Instagram“ und erteile Zugriff auf instagram.com.",

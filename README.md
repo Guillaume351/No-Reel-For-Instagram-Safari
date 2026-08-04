@@ -2,17 +2,16 @@
 
 ## Overview
 
-**No Reel For Instagram** is a Safari extension that hides Instagram Reels and other distracting surfaces from instagram.com and m.instagram.com. Enjoy a calmer feed by stripping Reels entry points, suggested users, and the Stories bar while you browse Instagram on your Mac or iPhone.
+**No Reel For Instagram** is a Safari extension that hides Instagram Reels and other distracting surfaces from instagram.com and m.instagram.com. Enjoy a calmer feed by stripping Reels entry points, suggested posts and users, and the Stories bar while you browse Instagram on your Mac or iPhone.
 
 **Available for macOS and iOS (iPhone).**
 
 ## Features
 
-- Hides Reels links and carousels across the desktop and mobile web experience.
+- Hides Reels navigation, Reel posts in Home, and Reel cards in Instagram Search / Explore on desktop and mobile web.
 - Removes the Stories bar and keeps it hidden as Instagram re-renders the feed.
-- Strips the "For You" tab and Suggested Users rail in the home feed.
-- Optionally blocks feed posts that autoplay videos.
-- Lightweight extension with no tracking or performance overhead.
+- Filters suggested and sponsored posts, strips the "For You" tab, and removes the Suggested Users rail in the home feed.
+- Runs locally in Safari with no tracking or analytics.
 - Works seamlessly with Safari on macOS and iPhone.
 
 ## Installation Options
@@ -37,6 +36,10 @@ You can also build and run the project for free using Xcode:
 1. Clone this repository
 2. Open the project in Xcode (`xed "No Reel For Instagram.xcodeproj"`)
 3. Build and run the extension on macOS or iOS (iPhone)
+
+### Regression tests
+
+Run `npm install`, then `npm test` to exercise the extension against anonymized mobile Instagram DOM fixtures.
 
 ## Usage
 

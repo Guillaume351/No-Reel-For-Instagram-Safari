@@ -4,9 +4,11 @@ const EMAIL = "guillaume.claverie@mail.com";
 
 const defaultSettings = Object.freeze({
     hideReels: true,
+    keepReelsCollapsed: true,
     hideSearchReels: true,
     hideExploreTab: true,
     hideSuggestedPosts: true,
+    hideSponsoredPosts: true,
     hideSuggestedUsers: true,
     hideStories: true
 });
@@ -62,6 +64,10 @@ async function storageGet(keys) {
     const attempts = activeStorage
         ? [activeStorage, ...storageCandidates.filter((candidate) => candidate !== activeStorage)]
         : storageCandidates;
+
+    if (attempts.length === 0) {
+        throw new Error("storage unavailable");
+    }
 
     let lastError = null;
 
@@ -131,13 +137,8 @@ function sanitizeSettings(partial = {}) {
 }
 
 async function readSettingsFromStorage() {
-    try {
-        const stored = await storageGet(Object.keys(defaultSettings));
-        return sanitizeSettings(stored);
-    } catch (error) {
-        console.warn("No Reel For Instagram: storage.get failed while loading popup settings", error);
-        return sanitizeSettings({});
-    }
+    const stored = await storageGet(Object.keys(defaultSettings));
+    return sanitizeSettings(stored);
 }
 
 async function writeSettingsToStorage(settings) {
@@ -152,6 +153,10 @@ async function writeSettingsToStorage(settings) {
 async function loadSettingsWithFallback() {
     try {
         const response = await sendMessage({ type: "getSettings" });
+        if (response?.ok === false) {
+            throw new Error(response.error || "background rejected settings load");
+        }
+
         const settings = response?.settings;
         if (settings && typeof settings === "object") {
             return sanitizeSettings(settings);
@@ -169,6 +174,10 @@ async function saveSettingsWithFallback(partialSettings) {
             type: "saveSettings",
             payload: partialSettings
         });
+        if (response?.ok === false) {
+            throw new Error(response.error || "background rejected settings save");
+        }
+
         const settings = response?.settings;
         if (settings && typeof settings === "object") {
             return sanitizeSettings(settings);
@@ -180,7 +189,9 @@ async function saveSettingsWithFallback(partialSettings) {
         return sanitized;
     }
 
-    return sanitizeSettings(partialSettings);
+    const sanitized = sanitizeSettings(partialSettings);
+    await writeSettingsToStorage(sanitized);
+    return sanitized;
 }
 
 function getMessage(key, substitutions) {
@@ -278,6 +289,18 @@ function setFormDisabled(isDisabled) {
     controls.forEach((control) => {
         control.disabled = isDisabled;
     });
+
+    if (!isDisabled) {
+        const hideReelsControl = controls.get("hideReels");
+        const collapsedControl = controls.get("keepReelsCollapsed");
+        if (collapsedControl) {
+            collapsedControl.disabled = !hideReelsControl?.checked;
+            collapsedControl.closest(".setting")?.toggleAttribute(
+                "data-disabled",
+                collapsedControl.disabled
+            );
+        }
+    }
 }
 
 function setStatus(message, state = "idle") {
@@ -291,10 +314,12 @@ async function loadSettings() {
     try {
         const settings = await loadSettingsWithFallback();
         renderSettings(settings);
+        setFormDisabled(false);
         setStatus("", "idle");
     } catch (error) {
         console.error("No Reel For Instagram: unable to load settings", error);
         renderSettings(defaultSettings);
+        setFormDisabled(false);
         setStatus(getMessage("status_load_error"), "error");
     }
 }
@@ -330,6 +355,7 @@ async function persistSettings() {
 }
 
 form.addEventListener("change", () => {
+    setFormDisabled(false);
     persistSettings();
 });
 

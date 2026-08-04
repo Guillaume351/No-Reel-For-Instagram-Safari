@@ -27,21 +27,32 @@ async function loadHostStrings(locale) {
     return { locale: "en", data: null };
 }
 
-function localizeStaticStrings(platform, useSettingsInsteadOfPreferences) {
-    if (useSettingsInsteadOfPreferences) {
-        document.getElementsByClassName('platform-mac state-on')[0].innerText = "No Reel For Instagram is active. Manage it in Safari Settings > Extensions to keep Reels blocked.";
-        document.getElementsByClassName('platform-mac state-off')[0].innerText = "No Reel For Instagram is off. Enable it in Safari Settings > Extensions to remove Reels, Stories, and For You feeds.";
-        document.getElementsByClassName('platform-mac state-unknown')[0].innerText = "Turn on No Reel For Instagram from Safari Settings > Extensions to hide Reels, Stories, and suggested content.";
-        document.getElementsByClassName('platform-mac open-preferences')[0].innerText = "Quit and Open Safari Settings…";
-    }
+function localizeStaticStrings(platform, strings, locale) {
+    const ios = strings?.ios || {};
+    const mac = strings?.mac || {};
+    const staticIds = ['iosIntro', 'macStateOn', 'macStateOff', 'macStateUnknown', 'openPreferences'];
+
+    document.getElementById('iosIntro').textContent = ios.intro
+        || "Enable the Safari extension to hide selected distractions on instagram.com.";
+    document.getElementById('macStateOn').textContent = mac.stateOn
+        || "No Reel For Instagram is active. Choose what to hide from its Safari toolbar button.";
+    document.getElementById('macStateOff').textContent = mac.stateOff
+        || "No Reel For Instagram is off. Enable it in Safari Settings > Extensions.";
+    document.getElementById('macStateUnknown').textContent = mac.stateUnknown
+        || "Turn on No Reel For Instagram in Safari Settings > Extensions.";
+    document.getElementById('openPreferences').textContent = mac.openPreferences
+        || "Quit and Open Safari Settings…";
+
+    staticIds.forEach((id) => {
+        document.getElementById(id).dir = isRTL(locale) ? 'rtl' : 'ltr';
+    });
 
     document.body.classList.add(`platform-${platform}`);
 }
 
 async function show(platform, enabled, useSettingsInsteadOfPreferences) {
-    localizeStaticStrings(platform, useSettingsInsteadOfPreferences);
-
     const { data, locale } = await loadHostStrings(getUILocale());
+    localizeStaticStrings(platform, data, locale);
     renderInstructions(platform, data, locale);
 
     if (typeof enabled === "boolean") {
@@ -73,6 +84,7 @@ function renderInstructions(platform, strings, locale) {
             description: "Questions or feedback? Email me at"
         },
         ios: {
+            intro: "Enable the Safari extension to hide selected distractions on instagram.com.",
             steps: [
                 "Open Settings ▸ Safari ▸ Extensions.",
                 "Enable No Reel For Instagram and allow it on the sites you browse.",
@@ -84,6 +96,10 @@ function renderInstructions(platform, strings, locale) {
             }
         },
         mac: {
+            stateOn: "No Reel For Instagram is active. Choose what to hide from its Safari toolbar button.",
+            stateOff: "No Reel For Instagram is off. Enable it in Safari Settings > Extensions.",
+            stateUnknown: "Turn on No Reel For Instagram in Safari Settings > Extensions.",
+            openPreferences: "Quit and Open Safari Settings…",
             steps: [
                 "Open Safari ▸ Settings ▸ Extensions.",
                 "Enable No Reel For Instagram and allow it on the sites you browse.",

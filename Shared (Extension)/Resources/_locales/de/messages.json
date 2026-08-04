@@ -4,7 +4,7 @@
         "description": "Name der Erweiterung."
     },
     "extension_description": {
-        "message": "Blendet Reels, Für dich-Beiträge, Stories und andere süchtig machende Vorschläge auf Instagram im Web aus.",
+        "message": "Blendet Reels, Stories, Entdecken, Vorschläge und gesponserte Beiträge auf Instagram Web aus.",
         "description": "Beschreibung der Erweiterung."
     },
     "popup_title": {
@@ -16,19 +16,44 @@
         "description": "Untertitel des Pop-ups."
     },
     "toggle_hide_reels_title": {
-        "message": "Reels-Bereiche ausblenden",
+        "message": "Reels ausblenden",
         "description": "Titel der Reels-Option."
     },
     "toggle_hide_reels_desc": {
-        "message": "Entfernt Reels-Schaltflächen und -Reihen.",
+        "message": "Entfernt die Reels-Navigation und Reels aus dem Startseiten-Feed.",
         "description": "Beschreibung der Reels-Option."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Eingeklappte Reel-Zeile behalten",
+        "description": "Titel der kompakten Reel-Unteroption."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Zeigt Autor und Schaltfläche, ohne das Video zu laden.",
+        "description": "Beschreibung der kompakten Reel-Unteroption."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reel ausgeblendet",
+        "description": "Beschriftung anstelle eines ausgeblendeten Reels auf der Startseite."
+    },
+    "hidden_reel_from": {
+        "message": "Reel von $AUTHOR$",
+        "description": "Beschriftung eines eingeklappten Reels mit Autor.",
+        "placeholders": { "author": { "content": "$1" } }
+    },
+    "hidden_post_placeholder": {
+        "message": "Beitrag ausgeblendet",
+        "description": "Beschriftung eines kompakt ausgeblendeten Beitrags."
+    },
+    "show_reel_anyway": {
+        "message": "Trotzdem anzeigen",
+        "description": "Schaltfläche zum Anzeigen eines eingeklappten Reels."
     },
     "toggle_hide_search_reels_title": {
         "message": "Reels in der Suche ausblenden",
         "description": "Titel für das Ausblenden von Reels in der Suche."
     },
     "toggle_hide_search_reels_desc": {
-        "message": "Entfernt Reel-Karten unter der Suchleiste.",
+        "message": "Entfernt Reel-Karten in Suche und Entdecken.",
         "description": "Beschreibung für das Ausblenden von Reels in der Suche."
     },
     "toggle_hide_explore_title": {
@@ -40,12 +65,20 @@
         "description": "Beschreibung der Entdecken-Option."
     },
     "toggle_hide_suggested_posts_title": {
-        "message": "\"Für dich\"-Beiträge ausblenden",
+        "message": "Vorgeschlagene Beiträge ausblenden",
         "description": "Titel der empfohlenen Beiträge-Option."
     },
     "toggle_hide_suggested_posts_desc": {
-        "message": "Filtert vorgeschlagene und empfohlene Beiträge aus dem Feed.",
+        "message": "Blendet empfohlene Beiträge aus und wechselt wenn möglich zu Gefolgt.",
         "description": "Beschreibung der empfohlenen Beiträge-Option."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Gesponserte Beiträge ausblenden",
+        "description": "Titel der Option für gesponserte Beiträge."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Entfernt als Gesponsert markierte Beiträge aus dem Startseiten-Feed.",
+        "description": "Beschreibung der Option für gesponserte Beiträge."
     },
     "toggle_hide_suggested_users_title": {
         "message": "Vorgeschlagene Personen ausblenden",

@@ -1,0 +1,10 @@
+{
+  "name": "no-reel-for-instagram-tests",
+  "private": true,
+  "scripts": {
+    "test": "node --test Tests/*.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}

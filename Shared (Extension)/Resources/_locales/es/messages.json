@@ -4,7 +4,7 @@
         "description": "Nombre de la extensión."
     },
     "extension_description": {
-        "message": "Oculta Reels, publicaciones Para ti, Stories y otras sugerencias adictivas en Instagram web.",
+        "message": "Oculta Reels, Historias, Explorar, contenido sugerido y publicaciones patrocinadas en Instagram Web.",
         "description": "Descripción de la extensión."
     },
     "popup_title": {
@@ -16,19 +16,44 @@
         "description": "Subtítulo de la ventana emergente."
     },
     "toggle_hide_reels_title": {
-        "message": "Ocultar superficies de Reels",
+        "message": "Ocultar Reels",
         "description": "Título del ajuste de Reels."
     },
     "toggle_hide_reels_desc": {
-        "message": "Elimina los botones y carruseles de Reels.",
+        "message": "Elimina la navegación Reels y los Reels de Inicio.",
         "description": "Descripción del ajuste de Reels."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Mantener una fila de Reel plegada",
+        "description": "Título de la subopción de Reel compacto."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Muestra el autor y un botón sin cargar el vídeo.",
+        "description": "Descripción de la subopción de Reel compacto."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reel oculto",
+        "description": "Etiqueta mostrada en lugar de un Reel oculto en el inicio."
+    },
+    "hidden_reel_from": {
+        "message": "Reel de $AUTHOR$",
+        "description": "Etiqueta de un Reel plegado con su autor.",
+        "placeholders": { "author": { "content": "$1" } }
+    },
+    "hidden_post_placeholder": {
+        "message": "Publicación oculta",
+        "description": "Etiqueta de una publicación oculta compacta."
+    },
+    "show_reel_anyway": {
+        "message": "Mostrar de todos modos",
+        "description": "Botón que muestra un Reel plegado."
     },
     "toggle_hide_search_reels_title": {
         "message": "Ocultar Reels en búsqueda",
         "description": "Título del ajuste de Reels en búsqueda."
     },
     "toggle_hide_search_reels_desc": {
-        "message": "Quita las tarjetas de Reel que aparecen debajo de la barra de búsqueda.",
+        "message": "Elimina las tarjetas Reel de Buscar y Explorar.",
         "description": "Descripción del ajuste de Reels en búsqueda."
     },
     "toggle_hide_explore_title": {
@@ -40,12 +65,20 @@
         "description": "Descripción del ajuste de Explorar."
     },
     "toggle_hide_suggested_posts_title": {
-        "message": "Ocultar publicaciones \"Para ti\"",
+        "message": "Ocultar publicaciones sugeridas",
         "description": "Título del ajuste de publicaciones sugeridas."
     },
     "toggle_hide_suggested_posts_desc": {
-        "message": "Filtra los elementos sugeridos y recomendados del feed.",
+        "message": "Oculta publicaciones recomendadas y cambia Inicio a Siguiendo cuando está disponible.",
         "description": "Descripción del ajuste de publicaciones sugeridas."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Ocultar publicaciones patrocinadas",
+        "description": "Título del ajuste de publicaciones patrocinadas."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Elimina de Inicio las publicaciones marcadas como Patrocinado.",
+        "description": "Descripción del ajuste de publicaciones patrocinadas."
     },
     "toggle_hide_suggested_users_title": {
         "message": "Ocultar usuarios sugeridos",

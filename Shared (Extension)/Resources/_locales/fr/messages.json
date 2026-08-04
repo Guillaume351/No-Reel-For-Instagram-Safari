@@ -4,7 +4,7 @@
         "description": "Nom de l’extension."
     },
     "extension_description": {
-        "message": "Masquez les Reels, les publications Pour vous, les Stories et autres contenus addictifs sur Instagram Web.",
+        "message": "Masquez les Reels, Stories, contenus suggérés et publications sponsorisées sur Instagram Web.",
         "description": "Description de l’extension."
     },
     "popup_title": {
@@ -16,19 +16,44 @@
         "description": "Sous-titre de la fenêtre contextuelle."
     },
     "toggle_hide_reels_title": {
-        "message": "Masquer les contenus Reels",
+        "message": "Masquer les Reels",
         "description": "Titre du réglage Reels."
     },
     "toggle_hide_reels_desc": {
-        "message": "Supprime les boutons et rayons Reels.",
+        "message": "Supprime la navigation Reels et les Reels du fil d’accueil.",
         "description": "Description du réglage Reels."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Garder une ligne Reel repliée",
+        "description": "Titre de la sous-option de ligne Reel compacte."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Affiche l’auteur et un bouton sans charger la vidéo.",
+        "description": "Description de la sous-option de ligne Reel compacte."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reel masqué",
+        "description": "Libellé affiché à la place d’un Reel masqué dans l’accueil."
+    },
+    "hidden_reel_from": {
+        "message": "Reel de $AUTHOR$",
+        "description": "Libellé d’un Reel replié avec son auteur.",
+        "placeholders": { "author": { "content": "$1" } }
+    },
+    "hidden_post_placeholder": {
+        "message": "Publication masquée",
+        "description": "Libellé d’une publication masquée compacte."
+    },
+    "show_reel_anyway": {
+        "message": "Afficher quand même",
+        "description": "Bouton qui révèle un Reel replié."
     },
     "toggle_hide_search_reels_title": {
         "message": "Masquer les Reels de recherche",
         "description": "Titre du réglage Reels en recherche."
     },
     "toggle_hide_search_reels_desc": {
-        "message": "Supprime les cartes Reel affichées sous la barre de recherche.",
+        "message": "Supprime les cartes Reel dans Recherche et Découvrir.",
         "description": "Description du réglage Reels en recherche."
     },
     "toggle_hide_explore_title": {
@@ -40,12 +65,20 @@
         "description": "Description du réglage Découvrir."
     },
     "toggle_hide_suggested_posts_title": {
-        "message": "Masquer les publications \"Pour vous\"",
+        "message": "Masquer les publications suggérées",
         "description": "Titre du réglage publications suggérées."
     },
     "toggle_hide_suggested_posts_desc": {
-        "message": "Filtre les publications suggérées et recommandées du fil.",
+        "message": "Masque les publications recommandées et passe l’accueil sur Abonnements si disponible.",
         "description": "Description du réglage publications suggérées."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Masquer les publications sponsorisées",
+        "description": "Titre du réglage publications sponsorisées."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Supprime les publications marquées Sponsorisé du fil d’accueil.",
+        "description": "Description du réglage publications sponsorisées."
     },
     "toggle_hide_suggested_users_title": {
         "message": "Masquer les utilisateurs suggérés",

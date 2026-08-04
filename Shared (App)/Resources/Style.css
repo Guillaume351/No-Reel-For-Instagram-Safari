@@ -86,7 +86,8 @@ button {
 .ios-video h2 {
     margin: 0;
     text-align: center;
-    font-size: 18px;
+    font: -apple-system-headline;
+    font-weight: 600;
 }
 
 .instructions ol {
@@ -95,7 +96,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    font-size: 15px;
+    font: -apple-system-body;
 }
 
 .instructions ol[dir="rtl"] {
@@ -129,7 +130,7 @@ button {
 
 .ios-video .video-fallback {
     margin: 0;
-    font-size: 15px;
+    font: -apple-system-body;
     text-align: center;
 }
 
@@ -144,11 +145,27 @@ button {
 
 .contact p {
     margin: 0;
-    font-size: 15px;
+    font: -apple-system-body;
     text-align: center;
 }
 
 .contact a {
     color: inherit;
     text-decoration: underline;
+}
+
+@media (min-width: 700px) {
+    :root {
+        --spacing: 28px;
+    }
+
+    body {
+        padding-inline: 64px;
+    }
+
+    .instructions,
+    .contact,
+    .ios-video {
+        padding: 22px 28px;
+    }
 }

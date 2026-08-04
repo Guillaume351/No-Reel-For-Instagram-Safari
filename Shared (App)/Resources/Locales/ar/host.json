@@ -1,10 +1,15 @@
 {
     "title": "دليل التفعيل",
+    "wellbeing": {
+        "title": "تقليل وقت الشاشة غير المقصود",
+        "body": "No Reel For Instagram هو امتداد Safari لنسخة Instagram على الويب. لتقليل وقت الشاشة غير المقصود، استخدم instagram.com في Safari وتطبيقًا مثل Beeper أو بديلًا عنه للاحتفاظ بإشعارات الرسائل."
+    },
     "contact": {
         "title": "التواصل",
         "description": "لديك سؤال أو ملاحظة؟ راسلني عبر"
     },
     "ios": {
+        "intro": "فعّل امتداد Safari لإخفاء عناصر التشتيت التي تختارها على instagram.com.",
         "steps": [
             "افتح الإعدادات ▸ Safari ▸ الامتدادات.",
             "فعّل \"No Reel For Instagram\" واسمح له بالعمل على المواقع التي تزورها.",
@@ -16,6 +21,10 @@
         }
     },
     "mac": {
+        "stateOn": "No Reel For Instagram مفعّل. اختر ما تريد إخفاءه من زر الامتداد في شريط أدوات Safari.",
+        "stateOff": "No Reel For Instagram متوقف. فعّله من Safari ▸ الإعدادات ▸ الامتدادات.",
+        "stateUnknown": "فعّل No Reel For Instagram من Safari ▸ الإعدادات ▸ الامتدادات.",
+        "openPreferences": "إنهاء التطبيق وفتح إعدادات Safari…",
         "steps": [
             "افتح Safari ▸ الإعدادات ▸ الامتدادات.",
             "فعّل \"No Reel For Instagram\" وامنح الإضافة صلاحية الوصول إلى instagram.com.",

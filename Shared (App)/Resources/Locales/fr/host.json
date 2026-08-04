@@ -9,6 +9,7 @@
         "description": "Questions ou retours ? Écrivez-moi à"
     },
     "ios": {
+        "intro": "Activez l’extension Safari pour masquer les distractions choisies sur instagram.com.",
         "steps": [
             "Ouvrez Réglages ▸ Safari ▸ Extensions.",
             "Activez « No Reel For Instagram » et autorisez-le sur les sites visités.",
@@ -20,6 +21,10 @@
         }
     },
     "mac": {
+        "stateOn": "No Reel For Instagram est actif. Choisissez les éléments à masquer depuis son bouton dans la barre d’outils Safari.",
+        "stateOff": "No Reel For Instagram est désactivé. Activez-le dans Safari ▸ Réglages ▸ Extensions.",
+        "stateUnknown": "Activez No Reel For Instagram dans Safari ▸ Réglages ▸ Extensions.",
+        "openPreferences": "Quitter et ouvrir les réglages Safari…",
         "steps": [
             "Ouvrez Safari ▸ Réglages ▸ Extensions.",
             "Cochez « No Reel For Instagram » et autorisez l’accès à instagram.com.",

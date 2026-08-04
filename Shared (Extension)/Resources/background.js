@@ -21,9 +21,11 @@ let activeStorage = storageCandidates[0] || null;
 
 const defaultSettings = Object.freeze({
     hideReels: true,
+    keepReelsCollapsed: true,
     hideSearchReels: true,
     hideExploreTab: true,
     hideSuggestedPosts: true,
+    hideSponsoredPosts: true,
     hideSuggestedUsers: true,
     hideStories: true
 });
@@ -138,10 +140,10 @@ async function ensureDefaults() {
 async function getSettingsPayload() {
     try {
         const current = await storageGet(Object.keys(defaultSettings));
-        return { settings: withDefaults(current) };
+        return { ok: true, settings: withDefaults(current) };
     } catch (error) {
         console.error("No Reel For Instagram: failed to load settings", error);
-        return { settings: { ...defaultSettings } };
+        return { ok: false, error: "settings_load_failed", settings: { ...defaultSettings } };
     }
 }
 
@@ -157,7 +159,7 @@ async function saveSettingsPayload(partialSettings) {
     }
 
     await storageSet(sanitized);
-    return { settings: withDefaults(sanitized) };
+    return { ok: true, settings: withDefaults(sanitized) };
 }
 
 ensureDefaults();
@@ -174,7 +176,7 @@ api.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "getSettings") {
         getSettingsPayload().then(sendResponse).catch((error) => {
             console.error("No Reel For Instagram: getSettings failed", error);
-            sendResponse({ settings: { ...defaultSettings } });
+            sendResponse({ ok: false, error: "settings_load_failed", settings: { ...defaultSettings } });
         });
         return true;
     }
@@ -182,7 +184,7 @@ api.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "saveSettings") {
         saveSettingsPayload(message.payload || {}).then(sendResponse).catch((error) => {
             console.error("No Reel For Instagram: saveSettings failed", error);
-            sendResponse({ settings: { ...defaultSettings } });
+            sendResponse({ ok: false, error: "settings_save_failed" });
         });
         return true;
     }

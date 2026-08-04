@@ -5,6 +5,7 @@
         "description": "Questions or feedback? Email me at"
     },
     "ios": {
+        "intro": "Enable the Safari extension to hide selected distractions on instagram.com.",
         "steps": [
             "Open Settings ▸ Safari ▸ Extensions.",
             "Enable “No Reel For Instagram” and allow it on the sites you browse.",
@@ -16,6 +17,10 @@
         }
     },
     "mac": {
+        "stateOn": "No Reel For Instagram is active. Choose what to hide from its Safari toolbar button.",
+        "stateOff": "No Reel For Instagram is off. Enable it in Safari Settings > Extensions.",
+        "stateUnknown": "Turn on No Reel For Instagram in Safari Settings > Extensions.",
+        "openPreferences": "Quit and Open Safari Settings…",
         "steps": [
             "Open Safari ▸ Settings ▸ Extensions.",
             "Check “No Reel For Instagram” and grant it access to instagram.com.",

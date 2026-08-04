@@ -4,7 +4,7 @@
         "description": "اسم الإضافة."
     },
     "extension_description": {
-        "message": "أخفِ محتوى الريلز ومنشورات \"لك\" والقصص وغيرها من الاقتراحات المسببة للإدمان على إنستجرام للويب.",
+        "message": "يخفي الريلز والقصص والاستكشاف والمحتوى المقترح والمنشورات الممولة على Instagram Web.",
         "description": "وصف الإضافة."
     },
     "popup_title": {
@@ -16,19 +16,44 @@
         "description": "النص التوضيحي تحت العنوان."
     },
     "toggle_hide_reels_title": {
-        "message": "إخفاء عناصر الريلز",
+        "message": "إخفاء الريلز",
         "description": "عنوان زر الريلز."
     },
     "toggle_hide_reels_desc": {
-        "message": "يزيل أزرار الريلز وصفوفها من الواجهة.",
+        "message": "يزيل روابط الريلز ومنشورات الريلز من الصفحة الرئيسية.",
         "description": "وصف زر الريلز."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "الاحتفاظ بسطر ريلز مطوي",
+        "description": "عنوان خيار سطر الريلز المصغر."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "يعرض الناشر وزر الإظهار من دون تحميل الفيديو.",
+        "description": "وصف خيار سطر الريلز المصغر."
+    },
+    "hidden_reel_placeholder": {
+        "message": "تم إخفاء الريل",
+        "description": "تسمية تظهر بدلاً من الريل المخفي في الصفحة الرئيسية."
+    },
+    "hidden_reel_from": {
+        "message": "ريلز من $AUTHOR$",
+        "description": "تسمية ريلز مطوي مع اسم الناشر.",
+        "placeholders": { "author": { "content": "$1" } }
+    },
+    "hidden_post_placeholder": {
+        "message": "تم إخفاء المنشور",
+        "description": "تسمية منشور مخفي بشكل مصغر."
+    },
+    "show_reel_anyway": {
+        "message": "إظهار على أي حال",
+        "description": "زر لإظهار ريلز مطوي."
     },
     "toggle_hide_search_reels_title": {
         "message": "إخفاء ريلز في البحث",
         "description": "عنوان زر إخفاء ريلز في صفحة البحث."
     },
     "toggle_hide_search_reels_desc": {
-        "message": "يزيل بطاقات الريلز الظاهرة أسفل شريط البحث.",
+        "message": "يزيل بطاقات الريلز من البحث والاستكشاف.",
         "description": "وصف زر إخفاء ريلز في صفحة البحث."
     },
     "toggle_hide_explore_title": {
@@ -40,12 +65,20 @@
         "description": "وصف زر تبويب الاستكشاف."
     },
     "toggle_hide_suggested_posts_title": {
-        "message": "إخفاء منشورات \"لك\"",
+        "message": "إخفاء المنشورات المقترحة",
         "description": "عنوان زر منشورات الاقتراحات."
     },
     "toggle_hide_suggested_posts_desc": {
-        "message": "يصفّي المنشورات المقترحة والمُوصى بها في الخلاصة.",
+        "message": "يخفي المنشورات الموصى بها وينقل الصفحة الرئيسية إلى المتابَعين عند توفر ذلك.",
         "description": "وصف زر منشورات الاقتراحات."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "إخفاء المنشورات الممولة",
+        "description": "عنوان زر المنشورات الممولة."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "يزيل المنشورات التي تحمل علامة ممول من الصفحة الرئيسية.",
+        "description": "وصف زر المنشورات الممولة."
     },
     "toggle_hide_suggested_users_title": {
         "message": "إخفاء المستخدمين المقترحين",

@@ -179,6 +179,18 @@ body {
     transform: translateY(-1px);
 }
 
+.setting-suboption {
+    margin-left: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-style: dashed;
+}
+
+.setting[data-disabled] {
+    opacity: 0.55;
+    transform: none;
+}
+
 .setting span {
     order: 1;
     min-width: 0;
