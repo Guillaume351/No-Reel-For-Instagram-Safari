@@ -8,7 +8,7 @@
 
 ## Features
 
-- Hides Reels navigation, Reel posts in Home, and Reel cards in Instagram Search / Explore on desktop and mobile web.
+- Hides Reels navigation and Reel posts in Home, filters Reel cards in Search, and can remove the entire recommended Search / Explore grid on desktop and mobile web.
 - Removes the Stories bar and keeps it hidden as Instagram re-renders the feed.
 - Filters suggested and sponsored posts, strips the "For You" tab, and removes the Suggested Users rail in the home feed.
 - Runs locally in Safari with no tracking or analytics.

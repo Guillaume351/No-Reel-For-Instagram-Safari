@@ -55,8 +55,12 @@ async function loadContentScript({
     const { window } = dom;
     const storedSettings = { ...settings };
     const nativeSetTimeout = window.setTimeout.bind(window);
+    const nativeSetInterval = window.setInterval.bind(window);
     window.setTimeout = (callback, delay = 0, ...args) => (
         nativeSetTimeout(callback, Math.min(Number(delay) || 0, 10), ...args)
+    );
+    window.setInterval = (callback, delay = 0, ...args) => (
+        nativeSetInterval(callback, Math.min(Number(delay) || 0, 10), ...args)
     );
     // JSDOM schedules anchor navigation after HTMLElement.click(). Prevent that
     // browser-only side effect so closing a completed test cannot leave a late
@@ -529,11 +533,53 @@ test("large synchronous feed hydration is processed with a linear query budget",
     assert.equal(queryCount < 2500, true, `expected fewer than 2500 queries, received ${queryCount}`);
 });
 
-test("Search and Explore hide profile-prefixed Reel cards but keep photo cards", async (t) => {
+test("Search and Explore hide Reel cards after cached SPA navigation", async (t) => {
     const html = `<!doctype html><html><head></head><body><main role="main">
         <div id="grid">
             <div id="reel-card"><a href="/creator/reel/abc/">Reel</a></div>
             <div id="photo-card"><a href="/creator/p/def/">Photo</a></div>
+        </div>
+    </main></body></html>`;
+    const session = await loadContentScript({
+        html,
+        url: "https://www.instagram.com/",
+        settings: settingsWith({ hideSearchReels: true })
+    });
+    t.after(() => session.dom.window.close());
+    const { document, history } = session.dom.window;
+
+    assert.equal(document.querySelector("#reel-card").dataset.nrfiHiddenSearchReel, undefined);
+
+    history.pushState({}, "", "/explore/");
+    await waitForObservers(session.dom.window);
+
+    assert.equal(document.querySelector("#reel-card").dataset.nrfiHiddenSearchReel, "true");
+    assert.equal(document.querySelector("#photo-card").dataset.nrfiHiddenSearchReel, undefined);
+
+    history.pushState({}, "", "/");
+    await waitForObservers(session.dom.window);
+
+    assert.equal(document.querySelector("#reel-card").dataset.nrfiHiddenSearchReel, undefined);
+});
+
+test("Search Reels classifies /p/ cards from Reel markers and observes marker hydration", async (t) => {
+    const html = `<!doctype html><html><head></head><body><main role="main">
+        <div id="grid">
+            <div id="reel-card">
+                <a href="/p/real-reel/" role="link">
+                    <svg aria-label="Reel" role="img"></svg>
+                </a>
+            </div>
+            <div id="photo-card">
+                <a href="/p/real-photo/" role="link">
+                    <svg aria-label="Photo" role="img"></svg>
+                </a>
+            </div>
+            <div id="hydrated-card">
+                <a href="/p/hydrated-reel/" role="link">
+                    <svg id="hydrated-marker" role="img"></svg>
+                </a>
+            </div>
         </div>
     </main></body></html>`;
     const session = await loadContentScript({
@@ -546,9 +592,66 @@ test("Search and Explore hide profile-prefixed Reel cards but keep photo cards",
 
     assert.equal(document.querySelector("#reel-card").dataset.nrfiHiddenSearchReel, "true");
     assert.equal(document.querySelector("#photo-card").dataset.nrfiHiddenSearchReel, undefined);
+    assert.equal(document.querySelector("#hydrated-card").dataset.nrfiHiddenSearchReel, undefined);
+
+    document.querySelector("#hydrated-marker").setAttribute("aria-label", "Reels");
+    await waitForObservers(session.dom.window);
+
+    assert.equal(document.querySelector("#hydrated-card").dataset.nrfiHiddenSearchReel, "true");
+    assert.equal(document.querySelector("#photo-card").dataset.nrfiHiddenSearchReel, undefined);
+
+    document.querySelector("#reel-card [aria-label]").removeAttribute("aria-label");
+    await waitForObservers(session.dom.window);
+
+    assert.equal(document.querySelector("#reel-card").dataset.nrfiHiddenSearchReel, undefined);
+    assert.equal(document.querySelector("#hydrated-card").dataset.nrfiHiddenSearchReel, "true");
+    assert.equal(document.querySelector("#photo-card").dataset.nrfiHiddenSearchReel, undefined);
+});
+
+test("the Explore option hides recommended Reel and photo cards while Search Reels stays independent", async (t) => {
+    const html = `<!doctype html><html><head></head><body><main role="main">
+        <div id="grid">
+            <a id="direct-reel-card" href="/reel/abc/">Reel</a>
+            <a id="direct-photo-card" href="/p/def/">Photo</a>
+            <div id="profile-reel-card"><a href="/creator/reels/ghi/">Profile Reel</a></div>
+            <div id="profile-photo-card"><a href="/creator/p/jkl/">Profile photo</a></div>
+            <div id="audio-card"><a href="/reels/audio/123/">Audio</a></div>
+        </div>
+    </main></body></html>`;
+    const session = await loadContentScript({
+        html,
+        url: "https://www.instagram.com/explore/",
+        settings: settingsWith({ hideExploreTab: true })
+    });
+    t.after(() => session.dom.window.close());
+    const { document } = session.dom.window;
+
+    assert.equal(document.querySelector("#direct-reel-card").dataset.nrfiHiddenExploreContent, "true");
+    assert.equal(document.querySelector("#direct-photo-card").dataset.nrfiHiddenExploreContent, "true");
+    assert.equal(document.querySelector("#profile-reel-card").dataset.nrfiHiddenExploreContent, "true");
+    assert.equal(document.querySelector("#profile-photo-card").dataset.nrfiHiddenExploreContent, "true");
+    assert.equal(document.querySelector("#audio-card").dataset.nrfiHiddenExploreContent, undefined);
+
+    await session.changeSetting("hideExploreTab", false);
+
+    assert.equal(document.querySelector("[data-nrfi-hidden-explore-content]"), null);
+
+    await session.changeSetting("hideSearchReels", true);
+
+    assert.equal(document.querySelector("#direct-reel-card").dataset.nrfiHiddenSearchReel, "true");
+    assert.equal(document.querySelector("#direct-photo-card").dataset.nrfiHiddenSearchReel, undefined);
+    assert.equal(document.querySelector("#profile-reel-card").dataset.nrfiHiddenSearchReel, "true");
+    assert.equal(document.querySelector("#profile-photo-card").dataset.nrfiHiddenSearchReel, undefined);
+    assert.equal(document.querySelector("#audio-card").dataset.nrfiHiddenSearchReel, undefined);
+
+    document.querySelector("#direct-reel-card").setAttribute("href", "/p/recycled-photo/");
+    await waitForObservers(session.dom.window);
+
+    assert.equal(document.querySelector("#direct-reel-card").dataset.nrfiHiddenSearchReel, undefined);
+    assert.equal(document.querySelector("#profile-reel-card").dataset.nrfiHiddenSearchReel, "true");
 
     await session.changeSetting("hideSearchReels", false);
-    assert.equal(document.querySelector("#reel-card").dataset.nrfiHiddenSearchReel, undefined);
+    assert.equal(document.querySelector("[data-nrfi-hidden-search-reel]"), null);
 });
 
 test("a collapsed Reel keeps only a compact author row and can be revealed once", async (t) => {

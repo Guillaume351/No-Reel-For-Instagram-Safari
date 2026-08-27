@@ -57,11 +57,11 @@
         "description": "Description du réglage Reels en recherche."
     },
     "toggle_hide_explore_title": {
-        "message": "Masquer l’onglet Découvrir",
+        "message": "Masquer Recherche / Explorer",
         "description": "Titre du réglage Découvrir."
     },
     "toggle_hide_explore_desc": {
-        "message": "Supprime l’icône loupe qui ouvre Découvrir.",
+        "message": "Supprime le raccourci et masque les Reels et publications recommandés dans Recherche et Explorer.",
         "description": "Description du réglage Découvrir."
     },
     "toggle_hide_suggested_posts_title": {

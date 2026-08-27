@@ -57,11 +57,11 @@
         "description": "Description for hiding Reel cards in Search."
     },
     "toggle_hide_explore_title": {
-        "message": "Hide Explore tab",
+        "message": "Hide Search / Explore",
         "description": "Title for hide Explore toggle."
     },
     "toggle_hide_explore_desc": {
-        "message": "Removes the magnifying glass shortcut to Explore.",
+        "message": "Removes the shortcut and hides recommended Reels and posts in Search and Explore.",
         "description": "Description for hide Explore toggle."
     },
     "toggle_hide_suggested_posts_title": {

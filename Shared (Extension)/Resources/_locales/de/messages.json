@@ -57,11 +57,11 @@
         "description": "Beschreibung für das Ausblenden von Reels in der Suche."
     },
     "toggle_hide_explore_title": {
-        "message": "Entdecken-Tab ausblenden",
+        "message": "Suche / Entdecken ausblenden",
         "description": "Titel der Entdecken-Option."
     },
     "toggle_hide_explore_desc": {
-        "message": "Entfernt das Lupen-Symbol für Entdecken.",
+        "message": "Entfernt den Schnellzugriff und blendet empfohlene Reels und Beiträge in Suche und Entdecken aus.",
         "description": "Beschreibung der Entdecken-Option."
     },
     "toggle_hide_suggested_posts_title": {

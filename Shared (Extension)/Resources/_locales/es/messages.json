@@ -57,11 +57,11 @@
         "description": "Descripción del ajuste de Reels en búsqueda."
     },
     "toggle_hide_explore_title": {
-        "message": "Ocultar pestaña Explorar",
+        "message": "Ocultar Buscar / Explorar",
         "description": "Título del ajuste de Explorar."
     },
     "toggle_hide_explore_desc": {
-        "message": "Quita el acceso con la lupa a Explorar.",
+        "message": "Quita el acceso directo y oculta Reels y publicaciones recomendadas en Buscar y Explorar.",
         "description": "Descripción del ajuste de Explorar."
     },
     "toggle_hide_suggested_posts_title": {
