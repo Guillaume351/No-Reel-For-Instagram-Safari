@@ -593,6 +593,9 @@ test("Search Reels classifies /p/ cards from Reel markers and observes marker hy
     assert.equal(document.querySelector("#reel-card").dataset.nrfiHiddenSearchReel, "true");
     assert.equal(document.querySelector("#photo-card").dataset.nrfiHiddenSearchReel, undefined);
     assert.equal(document.querySelector("#hydrated-card").dataset.nrfiHiddenSearchReel, undefined);
+    assert.equal(session.dom.window.getComputedStyle(document.querySelector("#reel-card")).visibility, "hidden");
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#reel-card")).display, "none");
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#photo-card")).visibility, "hidden");
 
     document.querySelector("#hydrated-marker").setAttribute("aria-label", "Reels");
     await waitForObservers(session.dom.window);
@@ -606,6 +609,8 @@ test("Search Reels classifies /p/ cards from Reel markers and observes marker hy
     assert.equal(document.querySelector("#reel-card").dataset.nrfiHiddenSearchReel, undefined);
     assert.equal(document.querySelector("#hydrated-card").dataset.nrfiHiddenSearchReel, "true");
     assert.equal(document.querySelector("#photo-card").dataset.nrfiHiddenSearchReel, undefined);
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#reel-card")).visibility, "hidden");
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#reel-card")).display, "none");
 });
 
 test("the Explore option hides recommended Reel and photo cards while Search Reels stays independent", async (t) => {
@@ -631,10 +636,14 @@ test("the Explore option hides recommended Reel and photo cards while Search Ree
     assert.equal(document.querySelector("#profile-reel-card").dataset.nrfiHiddenExploreContent, "true");
     assert.equal(document.querySelector("#profile-photo-card").dataset.nrfiHiddenExploreContent, "true");
     assert.equal(document.querySelector("#audio-card").dataset.nrfiHiddenExploreContent, undefined);
+    assert.equal(session.dom.window.getComputedStyle(document.querySelector("#direct-reel-card")).visibility, "hidden");
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#direct-reel-card")).display, "none");
 
     await session.changeSetting("hideExploreTab", false);
 
     assert.equal(document.querySelector("[data-nrfi-hidden-explore-content]"), null);
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#direct-reel-card")).visibility, "hidden");
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#direct-reel-card")).display, "none");
 
     await session.changeSetting("hideSearchReels", true);
 
@@ -652,6 +661,8 @@ test("the Explore option hides recommended Reel and photo cards while Search Ree
 
     await session.changeSetting("hideSearchReels", false);
     assert.equal(document.querySelector("[data-nrfi-hidden-search-reel]"), null);
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#profile-reel-card")).visibility, "hidden");
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#profile-reel-card")).display, "none");
 });
 
 test("a collapsed Reel keeps only a compact author row and can be revealed once", async (t) => {

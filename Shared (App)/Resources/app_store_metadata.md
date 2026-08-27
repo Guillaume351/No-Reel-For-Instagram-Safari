@@ -103,6 +103,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - Search and Explore filters stay active after in-page navigation and recycled grid updates.
 - A separate option can hide the entire recommended Search / Explore grid.
 - More reliable Reel detection on iPhone, iPad, and Mac.
+- Hidden cards keep their grid space, preventing Search / Explore from continuously loading more results.
 
 ## Nouveautés — 1.0.7 — Français
 
@@ -110,6 +111,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - Les filtres Recherche et Explorer restent actifs après les navigations internes et le recyclage de la grille.
 - Une option distincte permet de masquer toute la grille de recommandations Recherche / Explorer.
 - Détection des Reels plus fiable sur iPhone, iPad et Mac.
+- Les cartes masquées conservent leur espace dans la grille, ce qui empêche Recherche / Explorer de charger sans fin de nouveaux résultats.
 
 ## Novedades — 1.0.7 — Español
 
@@ -117,6 +119,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - Los filtros de Buscar y Explorar siguen activos tras la navegación interna y las actualizaciones de la cuadrícula.
 - Una opción independiente permite ocultar toda la cuadrícula de recomendaciones de Buscar / Explorar.
 - Detección de Reels más fiable en iPhone, iPad y Mac.
+- Las tarjetas ocultas conservan su espacio en la cuadrícula para evitar que Buscar / Explorar cargue resultados sin parar.
 
 ## Neu in Version 1.0.7 — Deutsch
 
@@ -124,6 +127,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - Die Filter für Suche und Entdecken bleiben nach interner Navigation und Rasteraktualisierungen aktiv.
 - Eine separate Option kann das gesamte Empfehlungsraster in Suche / Entdecken ausblenden.
 - Zuverlässigere Reel-Erkennung auf iPhone, iPad und Mac.
+- Ausgeblendete Karten behalten ihren Platz im Raster, damit Suche / Entdecken nicht fortlaufend weitere Ergebnisse lädt.
 
 ## الجديد في 1.0.7 — العربية
 
@@ -131,6 +135,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - تظل عوامل تصفية البحث والاستكشاف نشطة بعد التنقل داخل الصفحة وتحديثات الشبكة.
 - يتيح خيار منفصل إخفاء شبكة التوصيات الكاملة في البحث / الاستكشاف.
 - اكتشاف أكثر موثوقية للريلز على iPhone وiPad وMac.
+- تحتفظ البطاقات المخفية بمساحتها في الشبكة لمنع البحث / الاستكشاف من تحميل المزيد من النتائج باستمرار.
 
 ## Novedades — 1.0.7 — Español (México)
 
@@ -138,6 +143,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - Los filtros de Buscar y Explorar siguen activos tras la navegación interna y las actualizaciones de la cuadrícula.
 - Una opción independiente permite ocultar toda la cuadrícula de recomendaciones de Buscar / Explorar.
 - Detección de Reels más confiable en iPhone, iPad y Mac.
+- Las tarjetas ocultas conservan su espacio en la cuadrícula para evitar que Buscar / Explorar cargue resultados sin parar.
 
 ## 1.0.7 버전의 새로운 기능 — 한국어
 
@@ -145,6 +151,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - 페이지 내 이동과 그리드 업데이트 후에도 검색 및 탐색 필터가 계속 작동합니다.
 - 별도의 옵션으로 검색 / 탐색의 전체 추천 그리드를 숨길 수 있습니다.
 - iPhone, iPad 및 Mac에서 릴스를 더 안정적으로 감지합니다.
+- 숨긴 카드가 그리드 공간을 유지하여 검색 / 탐색이 결과를 계속 불러오는 현상을 방지합니다.
 
 ## Novidades — 1.0.7 — Português (Brasil)
 
@@ -152,6 +159,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - Os filtros de Busca e Explorar continuam ativos após a navegação interna e as atualizações da grade.
 - Uma opção separada permite ocultar toda a grade de recomendações de Busca / Explorar.
 - Detecção de Reels mais confiável no iPhone, iPad e Mac.
+- Os cartões ocultos mantêm seu espaço na grade, evitando que Busca / Explorar carregue resultados sem parar.
 
 ## Что нового — 1.0.7 — Русский
 
@@ -159,6 +167,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - Фильтры поиска и раздела «Интересное» остаются активными после навигации внутри страницы и обновлений сетки.
 - Отдельная настройка позволяет скрыть всю сетку рекомендаций в Поиске / Интересном.
 - Более надёжное распознавание Reels на iPhone, iPad и Mac.
+- Скрытые карточки сохраняют место в сетке, чтобы Поиск / Интересное не загружали результаты бесконечно.
 
 ## Có gì mới — 1.0.7 — Tiếng Việt
 
@@ -166,6 +175,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - Bộ lọc Tìm kiếm và Khám phá vẫn hoạt động sau khi điều hướng trong trang và cập nhật lưới.
 - Một tùy chọn riêng có thể ẩn toàn bộ lưới đề xuất trong Tìm kiếm / Khám phá.
 - Phát hiện Reels đáng tin cậy hơn trên iPhone, iPad và Mac.
+- Các thẻ bị ẩn vẫn giữ chỗ trong lưới, ngăn Tìm kiếm / Khám phá tải kết quả liên tục.
 
 ## 1.0.7 新功能 — 简体中文
 
@@ -173,6 +183,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - 页面内导航和网格更新后，搜索与探索过滤器仍会保持启用。
 - 可通过单独的选项隐藏搜索 / 探索中的整个推荐网格。
 - 在 iPhone、iPad 和 Mac 上更可靠地识别 Reels。
+- 隐藏的卡片会保留网格空间，防止搜索 / 探索不断加载更多结果。
 
 ## 1.0.7 新功能 — 繁體中文
 
@@ -180,6 +191,7 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 - 頁面內導覽和網格更新後，搜尋與探索篩選器仍會保持啟用。
 - 可透過獨立選項隱藏搜尋 / 探索中的整個推薦網格。
 - 在 iPhone、iPad 和 Mac 上更可靠地辨識 Reels。
+- 隱藏的卡片會保留網格空間，避免搜尋 / 探索不斷載入更多結果。
 
 ## Screenshot and Preview Plan
 
@@ -209,7 +221,7 @@ Review steps:
 
 The host app only provides activation instructions. The extension hides Reels navigation, Reel posts in Home, Reels cards in Search / Explore, Stories, the Search / Explore shortcut and recommendation grid, the home-feed For You tab, suggested posts, sponsored posts, and suggested accounts. No separate app account, analytics, advertising, or subscription is used. No demo account is required; reviewers may use their own Instagram account.
 
-Version 1.0.7 keeps Search / Explore filtering active across Instagram’s in-page navigation, recognizes Reel cards exposed through ordinary post URLs, and keeps the Reel-only filter separate from the optional full recommendation-grid filter.
+Version 1.0.7 keeps Search / Explore filtering active across Instagram’s in-page navigation, recognizes Reel cards exposed through ordinary post URLs, and keeps the Reel-only filter separate from the optional full recommendation-grid filter. Hidden cards preserve their grid geometry so Instagram does not continuously request replacement results.
 
 ## App Store Constraints and References
 

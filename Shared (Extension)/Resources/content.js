@@ -1087,7 +1087,9 @@ function createSearchSurfaceCardController(options) {
 
         const style = document.createElement("style");
         style.id = styleId;
-        style.textContent = `[${hiddenAttribute}="true"]{display:none!important;}`;
+        // Keep the grid item's geometry so Instagram does not continuously
+        // fetch more cards in an attempt to fill the viewport.
+        style.textContent = `[${hiddenAttribute}="true"]{visibility:hidden!important;pointer-events:none!important;}`;
         (document.head || document.documentElement).appendChild(style);
     }
 
