@@ -1,4 +1,4 @@
-# App Store Metadata — Version 1.0.6
+# App Store Metadata — Version 1.0.7
 
 The copy below describes the verified Safari extension behavior. It intentionally avoids claims about the Instagram app, iCloud sync, or controls in the host app.
 
@@ -10,7 +10,7 @@ The copy below describes the verified Safari extension behavior. It intentionall
 - Promotional text: Hide Reels, Stories, Explore, suggested and sponsored posts, and suggested accounts on Instagram Web in Safari.
 - Description:
 
-No Reel is a Safari extension for instagram.com on iPhone, iPad, and Mac. It hides Reels navigation, Reel posts in Home, Reels in Search and Explore, Stories, the Search / Explore shortcut, the “For You” feed tab, suggested posts, sponsored posts, and suggested accounts. It does not modify the Instagram app.
+No Reel is a Safari extension for instagram.com on iPhone, iPad, and Mac. It hides Reels navigation, Reel posts in Home, Reels in Search and Explore, Stories, the Search / Explore shortcut and recommendation grid, the “For You” feed tab, suggested posts, sponsored posts, and suggested accounts. It does not modify the Instagram app.
 
 Choose exactly what to hide from the extension button in Safari. Your choices are applied locally in the browser, with no separate app account, analytics, or advertising.
 
@@ -29,7 +29,7 @@ No subscription. No tracking. Just a calmer Instagram web experience.
 - Texte promotionnel : Masquez les Reels, Stories, contenus suggérés et sponsorisés, Explorer et comptes suggérés sur Instagram Web dans Safari.
 - Description :
 
-No Reel est une extension Safari pour instagram.com sur iPhone, iPad et Mac. Elle masque la navigation Reels, les Reels de l’accueil, de Recherche et d’Explorer, les Stories, le raccourci Recherche / Explorer, l’onglet « Pour vous », les publications suggérées et sponsorisées ainsi que les comptes suggérés. Elle ne modifie pas l’app Instagram.
+No Reel est une extension Safari pour instagram.com sur iPhone, iPad et Mac. Elle masque la navigation Reels, les Reels de l’accueil, de Recherche et d’Explorer, les Stories, le raccourci et la grille de recommandations Recherche / Explorer, l’onglet « Pour vous », les publications suggérées et sponsorisées ainsi que les comptes suggérés. Elle ne modifie pas l’app Instagram.
 
 Choisissez précisément les éléments à masquer depuis le bouton de l’extension dans Safari. Vos préférences sont appliquées localement dans le navigateur, sans compte distinct pour l’app, publicité ni outil d’analyse.
 
@@ -97,89 +97,89 @@ No Reel هو امتداد Safari لموقع instagram.com على iPhone وiPad �
 
 من دون اشتراك أو تتبع، لتجربة Instagram Web أكثر هدوءًا.
 
-## What’s New — 1.0.6 — English
+## What’s New — 1.0.7 — English
 
-- More reliable filtering for Reels, suggested posts, and sponsored posts on mobile.
-- Scrolling stays stable as Instagram loads or reuses posts.
-- New option to collapse Reels into a small row with the author and a Show button.
-- Reels and Search / Explore navigation shortcuts are hidden more consistently.
+- Search now hides Reels even when Instagram exposes them through ordinary post links.
+- Search and Explore filters stay active after in-page navigation and recycled grid updates.
+- A separate option can hide the entire recommended Search / Explore grid.
+- More reliable Reel detection on iPhone, iPad, and Mac.
 
-## Nouveautés — 1.0.6 — Français
+## Nouveautés — 1.0.7 — Français
 
-- Filtrage plus fiable des Reels et des publications suggérées ou sponsorisées sur mobile.
-- Le défilement reste stable quand Instagram charge ou réutilise des publications.
-- Nouvelle option pour replier les Reels dans une petite ligne avec l’auteur et un bouton d’affichage.
-- Les raccourcis Reels et Recherche / Explorer sont masqués plus fiablement.
+- La recherche masque désormais les Reels même lorsqu’Instagram les présente comme des publications ordinaires.
+- Les filtres Recherche et Explorer restent actifs après les navigations internes et le recyclage de la grille.
+- Une option distincte permet de masquer toute la grille de recommandations Recherche / Explorer.
+- Détection des Reels plus fiable sur iPhone, iPad et Mac.
 
-## Novedades — 1.0.6 — Español
+## Novedades — 1.0.7 — Español
 
-- Filtrado más fiable de Reels y publicaciones sugeridas o patrocinadas en móvil.
-- El desplazamiento se mantiene estable cuando Instagram carga o reutiliza publicaciones.
-- Nueva opción para plegar los Reels en una fila pequeña con el autor y un botón para mostrarlos.
-- Los accesos a Reels y Buscar / Explorar se ocultan de forma más fiable.
+- Buscar ahora oculta los Reels aunque Instagram los muestre como publicaciones normales.
+- Los filtros de Buscar y Explorar siguen activos tras la navegación interna y las actualizaciones de la cuadrícula.
+- Una opción independiente permite ocultar toda la cuadrícula de recomendaciones de Buscar / Explorar.
+- Detección de Reels más fiable en iPhone, iPad y Mac.
 
-## Neu in Version 1.0.6 — Deutsch
+## Neu in Version 1.0.7 — Deutsch
 
-- Zuverlässigere Filterung von Reels sowie vorgeschlagenen und gesponserten Beiträgen auf Mobilgeräten.
-- Scrollen bleibt stabil, wenn Instagram Beiträge lädt oder wiederverwendet.
-- Neue Option: Reels als kompakte Zeile mit Autor und einer Schaltfläche zum Anzeigen einklappen.
-- Reels- und Suche / Entdecken-Navigation wird zuverlässiger ausgeblendet.
+- Die Suche blendet Reels jetzt auch aus, wenn Instagram sie als normale Beitragslinks darstellt.
+- Die Filter für Suche und Entdecken bleiben nach interner Navigation und Rasteraktualisierungen aktiv.
+- Eine separate Option kann das gesamte Empfehlungsraster in Suche / Entdecken ausblenden.
+- Zuverlässigere Reel-Erkennung auf iPhone, iPad und Mac.
 
-## الجديد في 1.0.6 — العربية
+## الجديد في 1.0.7 — العربية
 
-- تصفية أكثر موثوقية للريلز والمنشورات المقترحة والممولة على الهاتف.
-- يبقى التمرير ثابتًا أثناء تحميل Instagram للمنشورات أو إعادة استخدامها.
-- خيار جديد لطي الريلز في سطر صغير يعرض الناشر وزرًا لإظهاره.
-- أصبح إخفاء اختصارات الريلز والبحث / الاستكشاف أكثر موثوقية.
+- يخفي البحث الآن الريلز حتى عندما يعرضها Instagram كروابط منشورات عادية.
+- تظل عوامل تصفية البحث والاستكشاف نشطة بعد التنقل داخل الصفحة وتحديثات الشبكة.
+- يتيح خيار منفصل إخفاء شبكة التوصيات الكاملة في البحث / الاستكشاف.
+- اكتشاف أكثر موثوقية للريلز على iPhone وiPad وMac.
 
-## Novedades — 1.0.6 — Español (México)
+## Novedades — 1.0.7 — Español (México)
 
-- Filtrado más confiable de Reels y publicaciones sugeridas o patrocinadas en dispositivos móviles.
-- El desplazamiento se mantiene estable cuando Instagram carga o reutiliza publicaciones.
-- Nueva opción para plegar los Reels en una fila pequeña con el autor y un botón para mostrarlos.
-- Los accesos a Reels y Buscar / Explorar se ocultan de forma más consistente.
+- Buscar ahora oculta los Reels aunque Instagram los muestre como publicaciones normales.
+- Los filtros de Buscar y Explorar siguen activos tras la navegación interna y las actualizaciones de la cuadrícula.
+- Una opción independiente permite ocultar toda la cuadrícula de recomendaciones de Buscar / Explorar.
+- Detección de Reels más confiable en iPhone, iPad y Mac.
 
-## 1.0.6 버전의 새로운 기능 — 한국어
+## 1.0.7 버전의 새로운 기능 — 한국어
 
-- 모바일에서 릴스와 추천 또는 스폰서 게시물 필터링이 더 안정적으로 작동합니다.
-- Instagram이 게시물을 불러오거나 재사용할 때도 스크롤 위치가 안정적으로 유지됩니다.
-- 릴스를 작성자와 표시 버튼이 있는 작은 줄로 접을 수 있는 새 옵션을 추가했습니다.
-- 릴스 및 검색 / 탐색 바로가기를 더 일관되게 숨깁니다.
+- Instagram이 릴스를 일반 게시물 링크로 표시하는 경우에도 검색에서 숨깁니다.
+- 페이지 내 이동과 그리드 업데이트 후에도 검색 및 탐색 필터가 계속 작동합니다.
+- 별도의 옵션으로 검색 / 탐색의 전체 추천 그리드를 숨길 수 있습니다.
+- iPhone, iPad 및 Mac에서 릴스를 더 안정적으로 감지합니다.
 
-## Novidades — 1.0.6 — Português (Brasil)
+## Novidades — 1.0.7 — Português (Brasil)
 
-- Filtragem mais confiável de Reels e publicações sugeridas ou patrocinadas no celular.
-- A rolagem permanece estável quando o Instagram carrega ou reutiliza publicações.
-- Nova opção para recolher Reels em uma pequena linha com o autor e um botão para exibi-los.
-- Os atalhos de Reels e Busca / Explorar são ocultados com mais consistência.
+- A Busca agora oculta Reels mesmo quando o Instagram os apresenta como links de publicações comuns.
+- Os filtros de Busca e Explorar continuam ativos após a navegação interna e as atualizações da grade.
+- Uma opção separada permite ocultar toda a grade de recomendações de Busca / Explorar.
+- Detecção de Reels mais confiável no iPhone, iPad e Mac.
 
-## Что нового — 1.0.6 — Русский
+## Что нового — 1.0.7 — Русский
 
-- Более надёжная фильтрация Reels, рекомендованных и рекламных публикаций на мобильных устройствах.
-- Прокрутка остаётся стабильной, когда Instagram загружает или повторно использует публикации.
-- Новая возможность сворачивать Reels в компактную строку с автором и кнопкой показа.
-- Ярлыки Reels и Поиск / Интересное скрываются надёжнее.
+- Поиск теперь скрывает Reels, даже если Instagram показывает их как обычные ссылки на публикации.
+- Фильтры поиска и раздела «Интересное» остаются активными после навигации внутри страницы и обновлений сетки.
+- Отдельная настройка позволяет скрыть всю сетку рекомендаций в Поиске / Интересном.
+- Более надёжное распознавание Reels на iPhone, iPad и Mac.
 
-## Có gì mới — 1.0.6 — Tiếng Việt
+## Có gì mới — 1.0.7 — Tiếng Việt
 
-- Lọc Reels, bài viết gợi ý và được tài trợ trên thiết bị di động đáng tin cậy hơn.
-- Vị trí cuộn luôn ổn định khi Instagram tải hoặc tái sử dụng bài viết.
-- Tùy chọn mới để thu gọn Reels thành một hàng nhỏ có tên tác giả và nút hiển thị.
-- Các lối tắt Reels và Tìm kiếm / Khám phá được ẩn nhất quán hơn.
+- Tìm kiếm giờ đây ẩn Reels ngay cả khi Instagram hiển thị chúng dưới dạng liên kết bài viết thông thường.
+- Bộ lọc Tìm kiếm và Khám phá vẫn hoạt động sau khi điều hướng trong trang và cập nhật lưới.
+- Một tùy chọn riêng có thể ẩn toàn bộ lưới đề xuất trong Tìm kiếm / Khám phá.
+- Phát hiện Reels đáng tin cậy hơn trên iPhone, iPad và Mac.
 
-## 1.0.6 新功能 — 简体中文
+## 1.0.7 新功能 — 简体中文
 
-- 移动端对 Reels、推荐内容和赞助内容的过滤更可靠。
-- Instagram 加载或复用帖子时，滚动位置保持稳定。
-- 新增将 Reels 折叠为小栏的选项，可显示作者并提供显示按钮。
-- 更稳定地隐藏 Reels 以及搜索 / 探索导航入口。
+- 即使 Instagram 将 Reels 显示为普通帖子链接，搜索也会将其隐藏。
+- 页面内导航和网格更新后，搜索与探索过滤器仍会保持启用。
+- 可通过单独的选项隐藏搜索 / 探索中的整个推荐网格。
+- 在 iPhone、iPad 和 Mac 上更可靠地识别 Reels。
 
-## 1.0.6 新功能 — 繁體中文
+## 1.0.7 新功能 — 繁體中文
 
-- 行動版對 Reels、推薦貼文和贊助貼文的篩選更加可靠。
-- Instagram 載入或重複使用貼文時，捲動位置保持穩定。
-- 新增將 Reels 收合為小列的選項，可顯示作者並提供顯示按鈕。
-- 更穩定地隱藏 Reels 以及搜尋 / 探索導覽入口。
+- 即使 Instagram 將 Reels 顯示為一般貼文連結，搜尋也會將其隱藏。
+- 頁面內導覽和網格更新後，搜尋與探索篩選器仍會保持啟用。
+- 可透過獨立選項隱藏搜尋 / 探索中的整個推薦網格。
+- 在 iPhone、iPad 和 Mac 上更可靠地辨識 Reels。
 
 ## Screenshot and Preview Plan
 
@@ -197,7 +197,7 @@ Optional preview: a localized video under 30 seconds showing one toggle and its 
 
 Yes — it works on instagram.com in Safari, not inside the Instagram app. Install it, enable the Safari extension, allow instagram.com, then choose what to hide from Safari’s toolbar.
 
-## App Review Notes — 1.0.6
+## App Review Notes — 1.0.7
 
 No Reel For Instagram is a Safari Web Extension for instagram.com; it does not modify the native Instagram app.
 
@@ -207,9 +207,9 @@ Review steps:
 3. Sign in to instagram.com in Safari.
 4. Open Safari’s extension menu and toggle the available filters. Changes apply immediately to open Instagram tabs.
 
-The host app only provides activation instructions. The extension hides Reels navigation, Reel posts in Home, Reels cards in Search / Explore, Stories, the Search / Explore shortcut, the home-feed For You tab, suggested posts, sponsored posts, and suggested accounts. No separate app account, analytics, advertising, or subscription is used. No demo account is required; reviewers may use their own Instagram account.
+The host app only provides activation instructions. The extension hides Reels navigation, Reel posts in Home, Reels cards in Search / Explore, Stories, the Search / Explore shortcut and recommendation grid, the home-feed For You tab, suggested posts, sponsored posts, and suggested accounts. No separate app account, analytics, advertising, or subscription is used. No demo account is required; reviewers may use their own Instagram account.
 
-Version 1.0.6 improves mobile filtering and navigation, keeps scrolling stable as Instagram loads or reuses feed posts, keeps ordinary photo posts visible, adds separate suggested and sponsored post filters, and offers an optional compact Reel row with its author and a reveal button.
+Version 1.0.7 keeps Search / Explore filtering active across Instagram’s in-page navigation, recognizes Reel cards exposed through ordinary post URLs, and keeps the Reel-only filter separate from the optional full recommendation-grid filter.
 
 ## App Store Constraints and References
 
