@@ -839,6 +839,13 @@ function createNavLinkController(options) {
             return true;
         }
 
+        // A content/profile destination takes precedence over its label. Shared
+        // Reels in Stories also say "Reels", but are not navigation controls.
+        const href = control.getAttribute("href")?.trim();
+        if (href && !href.startsWith("#")) {
+            return false;
+        }
+
         const labels = [
             control.textContent,
             control.getAttribute("aria-label"),
