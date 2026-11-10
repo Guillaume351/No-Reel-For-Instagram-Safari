@@ -11,6 +11,15 @@
 		<string>es</string>
 		<string>de</string>
 		<string>ar</string>
+		<string>ja</string>
+		<string>it</string>
+		<string>nl</string>
+		<string>tr</string>
+		<string>pl</string>
+		<string>sv</string>
+		<string>da</string>
+		<string>nb</string>
+		<string>fi</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

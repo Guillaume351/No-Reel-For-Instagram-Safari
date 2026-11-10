@@ -1,0 +1,45 @@
+{
+    "title": "Kom igång",
+    "contact": {
+        "title": "Kontakt",
+        "description": "Frågor eller feedback? Mejla mig på"
+    },
+    "ios": {
+        "intro": "Instagram utan de distraktioner du väljer att dölja.",
+        "steps": [
+            "Öppna Inställningar, leta upp Safari (under Appar i nyare iOS-versioner) och sedan Tillägg.",
+            "Aktivera No Reel For Instagram och tillåt åtkomst till instagram.com.",
+            "Öppna instagram.com i Safari. Öppna tilläggsmenyn, välj dina filter och läs sedan in sidan igen."
+        ],
+        "video": {
+            "title": "Se installationsvideon för iOS",
+            "cta": "Öppna guiden i Safari"
+        }
+    },
+    "mac": {
+        "stateOn": "Tillägget är aktiverat. Tillåt instagram.com i Safari och kontrollera sedan dina filter på webbplatsen.",
+        "stateOff": "No Reel For Instagram är avstängt. Aktivera det i Safari ▸ Inställningar ▸ Tillägg.",
+        "stateUnknown": "Aktivera No Reel For Instagram i Safari ▸ Inställningar ▸ Tillägg.",
+        "openPreferences": "Avsluta och öppna Safari-inställningar…",
+        "steps": [
+            "Öppna Safari ▸ Inställningar ▸ Tillägg.",
+            "Markera ”No Reel For Instagram” och ge det åtkomst till instagram.com.",
+            "Läs in instagram.com igen för att tillämpa dina inställningar."
+        ],
+        "preferencesError": "Safari kunde inte öppna inställningarna för tillägg. Öppna Safari > Inställningar > Tillägg och välj No Reel For Instagram."
+    },
+    "scope": "Använd instagram.com i Safari. No Reel ändrar inte Instagram-appen. Vissa funktioner i appen, bland annat vissa alternativ för publicering och notiser, kanske inte finns på webbplatsen.",
+    "wellbeing": {
+        "title": "Instagram utan de distraktioner du väljer att dölja.",
+        "body": "Använd instagram.com i Safari. No Reel ändrar inte Instagram-appen. Vissa funktioner i appen, bland annat vissa alternativ för publicering och notiser, kanske inte finns på webbplatsen."
+    },
+    "recovery": {
+        "title": "Behöver du hjälp?",
+        "scope": "No Reel fungerar på instagram.com i Safari. Det kan inte ändra Instagram-appen eller andra webbläsare.",
+        "steps": [
+            "Händer ingenting? Kontrollera att tillägget är aktiverat och tillåtet på instagram.com och läs sedan in Safari-fliken igen.",
+            "Döljs för mycket? Välj Visa allt i popup-fönstret för No Reel i Safari. ”Behåll en hopfälld Reel-rad” behålls. Ångra återställer dina tidigare val så länge popup-fönstret är öppet. Du kan också aktivera filtren ett i taget.",
+            "Fortfarande problem? Stäng av tillägget för instagram.com och läs in sidan igen för att jämföra. Kontakta mig och ange enhet, Safari-version, sida och berört filter. Skicka inte lösenord eller privata meddelanden."
+        ]
+    }
+}

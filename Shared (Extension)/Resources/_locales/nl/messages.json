@@ -1,0 +1,203 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Verberg Reels, verhalen, Ontdekken, suggesties en gesponsorde berichten op Instagram Web.",
+        "description": "Description of what the extension does."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Heading for the popup window."
+    },
+    "popup_subtitle": {
+        "message": "Kies welke afleidingen op Instagram je wilt verbergen.",
+        "description": "Subtitle explaining the popup purpose."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Reels-tab verbergen",
+        "description": "Title for hide Reels toggle."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Verwijdert de Reels-snelkoppeling uit de navigatie.",
+        "description": "Description for hide Reels toggle."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Ingeklapte Reel-rij behouden",
+        "description": "Title for the compact Reel row sub-option."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Toont de maker en een knop Toch tonen, zonder de video te laden.",
+        "description": "Description for the compact Reel row sub-option."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reel verborgen",
+        "description": "Label displayed in place of a hidden Home Reel."
+    },
+    "hidden_reel_from": {
+        "message": "Reel van $AUTHOR$",
+        "description": "Label for a collapsed Reel with its author.",
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
+    },
+    "hidden_post_placeholder": {
+        "message": "Bericht verborgen",
+        "description": "Label for a compact hidden Home post."
+    },
+    "show_reel_anyway": {
+        "message": "Toch tonen",
+        "description": "Button that reveals one collapsed Reel."
+    },
+    "toggle_hide_search_reels_title": {
+        "message": "Reels in Zoeken verbergen",
+        "description": "Title for hiding Reel cards in Search."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Verwijdert Reel-kaarten uit Zoeken en Ontdekken.",
+        "description": "Description for hiding Reel cards in Search."
+    },
+    "toggle_hide_explore_title": {
+        "message": "Snelkoppeling Zoeken / Ontdekken verbergen",
+        "description": "Title for hide Explore toggle."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Verwijdert de snelkoppelingen naar Zoeken en Ontdekken uit de navigatie.",
+        "description": "Description for hide Explore toggle."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Voorgestelde berichten verbergen",
+        "description": "Title for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Verbergt aanbevolen berichten en schakelt de startpagina indien mogelijk over naar Volgend.",
+        "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Gesponsorde berichten verbergen",
+        "description": "Title for hide sponsored posts toggle."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Verwijdert berichten met het label Gesponsord uit je feed.",
+        "description": "Description for hide sponsored posts toggle."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Voorgestelde accounts verbergen",
+        "description": "Title for hide suggested users toggle."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Verwijdert voorgestelde personen en carrousels.",
+        "description": "Description for hide suggested users toggle."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Verhalenbalk verbergen",
+        "description": "Title for hide stories toggle."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Verwijdert de carrousel met verhalen boven aan je feed.",
+        "description": "Description for hide stories toggle."
+    },
+    "status_loading": {
+        "message": "Instellingen laden…",
+        "description": "Status message while settings load."
+    },
+    "status_saving": {
+        "message": "Opslaan…",
+        "description": "Status message while saving."
+    },
+    "status_success": {
+        "message": "Klaar!",
+        "description": "Status message when save completes."
+    },
+    "status_load_error": {
+        "message": "Je instellingen konden niet worden gelezen. Laad ze opnieuw voordat je filters wijzigt."
+    },
+    "status_save_error": {
+        "message": "Kan wijzigingen niet opslaan.",
+        "description": "Error when save fails."
+    },
+    "hint_autosave": {
+        "message": "Wijzigingen worden direct bewaard en toegepast op open instagram.com-tabbladen.",
+        "description": "Hint beneath toggles."
+    },
+    "instructions_title": {
+        "message": "Aan de slag",
+        "description": "Heading for instructions section."
+    },
+    "instructions_step1": {
+        "message": "Schakel No Reel For Instagram in Safari in: open op de Mac Safari ▸ Instellingen ▸ Extensies; ga op iPhone/iPad naar Instellingen ▸ Apps ▸ Safari ▸ Extensies.",
+        "description": "First instruction step."
+    },
+    "instructions_step2": {
+        "message": "Open instagram.com en log in. Laad tabbladen die al open staan opnieuw.",
+        "description": "Second instruction step."
+    },
+    "instructions_step3": {
+        "message": "Zet functies in deze pop-up aan of uit wanneer je een rustigere feed wilt.",
+        "description": "Third instruction step."
+    },
+    "instructions_note": {
+        "message": "Tip: gebruik je privénavigatie? Sta Safari dan toe de extensie daar ook uit te voeren.",
+        "description": "Extra instructions note."
+    },
+    "contact_title": {
+        "message": "Contact",
+        "description": "Heading for contact section."
+    },
+    "contact_description": {
+        "message": "Vragen of feedback? Mail me op",
+        "description": "Sentence before the email link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Label for email link.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    },
+    "restore_content_title": {
+        "message": "Alles tonen"
+    },
+    "restore_content_desc": {
+        "message": "Zet actieve filters uit. Met Ongedaan maken herstel je je vorige keuzes zolang deze pop-up open blijft. “Ingeklapte Reel-rij behouden” blijft behouden. Alleen Instagram Web in Safari."
+    },
+    "status_restored": {
+        "message": "Filters staan uit. “Ingeklapte Reel-rij behouden” blijft behouden. Je kunt het hier ongedaan maken of de pagina zo nodig opnieuw laden."
+    },
+    "undo_restore": {
+        "message": "Ongedaan maken"
+    },
+    "status_undone": {
+        "message": "Je vorige filterkeuzes zijn hersteld."
+    },
+    "retry_settings": {
+        "message": "Instellingen opnieuw laden"
+    },
+    "popup_locale": {
+        "message": "nl"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Reels op startpagina verbergen",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Verbergt Reels in je feed op de startpagina, los van de Reels-tab.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Aanbevelingen in Ontdekken verbergen",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Verbergt aanbevolen foto's en Reels op ontdekpagina's; handmatig zoeken blijft mogelijk.",
+        "description": "Independent navigation and content filter setting."
+    }
+}

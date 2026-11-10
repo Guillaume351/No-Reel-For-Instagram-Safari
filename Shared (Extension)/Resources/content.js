@@ -17,7 +17,8 @@ const storageCandidates = (() => {
     if (storage.sync && typeof storage.sync.get === "function") {
         candidates.push({ name: "sync", area: storage.sync });
     }
-    if (storage.local && typeof storage.local.get === "function") {
+    // Match popup/background: never read a different area after a sync error.
+    else if (storage.local && typeof storage.local.get === "function") {
         candidates.push({ name: "local", area: storage.local });
     }
     return candidates;
@@ -35,9 +36,11 @@ const NAV_STYLE_ID = "nrfi-nav-style";
 
 const defaultSettings = Object.freeze({
     hideReels: true,
+    hideFeedReels: true,
     keepReelsCollapsed: true,
     hideSearchReels: true,
     hideExploreTab: true,
+    hideExploreRecommendations: true,
     hideSuggestedPosts: true,
     hideSponsoredPosts: true,
     hideSuggestedUsers: true,
@@ -711,6 +714,8 @@ async function storageGet(keys) {
         ? [activeStorage, ...storageCandidates.filter((candidate) => candidate !== activeStorage)]
         : storageCandidates;
 
+    if (attempts.length === 0) throw new Error("storage unavailable");
+
     let lastError = null;
 
     for (const candidate of attempts) {
@@ -734,10 +739,23 @@ async function storageGet(keys) {
     return {};
 }
 
+function migrateCombinedSettings(settings = {}) {
+    const migrated = { ...settings };
+    for (const [key, legacyKey] of [
+        ["hideFeedReels", "hideReels"],
+        ["hideExploreRecommendations", "hideExploreTab"]
+    ]) {
+        if (typeof migrated[key] === "undefined" && typeof settings[legacyKey] === "boolean") {
+            migrated[key] = settings[legacyKey];
+        }
+    }
+    return migrated;
+}
+
 async function loadSettingsDirectly() {
     try {
         const stored = await storageGet(Object.keys(defaultSettings));
-        return { ...defaultSettings, ...stored };
+        return { ...defaultSettings, ...migrateCombinedSettings(stored) };
     } catch (error) {
         console.warn("No Reel For Instagram: storage.get failed while reading settings", error);
         return { ...defaultSettings };
@@ -837,6 +855,13 @@ function createNavLinkController(options) {
         const pathname = linkPathname(control).toLowerCase();
         if (linkPatterns.some((pattern) => pattern.test(pathname))) {
             return true;
+        }
+
+        // A content/profile destination takes precedence over its label. Shared
+        // Reels in Stories also say "Reels", but are not navigation controls.
+        const href = control.getAttribute("href")?.trim();
+        if (href && !href.startsWith("#")) {
+            return false;
         }
 
         const labels = [
@@ -1029,12 +1054,8 @@ function createNavLinkController(options) {
     };
 }
 
-function createReelsController() {
-    const navigationController = createNavLinkController({
-        linkPatterns: [/^\/reels\/?$/i],
-        labelKeywords: ["reels"]
-    });
-    const feedController = createArticleFilterController({
+function createFeedReelsController() {
+    return createArticleFilterController({
         styleId: "nrfi-feed-reels-style",
         hiddenAttribute: "data-nrfi-hidden-feed-reel",
         reason: "reel",
@@ -1045,23 +1066,20 @@ function createReelsController() {
         // permalink proves that the node now represents different content.
         retainHiddenWhileIndeterminate: (article) => !articleHasPermalink(article, ["p"])
     });
-
-    return {
-        enable() {
-            navigationController.enable();
-            feedController.enable();
-        },
-        disable() {
-            navigationController.disable();
-            feedController.disable();
-        }
-    };
 }
 
-function createSearchReelsController() {
+function createSearchSurfaceCardController(options) {
+    const {
+        kinds = ["reel"],
+        styleId,
+        hiddenAttribute,
+        recommendationsOnly = false
+    } = options || {};
     const hiddenElements = new Set();
     let observer = null;
-    const styleId = "nrfi-search-reels-style";
+    let routeTimer = null;
+    let lastRouteSignature = "";
+    let started = false;
     const SEARCH_PATH_PATTERNS = [/^\/explore(\/|$)/i, /^\/search(\/|$)/i];
 
     function isSearchSurfacePath() {
@@ -1070,6 +1088,13 @@ function createSearchReelsController() {
         }
 
         const path = window.location.pathname || "";
+        if (recommendationsOnly) {
+            // Keep intentional searches (keywords, tags and places) available.
+            // Only the empty discovery landing grid contains recommendations.
+            const query = new URLSearchParams(window.location.search || "");
+            return /^\/(?:explore|search)\/?$/i.test(path)
+                && !["q", "query", "search"].some((key) => query.get(key)?.trim());
+        }
         return SEARCH_PATH_PATTERNS.some((pattern) => pattern.test(path));
     }
 
@@ -1080,17 +1105,62 @@ function createSearchReelsController() {
 
         const style = document.createElement("style");
         style.id = styleId;
-        style.textContent = "[data-nrfi-hidden-search-reel=\"true\"]{display:none!important;}";
+        // Keep the grid item's geometry so Instagram does not continuously
+        // fetch more cards in an attempt to fill the viewport.
+        style.textContent = `[${hiddenAttribute}="true"]{visibility:hidden!important;pointer-events:none!important;}`;
         (document.head || document.documentElement).appendChild(style);
     }
 
     function clearHidden() {
         hiddenElements.forEach((element) => {
             if (element instanceof HTMLElement) {
-                delete element.dataset.nrfiHiddenSearchReel;
+                element.removeAttribute(hiddenAttribute);
             }
         });
         hiddenElements.clear();
+    }
+
+    function pruneHidden() {
+        hiddenElements.forEach((element) => {
+            if (!(element instanceof HTMLElement) || !element.isConnected) {
+                hiddenElements.delete(element);
+            }
+        });
+    }
+
+    function elementHasContentPermalink(element) {
+        if (!(element instanceof HTMLElement)) {
+            return false;
+        }
+
+        if (element.matches("a[href]") && isContentPermalink(element)) {
+            return true;
+        }
+
+        return Array.from(element.querySelectorAll("a[href]")).some((anchor) => (
+            isContentPermalink(anchor)
+        ));
+    }
+
+    function linkHasReelMarker(link) {
+        if (!(link instanceof HTMLElement)) {
+            return false;
+        }
+
+        return Array.from(link.querySelectorAll("[aria-label]")).some((marker) => {
+            const label = normalizeLabel(marker.getAttribute("aria-label"));
+            return label === "reel" || label === "reels";
+        });
+    }
+
+    function matchesCard(link) {
+        if (isContentPermalink(link, kinds)) {
+            return true;
+        }
+
+        return kinds.includes("reel")
+            && isContentPermalink(link, ["p"])
+            && linkHasReelMarker(link);
     }
 
     function findHideTarget(link) {
@@ -1110,14 +1180,12 @@ function createSearchReelsController() {
                 break;
             }
 
-            if (parent.matches("main, [role='main'], [role='feed']")) {
+            if (parent.matches("main, [role='main'], [role='feed']")
+                || parent.querySelector('input, [role="search"], [role="searchbox"]')) {
                 break;
             }
 
-            const siblingCards = Array.from(parent.children).filter((candidate) => (
-                candidate instanceof HTMLElement
-                && Array.from(candidate.querySelectorAll("a[href]")).some((anchor) => isContentPermalink(anchor))
-            ));
+            const siblingCards = Array.from(parent.children).filter(elementHasContentPermalink);
 
             if (siblingCards.length >= 2) {
                 return current;
@@ -1126,20 +1194,20 @@ function createSearchReelsController() {
             current = parent;
         }
 
-        return link;
+        return current instanceof HTMLElement ? current : link;
     }
 
-    function hideReelCard(link) {
+    function hideCard(link) {
         if (!(link instanceof HTMLElement)) {
             return;
         }
 
         const target = findHideTarget(link);
-        if (!(target instanceof HTMLElement) || target.dataset.nrfiHiddenSearchReel === "true") {
+        if (!(target instanceof HTMLElement) || target.getAttribute(hiddenAttribute) === "true") {
             return;
         }
 
-        target.dataset.nrfiHiddenSearchReel = "true";
+        target.setAttribute(hiddenAttribute, "true");
         hiddenElements.add(target);
     }
 
@@ -1149,8 +1217,8 @@ function createSearchReelsController() {
             return;
         }
 
-        if (root instanceof HTMLAnchorElement && isContentPermalink(root, ["reel"])) {
-            hideReelCard(root);
+        if (root instanceof HTMLAnchorElement && matchesCard(root)) {
+            hideCard(root);
         }
 
         if (!(root instanceof HTMLElement || root instanceof Document || root instanceof DocumentFragment)) {
@@ -1158,29 +1226,57 @@ function createSearchReelsController() {
         }
 
         root.querySelectorAll?.("a[href]").forEach((candidate) => {
-            if (isContentPermalink(candidate, ["reel"])) {
-                hideReelCard(candidate);
+            if (matchesCard(candidate)) {
+                hideCard(candidate);
             }
         });
     }
 
-    function start() {
+    function routeSignature() {
+        if (typeof window === "undefined" || !window.location) {
+            return "";
+        }
+
+        return `${window.location.pathname || ""}${window.location.search || ""}${window.location.hash || ""}`;
+    }
+
+    function disconnectObserver() {
+        if (observer) {
+            observer.disconnect();
+            observer = null;
+        }
+    }
+
+    function connectObserver() {
         if (observer) {
             return;
         }
 
-        ensureStyle();
-        sweep(document);
-
         observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.type === "attributes" && mutation.target instanceof HTMLElement) {
-                    sweep(mutation.target);
-                }
+            if (syncRoute()) {
+                return;
+            }
 
+            pruneHidden();
+            const hiddenSelector = `[${hiddenAttribute}="true"]`;
+            const requiresReclassification = mutations.some((mutation) => (
+                mutation.type === "attributes"
+                || (mutation.target instanceof HTMLElement && Boolean(mutation.target.closest(hiddenSelector)))
+            ));
+
+            if (requiresReclassification) {
+                clearHidden();
+                sweep(document);
+                return;
+            }
+
+            mutations.forEach((mutation) => {
                 mutation.addedNodes.forEach((node) => {
                     if (node instanceof HTMLElement || node instanceof DocumentFragment) {
                         sweep(node);
+                        if (node.parentElement instanceof HTMLElement) {
+                            sweep(node.parentElement);
+                        }
                     }
                 });
             });
@@ -1188,17 +1284,64 @@ function createSearchReelsController() {
 
         observer.observe(document.body || document.documentElement, {
             attributes: true,
-            attributeFilter: ["href"],
+            attributeFilter: ["href", "aria-label"],
             childList: true,
             subtree: true
         });
     }
 
-    function stop() {
-        if (observer) {
-            observer.disconnect();
-            observer = null;
+    function syncRoute(force = false) {
+        const nextRouteSignature = routeSignature();
+        if (!force && nextRouteSignature === lastRouteSignature) {
+            return false;
         }
+
+        lastRouteSignature = nextRouteSignature;
+        clearHidden();
+        if (isSearchSurfacePath()) {
+            connectObserver();
+            sweep(document);
+        } else {
+            disconnectObserver();
+        }
+        return true;
+    }
+
+    function handleRouteEvent() {
+        syncRoute(true);
+    }
+
+    function start() {
+        if (started) {
+            return;
+        }
+
+        started = true;
+        ensureStyle();
+        window.addEventListener("pageshow", handleRouteEvent);
+        window.addEventListener("popstate", handleRouteEvent);
+        window.addEventListener("hashchange", handleRouteEvent);
+        // Instagram changes routes with history.pushState from the page world.
+        // Safari content scripts run in an isolated world, so a pathname-only
+        // poll is the reliable low-cost fallback for already-mounted grids.
+        routeTimer = window.setInterval(() => syncRoute(), 400);
+        lastRouteSignature = "";
+        syncRoute(true);
+    }
+
+    function stop() {
+        started = false;
+        disconnectObserver();
+
+        if (routeTimer !== null) {
+            window.clearInterval(routeTimer);
+            routeTimer = null;
+        }
+
+        window.removeEventListener("pageshow", handleRouteEvent);
+        window.removeEventListener("popstate", handleRouteEvent);
+        window.removeEventListener("hashchange", handleRouteEvent);
+        lastRouteSignature = "";
 
         clearHidden();
 
@@ -1214,7 +1357,15 @@ function createSearchReelsController() {
     };
 }
 
-function createExploreController() {
+function createSearchReelsController() {
+    return createSearchSurfaceCardController({
+        kinds: ["reel"],
+        styleId: "nrfi-search-reels-style",
+        hiddenAttribute: "data-nrfi-hidden-search-reel"
+    });
+}
+
+function createExploreNavigationController() {
     return createNavLinkController({
         linkPatterns: [/^\/explore\/?$/i, /^\/search\/?$/i],
         labelKeywords: [
@@ -1230,6 +1381,15 @@ function createExploreController() {
             "esplora",
             "buscar"
         ]
+    });
+}
+
+function createExploreRecommendationsController() {
+    return createSearchSurfaceCardController({
+        kinds: ["p", "reel"],
+        styleId: "nrfi-explore-content-style",
+        hiddenAttribute: "data-nrfi-hidden-explore-content",
+        recommendationsOnly: true
     });
 }
 
@@ -2314,10 +2474,15 @@ function createCollapsedReelsPreferenceController() {
 }
 
 const controllers = {
-    hideReels: createReelsController(),
+    hideReels: createNavLinkController({
+        linkPatterns: [/^\/reels\/?$/i],
+        labelKeywords: ["reels"]
+    }),
+    hideFeedReels: createFeedReelsController(),
     keepReelsCollapsed: createCollapsedReelsPreferenceController(),
     hideSearchReels: createSearchReelsController(),
-    hideExploreTab: createExploreController(),
+    hideExploreTab: createExploreNavigationController(),
+    hideExploreRecommendations: createExploreRecommendationsController(),
     hideSuggestedPosts: createSuggestedPostsController(),
     hideSponsoredPosts: createSponsoredPostsController(),
     hideSuggestedUsers: createSuggestedUsersController(),
@@ -2336,6 +2501,7 @@ async function requestSettings() {
 }
 
 function applySettings(settings) {
+    settings = migrateCombinedSettings(settings);
     const sanitized = {};
 
     for (const [key, defaultValue] of Object.entries(defaultSettings)) {

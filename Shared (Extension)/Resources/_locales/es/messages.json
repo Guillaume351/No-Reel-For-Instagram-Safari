@@ -16,11 +16,11 @@
         "description": "Subtítulo de la ventana emergente."
     },
     "toggle_hide_reels_title": {
-        "message": "Ocultar Reels",
+        "message": "Ocultar la pestaña Reels",
         "description": "Título del ajuste de Reels."
     },
     "toggle_hide_reels_desc": {
-        "message": "Elimina la navegación Reels y los Reels de Inicio.",
+        "message": "Elimina el acceso a Reels de la navegación.",
         "description": "Descripción del ajuste de Reels."
     },
     "toggle_keep_reels_collapsed_title": {
@@ -38,7 +38,11 @@
     "hidden_reel_from": {
         "message": "Reel de $AUTHOR$",
         "description": "Etiqueta de un Reel plegado con su autor.",
-        "placeholders": { "author": { "content": "$1" } }
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
     },
     "hidden_post_placeholder": {
         "message": "Publicación oculta",
@@ -57,11 +61,11 @@
         "description": "Descripción del ajuste de Reels en búsqueda."
     },
     "toggle_hide_explore_title": {
-        "message": "Ocultar pestaña Explorar",
+        "message": "Ocultar el acceso a Buscar / Explorar",
         "description": "Título del ajuste de Explorar."
     },
     "toggle_hide_explore_desc": {
-        "message": "Quita el acceso con la lupa a Explorar.",
+        "message": "Elimina los accesos de navegación a Buscar y Explorar.",
         "description": "Descripción del ajuste de Explorar."
     },
     "toggle_hide_suggested_posts_title": {
@@ -109,8 +113,7 @@
         "description": "Mensaje de éxito."
     },
     "status_load_error": {
-        "message": "No se pudo acceder a la extensión. Inténtalo de nuevo.",
-        "description": "Error al cargar."
+        "message": "No se han podido leer tus ajustes. Vuelve a leerlos antes de cambiar los filtros."
     },
     "status_save_error": {
         "message": "No se pudieron guardar los cambios.",
@@ -156,5 +159,45 @@
                 "content": "$1"
             }
         }
+    },
+    "restore_content_title": {
+        "message": "Mostrar todo"
+    },
+    "restore_content_desc": {
+        "message": "Desactiva los filtros activos. Deshacer restaura tus ajustes mientras este panel siga abierto. Se conserva «Mantener una fila de Reel plegada». Solo Instagram Web en Safari."
+    },
+    "status_restored": {
+        "message": "Los filtros están desactivados. Se conserva «Mantener una fila de Reel plegada». Puedes deshacer aquí o recargar la página si hace falta."
+    },
+    "undo_restore": {
+        "message": "Deshacer"
+    },
+    "status_undone": {
+        "message": "Se han restaurado tus ajustes anteriores."
+    },
+    "retry_settings": {
+        "message": "Volver a leer los ajustes"
+    },
+    "popup_locale": {
+        "message": "es"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Ocultar Reels en Inicio",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Oculta los Reels del inicio de forma independiente de la pestaña Reels.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Ocultar recomendaciones de Explorar",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Oculta fotos y Reels recomendados en las páginas de descubrimiento y conserva la búsqueda manual.",
+        "description": "Independent navigation and content filter setting."
     }
 }

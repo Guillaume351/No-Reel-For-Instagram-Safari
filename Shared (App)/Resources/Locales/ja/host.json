@@ -1,0 +1,45 @@
+{
+    "title": "はじめに",
+    "contact": {
+        "title": "お問い合わせ",
+        "description": "ご質問やご意見は、こちらまでメールでどうぞ："
+    },
+    "ios": {
+        "intro": "見たくないものは自分で選んで非表示に。すっきりしたInstagramを。",
+        "steps": [
+            "「設定」を開いて「Safari」（最近のiOSでは「アプリ」の中）を探し、「機能拡張」をタップします。",
+            "No Reel For Instagramをオンにして、instagram.comへのアクセスを許可します。",
+            "Safariでinstagram.comを開きます。機能拡張メニューを開いてフィルタを選び、ページを再読み込みします。"
+        ],
+        "video": {
+            "title": "iOSでの設定方法を動画で見る",
+            "cta": "Safariでチュートリアルを開く"
+        }
+    },
+    "mac": {
+        "stateOn": "機能拡張は有効です。Safariでinstagram.comを許可してから、Webサイトでフィルタを確認してください。",
+        "stateOff": "No Reel For Instagramはオフです。Safari ▸ 設定 ▸ 機能拡張でオンにしてください。",
+        "stateUnknown": "Safari ▸ 設定 ▸ 機能拡張でNo Reel For Instagramをオンにしてください。",
+        "openPreferences": "終了してSafariの設定を開く…",
+        "steps": [
+            "Safari ▸ 設定 ▸ 機能拡張を開きます。",
+            "「No Reel For Instagram」にチェックを入れ、instagram.comへのアクセスを許可します。",
+            "instagram.comを再読み込みすると、選んだ設定が反映されます。"
+        ],
+        "preferencesError": "Safariで機能拡張の設定を開けませんでした。Safari ▸ 設定 ▸ 機能拡張を開き、No Reel For Instagramを選んでください。"
+    },
+    "scope": "Safariでinstagram.comを使ってください。No ReelはInstagramアプリには影響しません。投稿や通知の一部の機能など、アプリにある機能がWebサイトでは使えない場合があります。",
+    "wellbeing": {
+        "title": "見たくないものは自分で選んで非表示に。すっきりしたInstagramを。",
+        "body": "Safariでinstagram.comを使ってください。No ReelはInstagramアプリには影響しません。投稿や通知の一部の機能など、アプリにある機能がWebサイトでは使えない場合があります。"
+    },
+    "recovery": {
+        "title": "お困りですか？",
+        "scope": "No ReelはSafariのinstagram.comで動作します。Instagramアプリやほかのブラウザには影響しません。",
+        "steps": [
+            "何も変わらない場合：機能拡張がオンで、instagram.comで許可されているか確認してから、Safariのタブを再読み込みしてください。",
+            "非表示が多すぎる場合：No ReelのSafariポップアップで「すべて表示」を選んでください。「リールを折りたたんで残す」はそのまま残ります。ポップアップを開いている間は「元に戻す」で以前の設定に戻せます。フィルタを1つずつオンにすることもできます。",
+            "それでも解決しない場合：instagram.comで機能拡張をオフにし、再読み込みして比べてみてください。お使いのデバイス、Safariのバージョン、ページ、該当するフィルタを添えてご連絡ください。パスワードや個人的なメッセージは送らないでください。"
+        ]
+    }
+}

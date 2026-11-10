@@ -1,0 +1,203 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Nasconde Reels, Storie, Esplora, post e account suggeriti e post sponsorizzati su Instagram Web.",
+        "description": "Description of what the extension does."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Heading for the popup window."
+    },
+    "popup_subtitle": {
+        "message": "Scegli quali distrazioni di Instagram nascondere.",
+        "description": "Subtitle explaining the popup purpose."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Nascondi la scheda Reels",
+        "description": "Title for hide Reels toggle."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Rimuove la scorciatoia Reels dalla navigazione.",
+        "description": "Description for hide Reels toggle."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Mantieni una riga Reel compatta",
+        "description": "Title for the compact Reel row sub-option."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Mostra l’autore e un pulsante Mostra comunque, senza caricare il video.",
+        "description": "Description for the compact Reel row sub-option."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reel nascosto",
+        "description": "Label displayed in place of a hidden Home Reel."
+    },
+    "hidden_reel_from": {
+        "message": "Reel di $AUTHOR$",
+        "description": "Label for a collapsed Reel with its author.",
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
+    },
+    "hidden_post_placeholder": {
+        "message": "Post nascosto",
+        "description": "Label for a compact hidden Home post."
+    },
+    "show_reel_anyway": {
+        "message": "Mostra comunque",
+        "description": "Button that reveals one collapsed Reel."
+    },
+    "toggle_hide_search_reels_title": {
+        "message": "Nascondi i Reels nella ricerca",
+        "description": "Title for hiding Reel cards in Search."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Rimuove le schede Reel da Cerca ed Esplora.",
+        "description": "Description for hiding Reel cards in Search."
+    },
+    "toggle_hide_explore_title": {
+        "message": "Nascondi la scorciatoia Cerca / Esplora",
+        "description": "Title for hide Explore toggle."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Rimuove le scorciatoie Cerca ed Esplora dalla navigazione.",
+        "description": "Description for hide Explore toggle."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Nascondi i post suggeriti",
+        "description": "Title for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Nasconde i post consigliati e, se possibile, passa la Home su Seguiti.",
+        "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Nascondi i post sponsorizzati",
+        "description": "Title for hide sponsored posts toggle."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Rimuove dal feed della Home i post contrassegnati come Sponsorizzato.",
+        "description": "Description for hide sponsored posts toggle."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Nascondi gli account suggeriti",
+        "description": "Title for hide suggested users toggle."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Elimina i suggerimenti di persone e i caroselli.",
+        "description": "Description for hide suggested users toggle."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Nascondi la barra delle Storie",
+        "description": "Title for hide stories toggle."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Rimuove il carosello delle storie in cima al feed.",
+        "description": "Description for hide stories toggle."
+    },
+    "status_loading": {
+        "message": "Caricamento impostazioni…",
+        "description": "Status message while settings load."
+    },
+    "status_saving": {
+        "message": "Salvataggio…",
+        "description": "Status message while saving."
+    },
+    "status_success": {
+        "message": "Fatto!",
+        "description": "Status message when save completes."
+    },
+    "status_load_error": {
+        "message": "Impossibile leggere le impostazioni. Riprova a caricarle prima di modificare i filtri."
+    },
+    "status_save_error": {
+        "message": "Impossibile salvare le modifiche.",
+        "description": "Error when save fails."
+    },
+    "hint_autosave": {
+        "message": "Le modifiche vengono salvate subito e applicate ai pannelli instagram.com aperti.",
+        "description": "Hint beneath toggles."
+    },
+    "instructions_title": {
+        "message": "Per iniziare",
+        "description": "Heading for instructions section."
+    },
+    "instructions_step1": {
+        "message": "Attiva No Reel For Instagram in Safari: su Mac, apri Safari ▸ Impostazioni ▸ Estensioni; su iPhone/iPad, vai in Impostazioni ▸ App ▸ Safari ▸ Estensioni.",
+        "description": "First instruction step."
+    },
+    "instructions_step2": {
+        "message": "Apri instagram.com ed esegui l’accesso. Ricarica i pannelli già aperti.",
+        "description": "Second instruction step."
+    },
+    "instructions_step3": {
+        "message": "Usa questo popup per attivare o disattivare le funzioni quando vuoi un feed più tranquillo.",
+        "description": "Third instruction step."
+    },
+    "instructions_note": {
+        "message": "Suggerimento: se usi la navigazione privata, consenti a Safari di eseguire l’estensione anche lì.",
+        "description": "Extra instructions note."
+    },
+    "contact_title": {
+        "message": "Contatti",
+        "description": "Heading for contact section."
+    },
+    "contact_description": {
+        "message": "Domande o feedback? Scrivimi a",
+        "description": "Sentence before the email link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Label for email link.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    },
+    "restore_content_title": {
+        "message": "Mostra tutto"
+    },
+    "restore_content_desc": {
+        "message": "Disattiva i filtri attivi. Annulla ripristina le scelte precedenti finché questo popup resta aperto. “Mantieni una riga Reel compatta” resta com’è. Solo Instagram Web in Safari."
+    },
+    "status_restored": {
+        "message": "Filtri disattivati. “Mantieni una riga Reel compatta” resta com’è. Puoi annullare qui o, se serve, ricaricare la pagina."
+    },
+    "undo_restore": {
+        "message": "Annulla"
+    },
+    "status_undone": {
+        "message": "Le scelte precedenti dei filtri sono state ripristinate."
+    },
+    "retry_settings": {
+        "message": "Riprova a caricare le impostazioni"
+    },
+    "popup_locale": {
+        "message": "it"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Nascondi i Reels nella Home",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Nasconde i Reels nel feed della Home, indipendentemente dalla scheda Reels.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Nascondi i consigli di Esplora",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Nasconde foto e Reels consigliati nelle pagine di scoperta, lasciando disponibile la ricerca manuale.",
+        "description": "Independent navigation and content filter setting."
+    }
+}

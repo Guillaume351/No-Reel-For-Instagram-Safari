@@ -1,0 +1,45 @@
+{
+    "title": "Per iniziare",
+    "contact": {
+        "title": "Contatti",
+        "description": "Domande o feedback? Scrivimi a"
+    },
+    "ios": {
+        "intro": "Instagram senza le distrazioni che scegli di nascondere.",
+        "steps": [
+            "Apri Impostazioni, trova Safari (in App nelle versioni recenti di iOS), poi Estensioni.",
+            "Attiva No Reel For Instagram e consenti l’accesso a instagram.com.",
+            "Apri instagram.com in Safari. Apri il menu dell’estensione, scegli i filtri, poi ricarica la pagina."
+        ],
+        "video": {
+            "title": "Guarda il video di installazione per iOS",
+            "cta": "Apri il tutorial in Safari"
+        }
+    },
+    "mac": {
+        "stateOn": "L’estensione è attiva. Consenti instagram.com in Safari, poi controlla i filtri sul sito.",
+        "stateOff": "No Reel For Instagram è disattivata. Attivala in Safari ▸ Impostazioni ▸ Estensioni.",
+        "stateUnknown": "Attiva No Reel For Instagram in Safari ▸ Impostazioni ▸ Estensioni.",
+        "openPreferences": "Esci e apri le impostazioni di Safari…",
+        "steps": [
+            "Apri Safari ▸ Impostazioni ▸ Estensioni.",
+            "Seleziona “No Reel For Instagram” e consenti l’accesso a instagram.com.",
+            "Ricarica instagram.com per applicare le tue preferenze."
+        ],
+        "preferencesError": "Safari non è riuscito ad aprire le impostazioni delle estensioni. Apri Safari > Impostazioni > Estensioni, poi scegli No Reel For Instagram."
+    },
+    "scope": "Usa instagram.com in Safari. No Reel non modifica l’app Instagram. Alcune funzioni dell’app, tra cui certe opzioni di pubblicazione e notifica, potrebbero non essere disponibili sul sito.",
+    "wellbeing": {
+        "title": "Instagram senza le distrazioni che scegli di nascondere.",
+        "body": "Usa instagram.com in Safari. No Reel non modifica l’app Instagram. Alcune funzioni dell’app, tra cui certe opzioni di pubblicazione e notifica, potrebbero non essere disponibili sul sito."
+    },
+    "recovery": {
+        "title": "Serve aiuto?",
+        "scope": "No Reel funziona su instagram.com in Safari. Non può modificare l’app Instagram né altri browser.",
+        "steps": [
+            "Non cambia nulla? Verifica che l’estensione sia attiva e consentita su instagram.com, poi ricarica il pannello di Safari.",
+            "Troppi contenuti nascosti? Scegli Mostra tutto nel popup di No Reel in Safari. “Mantieni una riga Reel compatta” resta com’è. Annulla ripristina le scelte precedenti finché il popup resta aperto; puoi anche riattivare i filtri uno alla volta.",
+            "Il problema persiste? Disattiva l’estensione per instagram.com e ricarica per confrontare. Scrivimi indicando dispositivo, versione di Safari, pagina e filtro coinvolto. Non inviare password né messaggi privati."
+        ]
+    }
+}

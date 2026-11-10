@@ -1,0 +1,45 @@
+{
+    "title": "Pierwsze kroki",
+    "contact": {
+        "title": "Kontakt",
+        "description": "Pytania lub uwagi? Napisz do mnie na adres"
+    },
+    "ios": {
+        "intro": "Instagram bez rozpraszaczy, które chcesz ukryć.",
+        "steps": [
+            "Otwórz Ustawienia, znajdź Safari (w nowszych wersjach iOS w sekcji Aplikacje), a następnie Rozszerzenia.",
+            "Włącz No Reel For Instagram i zezwól na dostęp do instagram.com.",
+            "Otwórz instagram.com w Safari. Otwórz menu rozszerzenia, wybierz filtry, a potem odśwież stronę."
+        ],
+        "video": {
+            "title": "Obejrzyj film o instalacji na iOS",
+            "cta": "Otwórz poradnik w Safari"
+        }
+    },
+    "mac": {
+        "stateOn": "Rozszerzenie jest włączone. Zezwól na instagram.com w Safari, a potem sprawdź filtry na stronie.",
+        "stateOff": "No Reel For Instagram jest wyłączone. Włącz je w Safari ▸ Ustawienia ▸ Rozszerzenia.",
+        "stateUnknown": "Włącz No Reel For Instagram w Safari ▸ Ustawienia ▸ Rozszerzenia.",
+        "openPreferences": "Zakończ i otwórz ustawienia Safari…",
+        "steps": [
+            "Otwórz Safari ▸ Ustawienia ▸ Rozszerzenia.",
+            "Zaznacz „No Reel For Instagram” i przyznaj dostęp do instagram.com.",
+            "Odśwież instagram.com, aby zastosować swoje ustawienia."
+        ],
+        "preferencesError": "Safari nie może otworzyć ustawień rozszerzeń. Otwórz Safari > Ustawienia > Rozszerzenia i wybierz No Reel For Instagram."
+    },
+    "scope": "Korzystaj z instagram.com w Safari. No Reel nie zmienia aplikacji Instagram. Niektóre funkcje aplikacji, w tym część opcji publikowania i powiadomień, mogą być niedostępne w wersji internetowej.",
+    "wellbeing": {
+        "title": "Instagram bez rozpraszaczy, które chcesz ukryć.",
+        "body": "Korzystaj z instagram.com w Safari. No Reel nie zmienia aplikacji Instagram. Niektóre funkcje aplikacji, w tym część opcji publikowania i powiadomień, mogą być niedostępne w wersji internetowej."
+    },
+    "recovery": {
+        "title": "Potrzebujesz pomocy?",
+        "scope": "No Reel działa na instagram.com w Safari. Nie zmienia aplikacji Instagram ani innych przeglądarek.",
+        "steps": [
+            "Nic się nie zmienia? Sprawdź, czy rozszerzenie jest włączone i ma dostęp do instagram.com, a potem odśwież kartę w Safari.",
+            "Ukryto za dużo? Wybierz Pokaż wszystko w okienku No Reel w Safari. Opcja „Pokazuj zwinięte rolki” pozostaje bez zmian. Cofnij przywraca poprzednie ustawienia, dopóki okienko jest otwarte. Możesz też włączać filtry pojedynczo.",
+            "Problem nadal występuje? Wyłącz rozszerzenie dla instagram.com i odśwież stronę, aby porównać. Napisz do mnie, podając urządzenie, wersję Safari, stronę i filtr, którego dotyczy problem. Nie wysyłaj haseł ani prywatnych wiadomości."
+        ]
+    }
+}

@@ -16,11 +16,11 @@
         "description": "Sous-titre de la fenêtre contextuelle."
     },
     "toggle_hide_reels_title": {
-        "message": "Masquer les Reels",
+        "message": "Masquer l’onglet Reels",
         "description": "Titre du réglage Reels."
     },
     "toggle_hide_reels_desc": {
-        "message": "Supprime la navigation Reels et les Reels du fil d’accueil.",
+        "message": "Supprime le raccourci Reels de la navigation.",
         "description": "Description du réglage Reels."
     },
     "toggle_keep_reels_collapsed_title": {
@@ -38,7 +38,11 @@
     "hidden_reel_from": {
         "message": "Reel de $AUTHOR$",
         "description": "Libellé d’un Reel replié avec son auteur.",
-        "placeholders": { "author": { "content": "$1" } }
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
     },
     "hidden_post_placeholder": {
         "message": "Publication masquée",
@@ -57,11 +61,11 @@
         "description": "Description du réglage Reels en recherche."
     },
     "toggle_hide_explore_title": {
-        "message": "Masquer l’onglet Découvrir",
+        "message": "Masquer le raccourci Recherche / Explorer",
         "description": "Titre du réglage Découvrir."
     },
     "toggle_hide_explore_desc": {
-        "message": "Supprime l’icône loupe qui ouvre Découvrir.",
+        "message": "Supprime les raccourcis de navigation Recherche et Explorer.",
         "description": "Description du réglage Découvrir."
     },
     "toggle_hide_suggested_posts_title": {
@@ -109,8 +113,7 @@
         "description": "Message de succès."
     },
     "status_load_error": {
-        "message": "Impossible d’atteindre l’extension. Réessayez.",
-        "description": "Erreur de chargement."
+        "message": "Vos réglages n’ont pas pu être lus. Réessayez leur lecture avant de modifier les filtres."
     },
     "status_save_error": {
         "message": "Impossible d’enregistrer les modifications.",
@@ -156,5 +159,45 @@
                 "content": "$1"
             }
         }
+    },
+    "restore_content_title": {
+        "message": "Tout réafficher"
+    },
+    "restore_content_desc": {
+        "message": "Désactive les filtres actifs. Annuler rétablit vos réglages tant que ce popup reste ouvert. « Garder une ligne Reel repliée » est conservé. Uniquement Instagram Web dans Safari."
+    },
+    "status_restored": {
+        "message": "Les filtres sont désactivés. « Garder une ligne Reel repliée » est conservé. Vous pouvez annuler ici, ou recharger la page si nécessaire."
+    },
+    "undo_restore": {
+        "message": "Annuler"
+    },
+    "status_undone": {
+        "message": "Vos réglages précédents sont rétablis."
+    },
+    "retry_settings": {
+        "message": "Réessayer de lire les réglages"
+    },
+    "popup_locale": {
+        "message": "fr"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Masquer les Reels de l’accueil",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Masque les Reels du fil d’accueil indépendamment de l’onglet Reels.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Masquer les recommandations Explorer",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Masque les photos et Reels recommandés sur les pages de découverte tout en gardant la recherche manuelle.",
+        "description": "Independent navigation and content filter setting."
     }
 }

@@ -1,0 +1,203 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Ukrywa rolki, relacje, Eksploruj, proponowane treści i posty sponsorowane w Instagramie w przeglądarce.",
+        "description": "Description of what the extension does."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Heading for the popup window."
+    },
+    "popup_subtitle": {
+        "message": "Wybierz, które rozpraszacze Instagrama ukryć.",
+        "description": "Subtitle explaining the popup purpose."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Ukryj kartę Rolki",
+        "description": "Title for hide Reels toggle."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Usuwa skrót do rolek z nawigacji.",
+        "description": "Description for hide Reels toggle."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Pokazuj zwinięte rolki",
+        "description": "Title for the compact Reel row sub-option."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Pokazuje autora i przycisk Pokaż mimo to bez wczytywania filmu.",
+        "description": "Description for the compact Reel row sub-option."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Rolka ukryta",
+        "description": "Label displayed in place of a hidden Home Reel."
+    },
+    "hidden_reel_from": {
+        "message": "Rolka użytkownika $AUTHOR$",
+        "description": "Label for a collapsed Reel with its author.",
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
+    },
+    "hidden_post_placeholder": {
+        "message": "Post ukryty",
+        "description": "Label for a compact hidden Home post."
+    },
+    "show_reel_anyway": {
+        "message": "Pokaż mimo to",
+        "description": "Button that reveals one collapsed Reel."
+    },
+    "toggle_hide_search_reels_title": {
+        "message": "Ukryj rolki w wyszukiwaniu",
+        "description": "Title for hiding Reel cards in Search."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Usuwa kafelki rolek z wyszukiwania i Eksploruj.",
+        "description": "Description for hiding Reel cards in Search."
+    },
+    "toggle_hide_explore_title": {
+        "message": "Ukryj skrót Szukaj / Eksploruj",
+        "description": "Title for hide Explore toggle."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Usuwa skróty Szukaj i Eksploruj z nawigacji.",
+        "description": "Description for hide Explore toggle."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Ukryj proponowane posty",
+        "description": "Title for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Ukrywa polecane posty w kanale i w miarę możliwości przełącza stronę główną na Obserwowanych.",
+        "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Ukryj posty sponsorowane",
+        "description": "Title for hide sponsored posts toggle."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Usuwa posty oznaczone jako Sponsorowane z kanału na stronie głównej.",
+        "description": "Description for hide sponsored posts toggle."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Ukryj proponowane konta",
+        "description": "Title for hide suggested users toggle."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Usuwa propozycje osób i ich karuzele.",
+        "description": "Description for hide suggested users toggle."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Ukryj pasek relacji",
+        "description": "Title for hide stories toggle."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Usuwa karuzelę relacji nad kanałem.",
+        "description": "Description for hide stories toggle."
+    },
+    "status_loading": {
+        "message": "Wczytywanie ustawień…",
+        "description": "Status message while settings load."
+    },
+    "status_saving": {
+        "message": "Zapisywanie…",
+        "description": "Status message while saving."
+    },
+    "status_success": {
+        "message": "Gotowe!",
+        "description": "Status message when save completes."
+    },
+    "status_load_error": {
+        "message": "Nie udało się odczytać ustawień. Spróbuj wczytać je ponownie, zanim zmienisz filtry."
+    },
+    "status_save_error": {
+        "message": "Nie udało się zapisać zmian.",
+        "description": "Error when save fails."
+    },
+    "hint_autosave": {
+        "message": "Zmiany zapisują się od razu i działają w otwartych kartach instagram.com.",
+        "description": "Hint beneath toggles."
+    },
+    "instructions_title": {
+        "message": "Pierwsze kroki",
+        "description": "Heading for instructions section."
+    },
+    "instructions_step1": {
+        "message": "Włącz No Reel For Instagram w Safari: na Macu otwórz Safari ▸ Ustawienia ▸ Rozszerzenia; na iPhonie/iPadzie przejdź do Ustawienia ▸ Aplikacje ▸ Safari ▸ Rozszerzenia.",
+        "description": "First instruction step."
+    },
+    "instructions_step2": {
+        "message": "Otwórz instagram.com i zaloguj się. Odśwież karty, które masz już otwarte.",
+        "description": "Second instruction step."
+    },
+    "instructions_step3": {
+        "message": "Włączaj i wyłączaj funkcje w tym okienku, gdy potrzebujesz spokojniejszego kanału.",
+        "description": "Third instruction step."
+    },
+    "instructions_note": {
+        "message": "Wskazówka: jeśli korzystasz z przeglądania prywatnego, zezwól Safari na uruchamianie tam rozszerzenia.",
+        "description": "Extra instructions note."
+    },
+    "contact_title": {
+        "message": "Kontakt",
+        "description": "Heading for contact section."
+    },
+    "contact_description": {
+        "message": "Pytania lub uwagi? Napisz do mnie na adres",
+        "description": "Sentence before the email link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Label for email link.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    },
+    "restore_content_title": {
+        "message": "Pokaż wszystko"
+    },
+    "restore_content_desc": {
+        "message": "Wyłącza aktywne filtry. Cofnij przywraca poprzednie ustawienia, dopóki to okienko jest otwarte. Opcja „Pokazuj zwinięte rolki” pozostaje bez zmian. Dotyczy tylko Instagrama w przeglądarce Safari."
+    },
+    "status_restored": {
+        "message": "Filtry są wyłączone. Opcja „Pokazuj zwinięte rolki” pozostaje bez zmian. Możesz to tutaj cofnąć lub w razie potrzeby odświeżyć stronę."
+    },
+    "undo_restore": {
+        "message": "Cofnij"
+    },
+    "status_undone": {
+        "message": "Przywrócono poprzednie ustawienia filtrów."
+    },
+    "retry_settings": {
+        "message": "Wczytaj ustawienia ponownie"
+    },
+    "popup_locale": {
+        "message": "pl"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Ukryj rolki na stronie głównej",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Ukrywa rolki w kanale na stronie głównej niezależnie od karty Rolki.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Ukryj propozycje w Eksploruj",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Ukrywa polecane zdjęcia i rolki na stronach odkrywania, a ręczne wyszukiwanie nadal działa.",
+        "description": "Independent navigation and content filter setting."
+    }
+}

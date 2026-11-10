@@ -5,11 +5,11 @@
         "description": "Questions or feedback? Email me at"
     },
     "ios": {
-        "intro": "Enable the Safari extension to hide selected distractions on instagram.com.",
+        "intro": "Instagram without the distractions you choose to hide.",
         "steps": [
-            "Open Settings ▸ Safari ▸ Extensions.",
-            "Enable “No Reel For Instagram” and allow it on the sites you browse.",
-            "Open instagram.com and reload to apply your preferences."
+            "Open Settings, find Safari (under Apps on recent iOS versions), then Extensions.",
+            "Enable No Reel For Instagram and allow access to instagram.com.",
+            "Open instagram.com in Safari. Open the extension menu, choose your filters, then reload the page."
         ],
         "video": {
             "title": "Watch the iOS installation video",
@@ -17,7 +17,7 @@
         }
     },
     "mac": {
-        "stateOn": "No Reel For Instagram is active. Choose what to hide from its Safari toolbar button.",
+        "stateOn": "The extension is enabled. Allow instagram.com in Safari, then check your filters on the website.",
         "stateOff": "No Reel For Instagram is off. Enable it in Safari Settings > Extensions.",
         "stateUnknown": "Turn on No Reel For Instagram in Safari Settings > Extensions.",
         "openPreferences": "Quit and Open Safari Settings…",
@@ -25,6 +25,21 @@
             "Open Safari ▸ Settings ▸ Extensions.",
             "Check “No Reel For Instagram” and grant it access to instagram.com.",
             "Refresh instagram.com to apply your toolbar preferences."
+        ],
+        "preferencesError": "Safari couldn’t open its extension settings. Open Safari > Settings > Extensions, then choose No Reel For Instagram."
+    },
+    "scope": "Use instagram.com in Safari. No Reel does not change the Instagram app. Some native features, including certain publishing and notification options, may not be available on the website.",
+    "wellbeing": {
+        "title": "Instagram without the distractions you choose to hide.",
+        "body": "Use instagram.com in Safari. No Reel does not change the Instagram app. Some native features, including certain publishing and notification options, may not be available on the website."
+    },
+    "recovery": {
+        "title": "Need help?",
+        "scope": "No Reel works on instagram.com in Safari. It cannot change the Instagram app or other browsers.",
+        "steps": [
+            "Nothing changes? Check that the extension is enabled and allowed on instagram.com, then reload the Safari tab.",
+            "Too much is hidden? Choose Show everything from No Reel’s Safari popup. “Keep a collapsed Reel row” is kept. Undo restores your previous choices while that popup stays open, or enable filters individually.",
+            "Still having trouble? Turn the extension off for instagram.com and reload to compare. Contact me with your device, Safari version, page and affected filter. Do not send passwords or private messages."
         ]
     }
 }
