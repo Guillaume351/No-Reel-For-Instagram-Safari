@@ -16,11 +16,11 @@
         "description": "النص التوضيحي تحت العنوان."
     },
     "toggle_hide_reels_title": {
-        "message": "إخفاء الريلز",
+        "message": "إخفاء علامة تبويب ريلز",
         "description": "عنوان زر الريلز."
     },
     "toggle_hide_reels_desc": {
-        "message": "يزيل روابط الريلز ومنشورات الريلز من الصفحة الرئيسية.",
+        "message": "يزيل اختصار ريلز من التنقل.",
         "description": "وصف زر الريلز."
     },
     "toggle_keep_reels_collapsed_title": {
@@ -38,7 +38,11 @@
     "hidden_reel_from": {
         "message": "ريلز من $AUTHOR$",
         "description": "تسمية ريلز مطوي مع اسم الناشر.",
-        "placeholders": { "author": { "content": "$1" } }
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
     },
     "hidden_post_placeholder": {
         "message": "تم إخفاء المنشور",
@@ -57,11 +61,11 @@
         "description": "وصف زر إخفاء ريلز في صفحة البحث."
     },
     "toggle_hide_explore_title": {
-        "message": "إخفاء البحث / الاستكشاف",
+        "message": "إخفاء اختصار البحث والاستكشاف",
         "description": "عنوان زر تبويب الاستكشاف."
     },
     "toggle_hide_explore_desc": {
-        "message": "يزيل الاختصار ويخفي مقاطع Reels والمنشورات المقترحة في البحث والاستكشاف.",
+        "message": "يزيل اختصارات التنقل للبحث والاستكشاف.",
         "description": "وصف زر تبويب الاستكشاف."
     },
     "toggle_hide_suggested_posts_title": {
@@ -109,8 +113,7 @@
         "description": "رسالة نجاح."
     },
     "status_load_error": {
-        "message": "تعذّر الوصول إلى الإضافة. حاول مرة أخرى.",
-        "description": "رسالة خطأ عند التحميل."
+        "message": "تعذّرت قراءة إعداداتك. أعد محاولة قراءتها قبل تغيير عوامل التصفية."
     },
     "status_save_error": {
         "message": "تعذّر حفظ التغييرات.",
@@ -137,7 +140,7 @@
         "description": "الخطوة الثالثة."
     },
     "instructions_note": {
-        "message": "نصيحة: اسمح لـ Safari بتشغيل الإضافة في التصفح الخاص إذا كنت تستخدمه.",
+        "message": "نصيحة: اسمح لـ Safari بتشغيل الامتداد في التصفح الخاص إذا كنت تستخدمه.",
         "description": "ملاحظة إضافية."
     },
     "contact_title": {
@@ -156,5 +159,45 @@
                 "content": "$1"
             }
         }
+    },
+    "restore_content_title": {
+        "message": "إظهار الكل"
+    },
+    "restore_content_desc": {
+        "message": "تُعطَّل عوامل التصفية النشطة. يعيد تراجع إعداداتك السابقة ما دامت هذه النافذة مفتوحة. يُحتفظ بخيار «الاحتفاظ بسطر ريلز مطوي». يعمل فقط على Instagram Web في Safari."
+    },
+    "status_restored": {
+        "message": "عوامل التصفية متوقفة. يُحتفظ بخيار «الاحتفاظ بسطر ريلز مطوي». يمكنك التراجع هنا، أو إعادة تحميل الصفحة عند الحاجة."
+    },
+    "undo_restore": {
+        "message": "تراجع"
+    },
+    "status_undone": {
+        "message": "تمت استعادة إعدادات عوامل التصفية السابقة."
+    },
+    "retry_settings": {
+        "message": "إعادة محاولة قراءة الإعدادات"
+    },
+    "popup_locale": {
+        "message": "ar"
+    },
+    "popup_direction": {
+        "message": "rtl"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "إخفاء ريلز من الصفحة الرئيسية",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "يخفي منشورات ريلز من الصفحة الرئيسية بشكل مستقل عن علامة تبويب ريلز.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "إخفاء توصيات الاستكشاف",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "يخفي الصور ومقاطع ريلز المقترحة في صفحات الاستكشاف مع إبقاء البحث اليدوي متاحًا.",
+        "description": "Independent navigation and content filter setting."
     }
 }

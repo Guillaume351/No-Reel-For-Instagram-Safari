@@ -4,23 +4,31 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; media-src 'self' https://nextcloud.d1.guillaumeclaverie.com; frame-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../Style.css">
     <script src="../Script.js" defer></script>
 </head>
 <body>
     <img src="../Icon.png" width="128" height="128" alt="No Reel For Instagram Icon">
+    <p id="scopeNotice">Use instagram.com in Safari. No Reel does not change the Instagram app.</p>
     <p id="iosIntro" class="platform-ios">Enable the Safari extension to hide selected distractions on instagram.com.</p>
     <p id="macStateUnknown" class="platform-mac state-unknown">Turn on No Reel For Instagram in Safari Settings &gt; Extensions.</p>
     <p id="macStateOn" class="platform-mac state-on">No Reel For Instagram is active. Choose what to hide from its Safari toolbar button.</p>
     <p id="macStateOff" class="platform-mac state-off">No Reel For Instagram is off. Enable it in Safari Settings &gt; Extensions.</p>
     <button id="openPreferences" class="platform-mac open-preferences">Quit and Open Safari Settings…</button>
+    <p id="preferencesStatus" class="platform-mac" role="status" aria-live="polite" aria-atomic="true"></p>
 
     <section class="instructions">
         <h2 id="instructionsTitle"></h2>
         <ol id="instructionsList"></ol>
     </section>
+
+    <details class="recovery-help" id="recoveryHelp">
+        <summary id="recoveryTitle">Need help?</summary>
+        <p id="recoveryScope"></p>
+        <ol id="recoverySteps"></ol>
+    </details>
 
     <section class="contact" id="wellbeingSection">
         <h2 id="wellbeingTitle"></h2>
@@ -37,6 +45,22 @@
         <p class="video-fallback">
             <a id="iosVideoLink" target="_blank" rel="noopener noreferrer"></a>
         </p>
+    </section>
+
+    <section class="browsekind-promo platform-ios" id="browseKindPromo" aria-labelledby="browseKindPromoTitle" hidden>
+        <div class="browsekind-promo-header">
+            <svg class="browsekind-promo-icon" viewBox="0 0 1024 1024" aria-hidden="true" focusable="false">
+                <rect width="1024" height="1024" rx="228" fill="#11201D"/>
+                <path fill="#9CC5B7" d="M268 250C268 171 326 114 398 114C452 114 493 155 493 207V357C536 330 585 317 637 317C806 317 909 446 909 605C909 783 792 902 625 902H399C323 902 268 846 268 768V250Z"/>
+                <path fill="#F7F2E8" d="M494 650V530C494 460 550 405 622 405C694 405 750 460 750 530V650C750 670 690 678 627 688C620 700 635 716 689 736C720 758 715 790 691 832C710 865 705 890 700 913H412C420 880 440 850 473 832C520 805 560 780 592 736C610 712 604 700 566 688C540 680 515 670 494 650Z"/>
+                <circle cx="622" cy="555" r="62" fill="#FF7A66"/>
+            </svg>
+            <h2 id="browseKindPromoTitle"></h2>
+            <button type="button" id="browseKindPromoDismiss" class="browsekind-promo-dismiss">&#x2715;</button>
+        </div>
+        <p id="browseKindPromoBody" class="browsekind-promo-body"></p>
+        <button type="button" id="browseKindPromoOpen" class="browsekind-promo-open"></button>
+        <p id="browseKindPromoNote" class="browsekind-promo-note"></p>
     </section>
 
     <section class="contact" id="contactSection"></section>

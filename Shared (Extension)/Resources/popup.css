@@ -2,7 +2,7 @@
     color-scheme: light dark;
     --primary-color: #e1306c;
     --primary-hover: #c62c5f;
-    --success-color: #23c17a;
+    --success-color: #0b6c3f;
     --background-light: #f3f5f9;
     --background-dark: #0b1119;
     --card-light: #ffffff;
@@ -46,11 +46,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 460px;
+    max-height: min(600px, 100vh);
     background: var(--card-light);
     border: 1px solid var(--border-light);
     border-radius: 14px;
     box-shadow: var(--card-shadow);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
     animation: panel-in 320ms ease-out;
 }
 
@@ -66,6 +69,7 @@ body {
 }
 
 .header {
+    flex-shrink: 0;
     padding: 20px 22px;
     text-align: center;
     border-bottom: 1px solid var(--border-light);
@@ -149,7 +153,7 @@ body {
 }
 
 .status[data-state="error"] {
-    color: #cc2f2f;
+    color: #b42318;
     background: rgba(204, 47, 47, 0.13);
     border: 1px solid rgba(204, 47, 47, 0.24);
 }
@@ -180,7 +184,7 @@ body {
 }
 
 .setting-suboption {
-    margin-left: 18px;
+    margin-inline-start: 18px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-style: dashed;
@@ -263,7 +267,13 @@ body {
     color: var(--text-secondary-light);
 }
 
+#undoEverything,
+#retrySettings {
+    margin-top: 10px;
+}
+
 .footer {
+    flex-shrink: 0;
     background: rgba(0, 0, 0, 0.02);
     border-top: 1px solid var(--border-light);
     padding: 16px 20px 18px;
@@ -323,6 +333,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
+    :root { --success-color: #67e8a5; }
     body {
         background: radial-gradient(120% 120% at 0% 0%, rgba(225, 48, 108, 0.18), rgba(0, 0, 0, 0) 55%),
             var(--background-dark);
@@ -379,4 +390,27 @@ body {
         background: rgba(204, 47, 47, 0.18);
         border-color: rgba(204, 47, 47, 0.35);
     }
+}
+
+.recovery {
+    margin-bottom: 18px;
+}
+
+.recovery button,
+#retrySettings {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid currentColor;
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.recovery button:disabled,
+#retrySettings:disabled {
+    opacity: 0.5;
+    cursor: default;
 }

@@ -13,11 +13,17 @@ const mobileHomeFixture = fs.readFileSync(
     path.join(__dirname, "fixtures/mobile-home.html"),
     "utf8"
 );
+const storyOverlayFixture = fs.readFileSync(
+    path.join(__dirname, "fixtures/story-overlay.html"),
+    "utf8"
+);
 const settingKeys = [
     "hideReels",
+    "hideFeedReels",
     "keepReelsCollapsed",
     "hideSearchReels",
     "hideExploreTab",
+    "hideExploreRecommendations",
     "hideSuggestedPosts",
     "hideSponsoredPosts",
     "hideSuggestedUsers",
@@ -25,7 +31,10 @@ const settingKeys = [
 ];
 
 function settingsWith(overrides = {}) {
-    return Object.fromEntries(settingKeys.map((key) => [key, Boolean(overrides[key])]));
+    const settings = { ...overrides };
+    if (!("hideFeedReels" in settings)) settings.hideFeedReels = Boolean(settings.hideReels);
+    if (!("hideExploreRecommendations" in settings)) settings.hideExploreRecommendations = Boolean(settings.hideExploreTab);
+    return Object.fromEntries(settingKeys.map((key) => [key, Boolean(settings[key])]));
 }
 
 function waitForObservers(window) {
@@ -260,10 +269,10 @@ test("each Home filter can be disabled and restores only its own markers", async
     assert.ok(hiddenChild(document, "suggested-reel", "data-nrfi-hidden-feed-reel"));
     assert.equal(document.querySelector("#suggested-reel").dataset.nrfiFeedPlaceholder, "true");
 
-    await session.changeSetting("hideReels", false);
+    await session.changeSetting("hideFeedReels", false);
     assert.equal(document.querySelector("#suggested-reel > [data-nrfi-hidden-feed-reel]"), null);
     assert.equal(document.querySelector("#suggested-reel").dataset.nrfiFeedPlaceholder, undefined);
-    assert.equal(document.querySelector("#reels-link").dataset.nrfiHiddenNav, undefined);
+    assert.equal(document.querySelector("#reels-link").dataset.nrfiHiddenNav, "true");
 });
 
 test("navigation and Stories toggles restore independently", async (t) => {
@@ -308,6 +317,120 @@ test("desktop Search buttons with an SVG label are hidden and restored", async (
 
     await session.changeSetting("hideExploreTab", false);
     assert.equal(document.querySelector("#search-button").dataset.nrfiHiddenNav, undefined);
+});
+
+test("a shared Reel story stays visible beside the filtered Home navigation", async (t) => {
+    const session = await loadContentScript({
+        html: storyOverlayFixture,
+        url: "https://www.instagram.com/stories/creator/",
+        settings: settingsWith({ hideReels: true, hideExploreTab: true, hideStories: true })
+    });
+    t.after(() => session.dom.window.close());
+    const { document } = session.dom.window;
+
+    assert.equal(document.querySelector("#overlay-reels-link").dataset.nrfiHiddenNav, "true");
+    assert.equal(document.querySelector("#overlay-explore-link").dataset.nrfiHiddenNav, "true");
+    assert.equal(document.querySelector("#primary-navigation").dataset.nrfiMobileNav, "true");
+    assert.equal(document.querySelector("#shared-reel-link").dataset.nrfiHiddenNav, undefined);
+    assert.equal(document.querySelector("textarea").closest('[data-nrfi-hidden-nav="true"]'), null);
+    assert.equal(document.querySelector("#app-shell").dataset.nrfiMobileNav, undefined);
+    assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#story-viewer")).display, "none");
+    assert.equal(document.querySelector('[data-pagelet="story_tray"]').dataset.nrfiHiddenStories, "true");
+
+    await session.changeSetting("hideReels", false);
+    assert.equal(document.querySelector("#overlay-reels-link").dataset.nrfiHiddenNav, undefined);
+    assert.equal(document.querySelector("#overlay-explore-link").dataset.nrfiHiddenNav, "true");
+    await session.changeSetting("hideReels", true);
+    assert.equal(document.querySelector("#overlay-reels-link").dataset.nrfiHiddenNav, "true");
+    assert.equal(document.querySelector("textarea").closest('[data-nrfi-hidden-nav="true"]'), null);
+    assert.deepEqual(session.unexpectedErrors, []);
+});
+
+test("SPA story insertions and replacements never acquire navigation markers", async (t) => {
+    const fixture = new JSDOM(storyOverlayFixture);
+    fixture.window.document.querySelector("#story-viewer").replaceChildren();
+    const html = fixture.serialize();
+    fixture.window.close();
+    const session = await loadContentScript({
+        html,
+        settings: settingsWith({ hideReels: true, hideExploreTab: true })
+    });
+    t.after(() => session.dom.window.close());
+    const { document, history } = session.dom.window;
+    const viewer = document.querySelector("#story-viewer");
+    history.pushState({}, "", "/stories/creator/");
+    const sharedLink = document.createElement("a");
+    sharedLink.href = "/p/shared-reel/";
+    sharedLink.innerHTML = '<svg aria-label="Reels"></svg><span>Watch full reel</span>';
+    viewer.appendChild(sharedLink);
+    await waitForObservers(session.dom.window);
+
+    assert.equal(sharedLink.dataset.nrfiHiddenNav, undefined);
+    assert.equal(viewer.dataset.nrfiHiddenNav, undefined);
+    sharedLink.remove();
+    viewer.appendChild(sharedLink);
+    sharedLink.setAttribute("aria-label", "Reels Watch full reel");
+    await waitForObservers(session.dom.window);
+    assert.equal(sharedLink.closest('[data-nrfi-hidden-nav="true"]'), null);
+
+    const navigation = document.querySelector("#primary-navigation");
+    const replacement = navigation.cloneNode(true);
+    replacement.querySelectorAll("*").forEach((element) => {
+        [...element.attributes].filter((attribute) => attribute.name.startsWith("data-nrfi-"))
+            .forEach((attribute) => element.removeAttribute(attribute.name));
+    });
+    navigation.replaceWith(replacement);
+    await waitForObservers(session.dom.window);
+    assert.equal(document.querySelector("#overlay-reels-link").dataset.nrfiHiddenNav, "true");
+    history.pushState({}, "", "/?variant=following");
+    await waitForObservers(session.dom.window);
+    assert.equal(sharedLink.closest('[data-nrfi-hidden-nav="true"]'), null);
+});
+
+test("content and profile destinations take precedence over navigation-like labels", async (t) => {
+    const html = `<!doctype html><html><head></head><body>
+        <div id="shell">
+            <nav><a href="/">Home</a><a id="nav-reels" href="/reels/">Reels</a></nav>
+            <div id="profile-content">
+                <a id="profile-tab" href="/creator/reels/">Reels</a>
+                <a id="profile-photo" href="/p/photo/">Search results</a>
+                <a id="profile-reel" href="/creator/reels/post/">Reels Watch full reel</a>
+            </div>
+        </div>
+    </body></html>`;
+    const session = await loadContentScript({
+        html,
+        url: "https://www.instagram.com/creator/",
+        settings: settingsWith({ hideReels: true, hideExploreTab: true })
+    });
+    t.after(() => session.dom.window.close());
+    const { document } = session.dom.window;
+    assert.equal(document.querySelector("#nav-reels").dataset.nrfiHiddenNav, "true");
+    for (const id of ["profile-tab", "profile-photo", "profile-reel"]) {
+        assert.equal(document.getElementById(id).closest('[data-nrfi-hidden-nav="true"]'), null);
+    }
+    assert.equal(document.querySelector("#shell").dataset.nrfiMobileNav, undefined);
+});
+
+test("label-only navigation still supports buttons and fragment links", async (t) => {
+    const html = `<!doctype html><html><head></head><body>
+        <nav>
+            <a href="/">Home</a>
+            <div><a id="fragment-reels" href="#"><svg aria-label="Reels"></svg></a></div>
+            <div><button id="search-action"><svg aria-label="Search"></svg></button></div>
+        </nav>
+    </body></html>`;
+    const session = await loadContentScript({
+        html,
+        settings: settingsWith({ hideReels: true, hideExploreTab: true })
+    });
+    t.after(() => session.dom.window.close());
+    const { document } = session.dom.window;
+    assert.equal(document.querySelector("#fragment-reels").dataset.nrfiHiddenNav, "true");
+    assert.equal(document.querySelector("#search-action").dataset.nrfiHiddenNav, "true");
+    await session.changeSetting("hideExploreTab", false);
+    assert.equal(document.querySelector("#search-action").dataset.nrfiHiddenNav, undefined);
+    assert.equal(document.querySelector("#fragment-reels").dataset.nrfiHiddenNav, "true");
 });
 
 test("late mobile feed insertions are filtered after Instagram hydration", async (t) => {
@@ -639,7 +762,7 @@ test("the Explore option hides recommended Reel and photo cards while Search Ree
     assert.equal(session.dom.window.getComputedStyle(document.querySelector("#direct-reel-card")).visibility, "hidden");
     assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#direct-reel-card")).display, "none");
 
-    await session.changeSetting("hideExploreTab", false);
+    await session.changeSetting("hideExploreRecommendations", false);
 
     assert.equal(document.querySelector("[data-nrfi-hidden-explore-content]"), null);
     assert.notEqual(session.dom.window.getComputedStyle(document.querySelector("#direct-reel-card")).visibility, "hidden");
@@ -831,3 +954,66 @@ if (capturedPagePath && fs.existsSync(capturedPagePath)) {
         assert.deepEqual(session.unexpectedErrors, []);
     });
 }
+
+for (const hideReels of [false, true]) {
+    for (const hideFeedReels of [false, true]) {
+        test(`Reels navigation ${hideReels} and Home Reels ${hideFeedReels} are independent`, async (t) => {
+            const session = await loadContentScript({
+                settings: settingsWith({ hideReels, hideFeedReels, hideStories: false })
+            });
+            t.after(() => session.dom.window.close());
+            const { document } = session.dom.window;
+            assert.equal(document.querySelector("#reels-link").dataset.nrfiHiddenNav, hideReels ? "true" : undefined);
+            assert.equal(Boolean(hiddenChild(document, "suggested-reel", "data-nrfi-hidden-feed-reel")), hideFeedReels);
+            assert.equal(document.querySelector('[data-pagelet="story_tray"]').dataset.nrfiHiddenStories, undefined);
+            await session.changeSetting("hideReels", !hideReels);
+            assert.equal(Boolean(hiddenChild(document, "suggested-reel", "data-nrfi-hidden-feed-reel")), hideFeedReels);
+            await session.changeSetting("hideFeedReels", !hideFeedReels);
+            assert.equal(document.querySelector("#reels-link").dataset.nrfiHiddenNav, !hideReels ? "true" : undefined);
+        });
+    }
+}
+
+for (const hideExploreTab of [false, true]) {
+    for (const hideExploreRecommendations of [false, true]) {
+        test(`Explore navigation ${hideExploreTab} and recommendations ${hideExploreRecommendations} are independent`, async (t) => {
+            const html = `<!doctype html><html><head></head><body>
+                <nav><a id="search-nav" href="/explore/">Search</a></nav>
+                <main><section id="search-shell"><input id="query" type="search" aria-label="Search">
+                    <div><a id="recommended-photo" href="/p/discovery/">Photo</a></div>
+                </section></main></body></html>`;
+            const session = await loadContentScript({ html, url: "https://www.instagram.com/explore/",
+                settings: settingsWith({ hideExploreTab, hideExploreRecommendations }) });
+            t.after(() => session.dom.window.close());
+            const { window } = session.dom;
+            const { document } = window;
+            assert.equal(document.querySelector("#search-nav").dataset.nrfiHiddenNav, hideExploreTab ? "true" : undefined);
+            assert.equal(Boolean(document.querySelector("#recommended-photo").closest('[data-nrfi-hidden-explore-content="true"]')),
+                hideExploreRecommendations);
+            assert.equal(document.querySelector("#query").closest('[data-nrfi-hidden-explore-content="true"]'), null);
+            await session.changeSetting("hideExploreTab", !hideExploreTab);
+            assert.equal(Boolean(document.querySelector("#recommended-photo").closest('[data-nrfi-hidden-explore-content="true"]')),
+                hideExploreRecommendations);
+            window.history.pushState({}, "", "/explore/search/keyword/?q=landscapes");
+            await waitForObservers(window);
+            assert.equal(document.querySelector('[data-nrfi-hidden-explore-content="true"]'), null);
+            window.history.pushState({}, "", "/explore/?q=landscapes");
+            await waitForObservers(window);
+            assert.equal(document.querySelector('[data-nrfi-hidden-explore-content="true"]'), null);
+            window.history.pushState({}, "", "/explore/");
+            await waitForObservers(window);
+            assert.equal(Boolean(document.querySelector("#recommended-photo").closest('[data-nrfi-hidden-explore-content="true"]')),
+                hideExploreRecommendations);
+        });
+    }
+}
+
+test("legacy disabled combined filters stay disabled before the background migrates storage", async (t) => {
+    const session = await loadContentScript({ settings: { hideReels: false, hideExploreTab: false,
+        hideSuggestedPosts: false, hideSponsoredPosts: false, hideStories: false, hideSuggestedUsers: false,
+        hideSearchReels: false, keepReelsCollapsed: true } });
+    t.after(() => session.dom.window.close());
+    assert.equal(session.dom.window.document.querySelector('[data-nrfi-hidden-feed-reel="true"]'), null);
+    assert.equal(session.dom.window.document.querySelector("#reels-link").dataset.nrfiHiddenNav, undefined);
+    assert.equal(session.dom.window.document.querySelector("#explore-link").dataset.nrfiHiddenNav, undefined);
+});

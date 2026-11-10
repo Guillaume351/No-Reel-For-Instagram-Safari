@@ -1,19 +1,19 @@
 {
     "title": "Guide d’activation",
     "wellbeing": {
-        "title": "Réduire le temps d’écran involontaire",
-        "body": "No Reel For Instagram est une extension Safari pour Instagram Web. Pour réduire au maximum le temps d’écran involontaire, le plus efficace est de désinstaller l’app Instagram, d’utiliser instagram.com dans Safari, puis d’utiliser une app du type Beeper (ou équivalent) pour garder les notifications de messages."
+        "title": "Instagram, sans les distractions que vous choisissez de masquer.",
+        "body": "Utilisez instagram.com dans Safari. No Reel ne modifie pas l’app Instagram. Certaines fonctions natives, notamment de publication ou de notifications, peuvent manquer sur le site web."
     },
     "contact": {
         "title": "Contact",
         "description": "Questions ou retours ? Écrivez-moi à"
     },
     "ios": {
-        "intro": "Activez l’extension Safari pour masquer les distractions choisies sur instagram.com.",
+        "intro": "Instagram, sans les distractions que vous choisissez de masquer.",
         "steps": [
-            "Ouvrez Réglages ▸ Safari ▸ Extensions.",
-            "Activez « No Reel For Instagram » et autorisez-le sur les sites visités.",
-            "Ouvrez instagram.com puis rechargez la page pour appliquer vos réglages."
+            "Ouvrez Réglages, puis Safari (dans Apps sur les versions récentes d’iOS), puis Extensions.",
+            "Activez No Reel For Instagram et autorisez l’accès à instagram.com.",
+            "Ouvrez instagram.com dans Safari. Ouvrez le menu de l’extension, choisissez vos filtres, puis rechargez la page."
         ],
         "video": {
             "title": "Regarder la vidéo d’installation sur iOS",
@@ -21,7 +21,7 @@
         }
     },
     "mac": {
-        "stateOn": "No Reel For Instagram est actif. Choisissez les éléments à masquer depuis son bouton dans la barre d’outils Safari.",
+        "stateOn": "L’extension est activée. Autorisez instagram.com dans Safari, puis vérifiez vos filtres sur le site.",
         "stateOff": "No Reel For Instagram est désactivé. Activez-le dans Safari ▸ Réglages ▸ Extensions.",
         "stateUnknown": "Activez No Reel For Instagram dans Safari ▸ Réglages ▸ Extensions.",
         "openPreferences": "Quitter et ouvrir les réglages Safari…",
@@ -29,6 +29,17 @@
             "Ouvrez Safari ▸ Réglages ▸ Extensions.",
             "Cochez « No Reel For Instagram » et autorisez l’accès à instagram.com.",
             "Rechargez instagram.com pour appliquer vos préférences."
+        ],
+        "preferencesError": "Safari n’a pas pu ouvrir les réglages de l’extension. Ouvrez Safari > Réglages > Extensions, puis choisissez No Reel For Instagram."
+    },
+    "scope": "Utilisez instagram.com dans Safari. No Reel ne modifie pas l’app Instagram. Certaines fonctions natives, notamment de publication ou de notifications, peuvent manquer sur le site web.",
+    "recovery": {
+        "title": "Besoin d’aide ?",
+        "scope": "No Reel fonctionne sur instagram.com dans Safari. L’extension ne modifie ni l’app Instagram ni les autres navigateurs.",
+        "steps": [
+            "Rien ne change ? Vérifiez que l’extension est activée et autorisée sur instagram.com, puis rechargez l’onglet Safari.",
+            "Trop de contenu est masqué ? Choisissez Tout réafficher dans le popup Safari de No Reel. « Garder une ligne Reel repliée » est conservé. Annuler rétablit vos réglages tant que ce popup reste ouvert ; vous pouvez aussi réactiver les filtres un par un.",
+            "Le problème persiste ? Désactivez l’extension pour instagram.com et rechargez pour comparer. Contactez-moi avec votre appareil, version de Safari, page et filtre concernés. N’envoyez ni mot de passe ni messages privés."
         ]
     }
 }

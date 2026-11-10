@@ -68,6 +68,22 @@ button {
     font-size: 1em;
 }
 
+#preferencesStatus {
+    max-width: 640px;
+    text-align: start;
+}
+
+/* Keep the empty live region accessible without adding space to the guide. */
+#preferencesStatus:empty {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
 .instructions,
 .contact,
 .ios-video {
@@ -168,4 +184,109 @@ button {
     .ios-video {
         padding: 22px 28px;
     }
+}
+
+/* BrowseKind cross-promotion (iPhone only, shown below the setup guide). */
+.browsekind-promo {
+    width: min(640px, 100%);
+    text-align: left;
+    background: color-mix(in srgb, currentColor 8%, transparent);
+    padding: 16px 20px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.browsekind-promo[hidden] {
+    display: none;
+}
+
+.browsekind-promo[dir="rtl"] {
+    text-align: right;
+}
+
+.browsekind-promo-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.browsekind-promo-icon {
+    flex: none;
+    width: 44px;
+    height: 44px;
+}
+
+.browsekind-promo h2 {
+    flex: 1;
+    margin: 0;
+    font: -apple-system-headline;
+    font-weight: 600;
+}
+
+.browsekind-promo .browsekind-promo-dismiss {
+    flex: none;
+    align-self: flex-start;
+    width: 44px;
+    height: 44px;
+    margin: -12px -14px 0 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    opacity: 0.55;
+    font-size: 1em;
+}
+
+.browsekind-promo[dir="rtl"] .browsekind-promo-dismiss {
+    margin: -12px 0 0 -14px;
+}
+
+.browsekind-promo p {
+    margin: 0;
+}
+
+.browsekind-promo-body {
+    font: -apple-system-body;
+}
+
+.browsekind-promo .browsekind-promo-open {
+    font: -apple-system-headline;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+    background: color-mix(in srgb, currentColor 7%, transparent);
+}
+
+.browsekind-promo-note {
+    font: -apple-system-footnote;
+    opacity: 0.7;
+}
+
+@media (min-width: 700px) {
+    .browsekind-promo {
+        padding: 22px 28px;
+    }
+}
+
+.recovery-help {
+    width: min(640px, 100%);
+    margin: 20px auto;
+    text-align: start;
+    line-height: 1.5;
+}
+
+.recovery-help summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 12px 0;
+}
+
+.recovery-help ol {
+    padding-inline-start: 24px;
+}
+
+.recovery-help li {
+    margin-bottom: 12px;
 }

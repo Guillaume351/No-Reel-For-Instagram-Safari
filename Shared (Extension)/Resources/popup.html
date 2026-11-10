@@ -16,6 +16,13 @@
 
         <main class="content">
             <p id="status" class="status" role="status" aria-live="polite"></p>
+            <button id="retrySettings" type="button" hidden data-i18n="retry_settings" aria-describedby="status">Retry loading settings</button>
+
+            <section class="recovery">
+                <button id="showEverything" type="button" aria-describedby="recoveryDescription" data-i18n="restore_content_title">Show everything</button>
+                <p id="recoveryDescription" class="hint" data-i18n="restore_content_desc"></p>
+                <button id="undoEverything" type="button" hidden data-i18n="undo_restore" aria-describedby="status">Undo</button>
+            </section>
 
             <form id="settingsForm" class="settings" autocomplete="off">
                 <label class="setting">
@@ -23,6 +30,13 @@
                     <span>
                         <strong data-i18n="toggle_hide_reels_title"></strong>
                         <em data-i18n="toggle_hide_reels_desc"></em>
+                    </span>
+                </label>
+                <label class="setting">
+                    <input type="checkbox" name="hideFeedReels">
+                    <span>
+                        <strong data-i18n="toggle_hide_feed_reels_title"></strong>
+                        <em data-i18n="toggle_hide_feed_reels_desc"></em>
                     </span>
                 </label>
                 <label class="setting setting-suboption">
@@ -44,6 +58,13 @@
                     <span>
                         <strong data-i18n="toggle_hide_explore_title"></strong>
                         <em data-i18n="toggle_hide_explore_desc"></em>
+                    </span>
+                </label>
+                <label class="setting">
+                    <input type="checkbox" name="hideExploreRecommendations">
+                    <span>
+                        <strong data-i18n="toggle_hide_explore_recommendations_title"></strong>
+                        <em data-i18n="toggle_hide_explore_recommendations_desc"></em>
                     </span>
                 </label>
                 <label class="setting">

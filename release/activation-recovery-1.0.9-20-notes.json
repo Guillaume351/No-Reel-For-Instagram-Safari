@@ -1,0 +1,31 @@
+{
+  "version": "1.0.9",
+  "build": "20",
+  "status": "REVIEWED_PREPARED_NOT_APPLIED",
+  "uiLocales": [
+    "en",
+    "fr",
+    "es",
+    "de",
+    "ar"
+  ],
+  "storeLocales": {
+    "en-US": "Show everything now keeps your Reels display choice. Use Undo in the same popup to restore your previous filters.\nClearer activation and recovery help in five languages, improved readability and zoom support.\nOn Mac, the guide reminds you to allow instagram.com after enabling the extension. No Reel works on Instagram Web in Safari; it does not change the Instagram app.",
+    "fr-FR": "Tout réafficher conserve désormais votre choix d’affichage des Reels. Annuler rétablit vos filtres précédents tant que le popup reste ouvert.\nAide d’activation et de rétablissement plus claire en cinq langues, lisibilité améliorée et zoom possible.\nSur Mac, le guide rappelle d’autoriser instagram.com après activation. No Reel fonctionne sur Instagram Web dans Safari et ne modifie pas l’app Instagram.",
+    "de-DE": "Alles anzeigen behält deine Reels-Anzeige bei. Rückgängig stellt deine vorherigen Filter wieder her, solange das Popup offen bleibt.\nKlarere Aktivierungs- und Wiederherstellungshilfe in fünf Sprachen, bessere Lesbarkeit und Zoom.\nAuf dem Mac erinnert die Anleitung daran, instagram.com nach der Aktivierung zu erlauben. No Reel funktioniert auf Instagram Web in Safari und verändert die Instagram-App nicht.",
+    "es-ES": "Mostrar todo conserva tu opción de visualización de Reels. Deshacer restaura tus filtros anteriores mientras el panel siga abierto.\nAyuda de activación y recuperación más clara en cinco idiomas, mejor legibilidad y zoom.\nEn Mac, la guía recuerda permitir instagram.com tras activar la extensión. No Reel funciona en Instagram Web en Safari y no modifica la app de Instagram.",
+    "es-MX": "Mostrar todo conserva tu opción de visualización de Reels. Deshacer restaura tus filtros anteriores mientras el panel siga abierto.\nAyuda de activación y recuperación más clara en cinco idiomas, mejor legibilidad y zoom.\nEn Mac, la guía recuerda permitir instagram.com tras activar la extensión. No Reel funciona en Instagram Web en Safari y no modifica la app de Instagram.",
+    "ar-SA": "يحافظ إظهار الكل الآن على خيار عرض الريلز. يعيد زر تراجع عوامل التصفية السابقة ما دامت النافذة مفتوحة.\nإرشادات أوضح للتفعيل والاستعادة بخمس لغات، مع تحسين القراءة ودعم التكبير.\nعلى Mac، يذكّرك الدليل بالسماح بالوصول إلى instagram.com بعد تفعيل الامتداد. يعمل No Reel على Instagram Web في Safari ولا يغيّر تطبيق Instagram.",
+    "ko": "모두 표시를 사용해도 Reels 표시 설정은 유지됩니다. 팝업이 열려 있는 동안 실행 취소를 사용하면 이전 필터를 복원할 수 있습니다.\n5개 언어의 활성화 및 복구 안내를 개선하고 가독성과 확대 기능을 보완했습니다.\nMac에서는 확장 프로그램을 켠 뒤 instagram.com 접근을 허용하도록 안내합니다. No Reel은 Safari의 Instagram 웹에서 작동하며 Instagram 앱은 변경하지 않습니다.",
+    "pt-BR": "Mostrar tudo agora mantém sua preferência de exibição de Reels. Desfazer restaura seus filtros anteriores enquanto o painel estiver aberto.\nAjuda de ativação e recuperação mais clara em cinco idiomas, melhor leitura e suporte a zoom.\nNo Mac, o guia lembra de permitir instagram.com após ativar a extensão. No Reel funciona no Instagram Web no Safari e não altera o app Instagram.",
+    "ru": "Показать всё теперь сохраняет настройку отображения Reels. Отмена восстанавливает прежние фильтры, пока всплывающее окно открыто.\nБолее понятные инструкции по активации и восстановлению на пяти языках, улучшенная читаемость и масштабирование.\nНа Mac инструкция напоминает разрешить доступ к instagram.com после включения расширения. No Reel работает с Instagram Web в Safari и не изменяет приложение Instagram.",
+    "vi": "Hiển thị tất cả giờ vẫn giữ tùy chọn hiển thị Reels. Hoàn tác khôi phục các bộ lọc trước đó khi cửa sổ bật lên còn mở.\nHướng dẫn kích hoạt và khôi phục rõ hơn bằng năm ngôn ngữ, cải thiện khả năng đọc và hỗ trợ thu phóng.\nTrên Mac, hướng dẫn nhắc cho phép truy cập instagram.com sau khi bật tiện ích. No Reel hoạt động trên Instagram Web trong Safari và không thay đổi ứng dụng Instagram.",
+    "zh-Hans": "显示全部现在会保留你的 Reels 显示选项。弹出窗口保持打开时，可使用撤销恢复之前的筛选设置。\n改进了五种语言的启用与恢复帮助、文字可读性和缩放支持。\n在 Mac 上，指南会提醒你在启用扩展后允许访问 instagram.com。No Reel 适用于 Safari 中的 Instagram 网页版，不会更改 Instagram 应用。",
+    "zh-Hant": "顯示全部現在會保留你的 Reels 顯示選項。彈出視窗保持開啟時，可使用復原恢復先前的篩選設定。\n改善了五種語言的啟用與復原說明、文字可讀性和縮放支援。\n在 Mac 上，指南會提醒你在啟用擴充功能後允許存取 instagram.com。No Reel 適用於 Safari 中的 Instagram 網頁版，不會更改 Instagram App。"
+  },
+  "limits": [
+    "No native speaker certification",
+    "No physical Safari reset/Undo test passed by this agent",
+    "No website-access detection claim"
+  ]
+}

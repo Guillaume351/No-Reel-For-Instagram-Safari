@@ -16,11 +16,11 @@
         "description": "Subtitle explaining the popup purpose."
     },
     "toggle_hide_reels_title": {
-        "message": "Hide Reels",
+        "message": "Hide Reels tab",
         "description": "Title for hide Reels toggle."
     },
     "toggle_hide_reels_desc": {
-        "message": "Removes Reels navigation and Reel posts from Home.",
+        "message": "Removes the Reels navigation shortcut.",
         "description": "Description for hide Reels toggle."
     },
     "toggle_keep_reels_collapsed_title": {
@@ -38,7 +38,11 @@
     "hidden_reel_from": {
         "message": "Reel from $AUTHOR$",
         "description": "Label for a collapsed Reel with its author.",
-        "placeholders": { "author": { "content": "$1" } }
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
     },
     "hidden_post_placeholder": {
         "message": "Post hidden",
@@ -57,11 +61,11 @@
         "description": "Description for hiding Reel cards in Search."
     },
     "toggle_hide_explore_title": {
-        "message": "Hide Search / Explore",
+        "message": "Hide Search / Explore shortcut",
         "description": "Title for hide Explore toggle."
     },
     "toggle_hide_explore_desc": {
-        "message": "Removes the shortcut and hides recommended Reels and posts in Search and Explore.",
+        "message": "Removes Search and Explore navigation shortcuts.",
         "description": "Description for hide Explore toggle."
     },
     "toggle_hide_suggested_posts_title": {
@@ -109,8 +113,7 @@
         "description": "Status message when save completes."
     },
     "status_load_error": {
-        "message": "Couldn't reach the extension. Try again.",
-        "description": "Error when load fails."
+        "message": "Your settings could not be read. Retry loading them before changing any filters."
     },
     "status_save_error": {
         "message": "Couldn't save changes.",
@@ -156,5 +159,45 @@
                 "content": "$1"
             }
         }
+    },
+    "restore_content_title": {
+        "message": "Show everything"
+    },
+    "restore_content_desc": {
+        "message": "Turn off active filters. Undo restores your previous choices while this popup stays open. “Keep a collapsed Reel row” is kept. Only Instagram Web in Safari."
+    },
+    "status_restored": {
+        "message": "Filters are off. “Keep a collapsed Reel row” is kept. You can undo here, or reload the page if needed."
+    },
+    "undo_restore": {
+        "message": "Undo"
+    },
+    "status_undone": {
+        "message": "Your previous filter choices are restored."
+    },
+    "retry_settings": {
+        "message": "Retry loading settings"
+    },
+    "popup_locale": {
+        "message": "en"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Hide Reels in Home",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Hides Reel posts in your Home feed independently of the Reels tab.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Hide Explore recommendations",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Hides recommended photos and Reels on discovery pages while keeping manual search available.",
+        "description": "Independent navigation and content filter setting."
     }
 }
