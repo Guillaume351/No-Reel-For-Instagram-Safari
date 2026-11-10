@@ -1,0 +1,203 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Piilottaa Reels-videot, tarinat, Tutustu-osion, ehdotukset ja sponsoroidut julkaisut Instagram Webissä.",
+        "description": "Description of what the extension does."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Heading for the popup window."
+    },
+    "popup_subtitle": {
+        "message": "Valitse, mitkä Instagramin häiriötekijät piilotetaan.",
+        "description": "Subtitle explaining the popup purpose."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Piilota Reels-välilehti",
+        "description": "Title for hide Reels toggle."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Poistaa Reels-pikalinkin valikosta.",
+        "description": "Description for hide Reels toggle."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Säilytä tiivis Reels-rivi",
+        "description": "Title for the compact Reel row sub-option."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Näyttää tekijän ja Näytä silti -painikkeen lataamatta videota.",
+        "description": "Description for the compact Reel row sub-option."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reels-video piilotettu",
+        "description": "Label displayed in place of a hidden Home Reel."
+    },
+    "hidden_reel_from": {
+        "message": "Reels-video: $AUTHOR$",
+        "description": "Label for a collapsed Reel with its author.",
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
+    },
+    "hidden_post_placeholder": {
+        "message": "Julkaisu piilotettu",
+        "description": "Label for a compact hidden Home post."
+    },
+    "show_reel_anyway": {
+        "message": "Näytä silti",
+        "description": "Button that reveals one collapsed Reel."
+    },
+    "toggle_hide_search_reels_title": {
+        "message": "Piilota Reels-videot haussa",
+        "description": "Title for hiding Reel cards in Search."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Poistaa Reels-kortit Hausta ja Tutustu-osiosta.",
+        "description": "Description for hiding Reel cards in Search."
+    },
+    "toggle_hide_explore_title": {
+        "message": "Piilota Haku / Tutustu -pikalinkki",
+        "description": "Title for hide Explore toggle."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Poistaa Haun ja Tutustu-osion pikalinkit valikosta.",
+        "description": "Description for hide Explore toggle."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Piilota ehdotetut julkaisut",
+        "description": "Title for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Piilottaa syötteen suositellut julkaisut ja vaihtaa Etusivun Seurattaviin, kun mahdollista.",
+        "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Piilota sponsoroidut julkaisut",
+        "description": "Title for hide sponsored posts toggle."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Poistaa Sponsoroitu-merkityt julkaisut Etusivun syötteestä.",
+        "description": "Description for hide sponsored posts toggle."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Piilota ehdotetut tilit",
+        "description": "Title for hide suggested users toggle."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Poistaa henkilöehdotukset ja niiden karusellit.",
+        "description": "Description for hide suggested users toggle."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Piilota tarinapalkki",
+        "description": "Title for hide stories toggle."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Poistaa tarinakarusellin syötteen yläosasta.",
+        "description": "Description for hide stories toggle."
+    },
+    "status_loading": {
+        "message": "Ladataan asetuksia…",
+        "description": "Status message while settings load."
+    },
+    "status_saving": {
+        "message": "Tallennetaan…",
+        "description": "Status message while saving."
+    },
+    "status_success": {
+        "message": "Valmista!",
+        "description": "Status message when save completes."
+    },
+    "status_load_error": {
+        "message": "Asetuksia ei voitu lukea. Yritä ladata ne uudelleen ennen kuin muutat suodattimia."
+    },
+    "status_save_error": {
+        "message": "Muutoksia ei voitu tallentaa.",
+        "description": "Error when save fails."
+    },
+    "hint_autosave": {
+        "message": "Muutokset tallentuvat heti ja koskevat avoimia instagram.com-välilehtiä.",
+        "description": "Hint beneath toggles."
+    },
+    "instructions_title": {
+        "message": "Aloita tästä",
+        "description": "Heading for instructions section."
+    },
+    "instructions_step1": {
+        "message": "Ota No Reel For Instagram käyttöön Safarissa: Macissa avaa Safari ▸ Asetukset ▸ Laajennukset; iPhonessa/iPadissa siirry kohtaan Asetukset ▸ Apit ▸ Safari ▸ Laajennukset.",
+        "description": "First instruction step."
+    },
+    "instructions_step2": {
+        "message": "Avaa instagram.com ja kirjaudu sisään. Lataa jo avoinna olevat välilehdet uudelleen.",
+        "description": "Second instruction step."
+    },
+    "instructions_step3": {
+        "message": "Laita ominaisuuksia päälle tai pois tästä ikkunasta aina, kun haluat rauhallisemman syötteen.",
+        "description": "Third instruction step."
+    },
+    "instructions_note": {
+        "message": "Vinkki: jos käytät Yksityistä selausta, salli Safarin käyttää laajennusta myös siinä.",
+        "description": "Extra instructions note."
+    },
+    "contact_title": {
+        "message": "Yhteydenotto",
+        "description": "Heading for contact section."
+    },
+    "contact_description": {
+        "message": "Kysyttävää tai palautetta? Lähetä sähköpostia osoitteeseen",
+        "description": "Sentence before the email link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Label for email link.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    },
+    "restore_content_title": {
+        "message": "Näytä kaikki"
+    },
+    "restore_content_desc": {
+        "message": "Poistaa käytössä olevat suodattimet. Kumoa palauttaa aiemmat valintasi niin kauan kuin tämä ikkuna on auki. ”Säilytä tiivis Reels-rivi” -asetus pysyy ennallaan. Koskee vain Instagramin verkkoversiota Safarissa."
+    },
+    "status_restored": {
+        "message": "Suodattimet ovat pois päältä. ”Säilytä tiivis Reels-rivi” -asetus pysyy ennallaan. Voit kumota muutoksen täällä tai tarvittaessa ladata sivun uudelleen."
+    },
+    "undo_restore": {
+        "message": "Kumoa"
+    },
+    "status_undone": {
+        "message": "Aiemmat suodatinvalintasi on palautettu."
+    },
+    "retry_settings": {
+        "message": "Lataa asetukset uudelleen"
+    },
+    "popup_locale": {
+        "message": "fi"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Piilota Reels-videot Etusivulla",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Piilottaa Reels-julkaisut Etusivun syötteestä Reels-välilehdestä riippumatta.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Piilota Tutustu-suositukset",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Piilottaa suositellut kuvat ja Reels-videot löytösivuilta, mutta haku toimii edelleen.",
+        "description": "Independent navigation and content filter setting."
+    }
+}

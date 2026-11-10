@@ -1,0 +1,203 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Skjuler Reels, Stories, Utforsk, foreslåtte innlegg og kontoer samt sponsede innlegg på Instagram Web.",
+        "description": "Description of what the extension does."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Heading for the popup window."
+    },
+    "popup_subtitle": {
+        "message": "Velg hvilke distraksjoner på Instagram som skal skjules.",
+        "description": "Subtitle explaining the popup purpose."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Skjul Reels-fanen",
+        "description": "Title for hide Reels toggle."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Fjerner snarveien til Reels i navigasjonen.",
+        "description": "Description for hide Reels toggle."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Behold en sammenslått Reel-rad",
+        "description": "Title for the compact Reel row sub-option."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Viser kontonavnet og knappen Vis likevel uten å laste inn videoen.",
+        "description": "Description for the compact Reel row sub-option."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reel skjult",
+        "description": "Label displayed in place of a hidden Home Reel."
+    },
+    "hidden_reel_from": {
+        "message": "Reel fra $AUTHOR$",
+        "description": "Label for a collapsed Reel with its author.",
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
+    },
+    "hidden_post_placeholder": {
+        "message": "Innlegg skjult",
+        "description": "Label for a compact hidden Home post."
+    },
+    "show_reel_anyway": {
+        "message": "Vis likevel",
+        "description": "Button that reveals one collapsed Reel."
+    },
+    "toggle_hide_search_reels_title": {
+        "message": "Skjul Reels i Søk",
+        "description": "Title for hiding Reel cards in Search."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Fjerner Reel-kort i Søk og Utforsk.",
+        "description": "Description for hiding Reel cards in Search."
+    },
+    "toggle_hide_explore_title": {
+        "message": "Skjul snarveien Søk/Utforsk",
+        "description": "Title for hide Explore toggle."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Fjerner snarveiene til Søk og Utforsk i navigasjonen.",
+        "description": "Description for hide Explore toggle."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Skjul foreslåtte innlegg",
+        "description": "Title for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Skjuler anbefalte innlegg i feeden og bytter Hjem til Følger når det er mulig.",
+        "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Skjul sponsede innlegg",
+        "description": "Title for hide sponsored posts toggle."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Fjerner innlegg merket Sponset fra Hjem-feeden.",
+        "description": "Description for hide sponsored posts toggle."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Skjul foreslåtte kontoer",
+        "description": "Title for hide suggested users toggle."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Fjerner forslag om personer og karuseller.",
+        "description": "Description for hide suggested users toggle."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Skjul Stories-linjen",
+        "description": "Title for hide stories toggle."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Fjerner story-karusellen øverst i feeden.",
+        "description": "Description for hide stories toggle."
+    },
+    "status_loading": {
+        "message": "Laster inn innstillinger…",
+        "description": "Status message while settings load."
+    },
+    "status_saving": {
+        "message": "Lagrer…",
+        "description": "Status message while saving."
+    },
+    "status_success": {
+        "message": "Ferdig!",
+        "description": "Status message when save completes."
+    },
+    "status_load_error": {
+        "message": "Innstillingene dine kunne ikke leses. Last dem inn på nytt før du endrer filtre."
+    },
+    "status_save_error": {
+        "message": "Kunne ikke lagre endringene.",
+        "description": "Error when save fails."
+    },
+    "hint_autosave": {
+        "message": "Endringer lagres umiddelbart og brukes i åpne instagram.com-faner.",
+        "description": "Hint beneath toggles."
+    },
+    "instructions_title": {
+        "message": "Kom i gang",
+        "description": "Heading for instructions section."
+    },
+    "instructions_step1": {
+        "message": "Slå på No Reel For Instagram i Safari: På Mac åpner du Safari ▸ Innstillinger ▸ Utvidelser; på iPhone/iPad går du til Innstillinger ▸ Apper ▸ Safari ▸ Utvidelser.",
+        "description": "First instruction step."
+    },
+    "instructions_step2": {
+        "message": "Åpne instagram.com og logg på. Last inn faner du allerede har åpne, på nytt.",
+        "description": "Second instruction step."
+    },
+    "instructions_step3": {
+        "message": "Bruk dette vinduet til å slå funksjoner av eller på når du trenger en roligere feed.",
+        "description": "Third instruction step."
+    },
+    "instructions_note": {
+        "message": "Tips: Tillat utvidelsen i privat surfing hvis du bruker det.",
+        "description": "Extra instructions note."
+    },
+    "contact_title": {
+        "message": "Kontakt",
+        "description": "Heading for contact section."
+    },
+    "contact_description": {
+        "message": "Spørsmål eller tilbakemeldinger? Send meg en e-post på",
+        "description": "Sentence before the email link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Label for email link.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    },
+    "restore_content_title": {
+        "message": "Vis alt"
+    },
+    "restore_content_desc": {
+        "message": "Slår av aktive filtre. Angre gjenoppretter de forrige valgene dine så lenge dette vinduet er åpent. «Behold en sammenslått Reel-rad» beholdes. Kun Instagram Web i Safari."
+    },
+    "status_restored": {
+        "message": "Filtrene er slått av. «Behold en sammenslått Reel-rad» beholdes. Du kan angre her eller laste inn siden på nytt ved behov."
+    },
+    "undo_restore": {
+        "message": "Angre"
+    },
+    "status_undone": {
+        "message": "De forrige filtervalgene dine er gjenopprettet."
+    },
+    "retry_settings": {
+        "message": "Last inn innstillingene på nytt"
+    },
+    "popup_locale": {
+        "message": "nb"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Skjul Reels i Hjem",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Skjuler Reel-innlegg i Hjem-feeden uavhengig av Reels-fanen.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Skjul anbefalinger i Utforsk",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Skjuler anbefalte bilder og Reels på oppdagelsessider, men du kan fortsatt søke manuelt.",
+        "description": "Independent navigation and content filter setting."
+    }
+}

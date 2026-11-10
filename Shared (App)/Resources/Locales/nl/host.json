@@ -1,0 +1,45 @@
+{
+    "title": "Aan de slag",
+    "contact": {
+        "title": "Contact",
+        "description": "Vragen of feedback? Mail me op"
+    },
+    "ios": {
+        "intro": "Instagram zonder de afleiding die je zelf kiest te verbergen.",
+        "steps": [
+            "Open Instellingen, zoek Safari (onder Apps in recente iOS-versies) en tik op Extensies.",
+            "Schakel No Reel For Instagram in en geef toegang tot instagram.com.",
+            "Open instagram.com in Safari. Open het extensiemenu, kies je filters en laad de pagina opnieuw."
+        ],
+        "video": {
+            "title": "Bekijk de installatievideo voor iOS",
+            "cta": "Open de tutorial in Safari"
+        }
+    },
+    "mac": {
+        "stateOn": "De extensie is ingeschakeld. Sta instagram.com toe in Safari en controleer daarna je filters op de website.",
+        "stateOff": "No Reel For Instagram staat uit. Schakel het in via Safari ▸ Instellingen ▸ Extensies.",
+        "stateUnknown": "Schakel No Reel For Instagram in via Safari ▸ Instellingen ▸ Extensies.",
+        "openPreferences": "Stop en open Safari-instellingen…",
+        "steps": [
+            "Open Safari ▸ Instellingen ▸ Extensies.",
+            "Vink “No Reel For Instagram” aan en geef toegang tot instagram.com.",
+            "Laad instagram.com opnieuw om je voorkeuren toe te passen."
+        ],
+        "preferencesError": "Safari kon de extensie-instellingen niet openen. Open Safari > Instellingen > Extensies en kies No Reel For Instagram."
+    },
+    "scope": "Gebruik instagram.com in Safari. No Reel verandert niets aan de Instagram-app. Sommige functies van de app, waaronder bepaalde opties voor plaatsen en meldingen, zijn mogelijk niet beschikbaar op de website.",
+    "wellbeing": {
+        "title": "Instagram zonder de afleiding die je zelf kiest te verbergen.",
+        "body": "Gebruik instagram.com in Safari. No Reel verandert niets aan de Instagram-app. Sommige functies van de app, waaronder bepaalde opties voor plaatsen en meldingen, zijn mogelijk niet beschikbaar op de website."
+    },
+    "recovery": {
+        "title": "Hulp nodig?",
+        "scope": "No Reel werkt op instagram.com in Safari. Het kan de Instagram-app en andere browsers niet aanpassen.",
+        "steps": [
+            "Verandert er niets? Controleer of de extensie is ingeschakeld en is toegestaan op instagram.com, en laad het Safari-tabblad opnieuw.",
+            "Wordt er te veel verborgen? Kies Alles tonen in de Safari-pop-up van No Reel. “Ingeklapte Reel-rij behouden” blijft behouden. Met Ongedaan maken herstel je je vorige keuzes zolang de pop-up open blijft, of je zet filters één voor één weer aan.",
+            "Lukt het nog steeds niet? Schakel de extensie uit voor instagram.com en laad opnieuw om te vergelijken. Stuur me je apparaat, Safari-versie, pagina en het betreffende filter. Stuur geen wachtwoorden of privéberichten."
+        ]
+    }
+}

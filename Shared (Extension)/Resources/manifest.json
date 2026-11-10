@@ -1,52 +1,45 @@
 {
-    "manifest_version": 3,
-    "default_locale": "en",
-
-    "name": "__MSG_extension_name__",
-    "description": "__MSG_extension_description__",
-    "version": "1.0.6",
-
-    "icons": {
-        "48": "images/icon-48.png",
-        "96": "images/icon-96.png",
-        "128": "images/icon-128.png",
-        "256": "images/icon-256.png",
-        "512": "images/icon-512.png"
-    },
-
-    "background": {
-        "service_worker": "background.js"
-    },
-
-    "action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "32": "images/toolbar-icon-32.png",
-            "64": "images/toolbar-icon-64.png"
-        }
-    },
-
-    "permissions": [
-        "storage"
-    ],
-
-    "host_permissions": [
+  "manifest_version": 3,
+  "default_locale": "en",
+  "name": "__MSG_extension_name__",
+  "description": "__MSG_extension_description__",
+  "version": "1.0.11",
+  "icons": {
+    "48": "images/icon-48.png",
+    "96": "images/icon-96.png",
+    "128": "images/icon-128.png",
+    "256": "images/icon-256.png",
+    "512": "images/icon-512.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "32": "images/toolbar-icon-32.png",
+      "64": "images/toolbar-icon-64.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://instagram.com/*",
+    "https://m.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
         "https://www.instagram.com/*",
         "https://instagram.com/*",
         "https://m.instagram.com/*"
-    ],
-
-    "content_scripts": [
-        {
-            "matches": [
-                "https://www.instagram.com/*",
-                "https://instagram.com/*",
-                "https://m.instagram.com/*"
-            ],
-            "js": [
-                "content.js"
-            ],
-            "run_at": "document_start"
-        }
-    ]
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
 }

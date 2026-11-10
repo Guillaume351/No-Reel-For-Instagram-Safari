@@ -1,0 +1,45 @@
+{
+    "title": "Aloita tästä",
+    "contact": {
+        "title": "Yhteydenotto",
+        "description": "Kysyttävää tai palautetta? Lähetä sähköpostia osoitteeseen"
+    },
+    "ios": {
+        "intro": "Instagram ilman häiriötekijöitä, jotka päätät piilottaa.",
+        "steps": [
+            "Avaa Asetukset, etsi Safari (uusissa iOS-versioissa kohdassa Apit) ja valitse Laajennukset.",
+            "Ota No Reel For Instagram käyttöön ja salli pääsy sivustolle instagram.com.",
+            "Avaa instagram.com Safarissa. Avaa laajennuksen valikko, valitse suodattimet ja lataa sivu uudelleen."
+        ],
+        "video": {
+            "title": "Katso iOS-asennusvideo",
+            "cta": "Avaa opastus Safarissa"
+        }
+    },
+    "mac": {
+        "stateOn": "Laajennus on käytössä. Salli instagram.com Safarissa ja tarkista suodattimet sivustolla.",
+        "stateOff": "No Reel For Instagram ei ole käytössä. Ota se käyttöön kohdassa Safari ▸ Asetukset ▸ Laajennukset.",
+        "stateUnknown": "Ota No Reel For Instagram käyttöön kohdassa Safari ▸ Asetukset ▸ Laajennukset.",
+        "openPreferences": "Lopeta ja avaa Safarin asetukset…",
+        "steps": [
+            "Avaa Safari ▸ Asetukset ▸ Laajennukset.",
+            "Valitse ”No Reel For Instagram” ja salli pääsy sivustolle instagram.com.",
+            "Päivitä instagram.com, jotta valintasi tulevat voimaan."
+        ],
+        "preferencesError": "Safari ei voinut avata laajennusten asetuksia. Avaa Safari > Asetukset > Laajennukset ja valitse No Reel For Instagram."
+    },
+    "scope": "Käytä sivustoa instagram.com Safarissa. No Reel ei muuta Instagram-appia. Kaikki apin ominaisuudet, kuten tietyt julkaisu- ja ilmoitusvalinnat, eivät välttämättä ole käytettävissä verkkosivustolla.",
+    "wellbeing": {
+        "title": "Instagram ilman häiriötekijöitä, jotka päätät piilottaa.",
+        "body": "Käytä sivustoa instagram.com Safarissa. No Reel ei muuta Instagram-appia. Kaikki apin ominaisuudet, kuten tietyt julkaisu- ja ilmoitusvalinnat, eivät välttämättä ole käytettävissä verkkosivustolla."
+    },
+    "recovery": {
+        "title": "Tarvitsetko apua?",
+        "scope": "No Reel toimii sivustolla instagram.com Safarissa. Se ei voi muuttaa Instagram-appia tai muita selaimia.",
+        "steps": [
+            "Eikö mikään muutu? Tarkista, että laajennus on käytössä ja sallittu sivustolla instagram.com, ja lataa Safari-välilehti uudelleen.",
+            "Piilossa on liikaa? Valitse Näytä kaikki No Reel -ponnahdusikkunasta Safarissa. ”Säilytä tiivis Reels-rivi” -asetus pysyy ennallaan. Kumoa palauttaa aiemmat valintasi niin kauan kuin ponnahdusikkuna on auki. Voit myös ottaa suodattimia käyttöön yksitellen.",
+            "Eikö ongelma ratkea? Poista laajennus käytöstä sivustolla instagram.com ja lataa sivu uudelleen vertailun vuoksi. Kerro minulle laitteesi, Safari-versio, sivu ja suodatin, jota ongelma koskee. Älä lähetä salasanoja tai yksityisviestejä."
+        ]
+    }
+}

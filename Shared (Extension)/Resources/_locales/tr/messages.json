@@ -1,0 +1,203 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Instagram Web’de Reels, hikayeler, Keşfet, önerilen gönderiler ve hesaplar ile sponsorlu gönderileri gizler.",
+        "description": "Description of what the extension does."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Heading for the popup window."
+    },
+    "popup_subtitle": {
+        "message": "Instagram’da hangi dikkat dağıtıcıların gizleneceğini seçin.",
+        "description": "Subtitle explaining the popup purpose."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Reels sekmesini gizle",
+        "description": "Title for hide Reels toggle."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Reels gezinme kısayolunu kaldırır.",
+        "description": "Description for hide Reels toggle."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Daraltılmış bir Reels satırı göster",
+        "description": "Title for the compact Reel row sub-option."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Videoyu yüklemeden hesabı ve Yine de göster düğmesini gösterir.",
+        "description": "Description for the compact Reel row sub-option."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reels videosu gizlendi",
+        "description": "Label displayed in place of a hidden Home Reel."
+    },
+    "hidden_reel_from": {
+        "message": "Reels videosu · $AUTHOR$",
+        "description": "Label for a collapsed Reel with its author.",
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
+    },
+    "hidden_post_placeholder": {
+        "message": "Gönderi gizlendi",
+        "description": "Label for a compact hidden Home post."
+    },
+    "show_reel_anyway": {
+        "message": "Yine de göster",
+        "description": "Button that reveals one collapsed Reel."
+    },
+    "toggle_hide_search_reels_title": {
+        "message": "Aramadaki Reels’i gizle",
+        "description": "Title for hiding Reel cards in Search."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Ara ve Keşfet’teki Reels kartlarını kaldırır.",
+        "description": "Description for hiding Reel cards in Search."
+    },
+    "toggle_hide_explore_title": {
+        "message": "Ara / Keşfet kısayolunu gizle",
+        "description": "Title for hide Explore toggle."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Ara ve Keşfet gezinme kısayollarını kaldırır.",
+        "description": "Description for hide Explore toggle."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Önerilen gönderileri gizle",
+        "description": "Title for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Akıştaki önerilen gönderileri gizler ve mümkünse Ana Sayfa’yı Takip Edilenler’e geçirir.",
+        "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Sponsorlu gönderileri gizle",
+        "description": "Title for hide sponsored posts toggle."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Ana Sayfa akışından Sponsorlu etiketli gönderileri kaldırır.",
+        "description": "Description for hide sponsored posts toggle."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Önerilen hesapları gizle",
+        "description": "Title for hide suggested users toggle."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Kişi önerilerini ve öneri şeritlerini kaldırır.",
+        "description": "Description for hide suggested users toggle."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Hikaye çubuğunu gizle",
+        "description": "Title for hide stories toggle."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Akışın üstündeki hikaye şeridini kaldırır.",
+        "description": "Description for hide stories toggle."
+    },
+    "status_loading": {
+        "message": "Ayarlar yükleniyor…",
+        "description": "Status message while settings load."
+    },
+    "status_saving": {
+        "message": "Kaydediliyor…",
+        "description": "Status message while saving."
+    },
+    "status_success": {
+        "message": "Hazır!",
+        "description": "Status message when save completes."
+    },
+    "status_load_error": {
+        "message": "Ayarlarınız okunamadı. Filtreleri değiştirmeden önce yeniden yüklemeyi deneyin."
+    },
+    "status_save_error": {
+        "message": "Değişiklikler kaydedilemedi.",
+        "description": "Error when save fails."
+    },
+    "hint_autosave": {
+        "message": "Değişiklikler hemen kaydedilir ve açık instagram.com sekmelerine uygulanır.",
+        "description": "Hint beneath toggles."
+    },
+    "instructions_title": {
+        "message": "Başlarken",
+        "description": "Heading for instructions section."
+    },
+    "instructions_step1": {
+        "message": "No Reel For Instagram’ı Safari’de etkinleştirin: Mac’te Safari ▸ Ayarlar ▸ Uzantılar’ı açın; iPhone/iPad’de Ayarlar ▸ Uygulamalar ▸ Safari ▸ Uzantılar’a gidin.",
+        "description": "First instruction step."
+    },
+    "instructions_step2": {
+        "message": "instagram.com’u açıp giriş yapın. Zaten açık olan sekmeleri yeniden yükleyin.",
+        "description": "Second instruction step."
+    },
+    "instructions_step3": {
+        "message": "Daha sakin bir akış istediğinizde özellikleri bu pencereden açıp kapatın.",
+        "description": "Third instruction step."
+    },
+    "instructions_note": {
+        "message": "İpucu: Gizli Tarama’yı kullanıyorsanız Safari’nin uzantıyı orada da çalıştırmasına izin verin.",
+        "description": "Extra instructions note."
+    },
+    "contact_title": {
+        "message": "İletişim",
+        "description": "Heading for contact section."
+    },
+    "contact_description": {
+        "message": "Sorunuz veya geri bildiriminiz mi var? Bana yazın:",
+        "description": "Sentence before the email link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Label for email link.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    },
+    "restore_content_title": {
+        "message": "Her şeyi göster"
+    },
+    "restore_content_desc": {
+        "message": "Etkin filtreleri kapatır. Bu pencere açık kaldığı sürece Geri al önceki seçimlerinizi geri yükler. “Daraltılmış bir Reels satırı göster” ayarı korunur. Yalnızca Safari’deki Instagram Web için geçerlidir."
+    },
+    "status_restored": {
+        "message": "Filtreler kapalı. “Daraltılmış bir Reels satırı göster” ayarı korunur. Buradan geri alabilir veya gerekirse sayfayı yeniden yükleyebilirsiniz."
+    },
+    "undo_restore": {
+        "message": "Geri al"
+    },
+    "status_undone": {
+        "message": "Önceki filtre seçimleriniz geri yüklendi."
+    },
+    "retry_settings": {
+        "message": "Ayarları yeniden yükle"
+    },
+    "popup_locale": {
+        "message": "tr"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Ana Sayfa’daki Reels’i gizle",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Ana Sayfa akışındaki Reels gönderilerini Reels sekmesinden bağımsız olarak gizler.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Keşfet önerilerini gizle",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Keşif sayfalarındaki önerilen fotoğrafları ve Reels videolarını gizler; elle arama yapmaya devam edebilirsiniz.",
+        "description": "Independent navigation and content filter setting."
+    }
+}

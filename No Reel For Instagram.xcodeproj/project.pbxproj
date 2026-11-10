@@ -67,8 +67,11 @@
 				"/Localized: Resources/Main.html",
 				Assets.xcassets,
 				Resources/Icon.png,
+				Resources/Locales,
+				Resources/NoShortsIcon.png,
 				Resources/Script.js,
 				Resources/Style.css,
+				ReviewRequestCoordinator.swift,
 				ViewController.swift,
 			);
 			target = F06F5B8E2E794F87002B8514 /* No Reel For Instagram (iOS) */;
@@ -93,8 +96,11 @@
 				"/Localized: Resources/Main.html",
 				Assets.xcassets,
 				Resources/Icon.png,
+				Resources/Locales,
+				Resources/NoShortsIcon.png,
 				Resources/Script.js,
 				Resources/Style.css,
+				ReviewRequestCoordinator.swift,
 				ViewController.swift,
 			);
 			target = F06F5BA02E794F87002B8514 /* No Reel For Instagram (macOS) */;
@@ -144,6 +150,9 @@
 			exceptions = (
 				F06F5BDA2E794F87002B8514 /* Exceptions for "Shared (App)" folder in "No Reel For Instagram (iOS)" target */,
 				F06F5BE42E794F87002B8514 /* Exceptions for "Shared (App)" folder in "No Reel For Instagram (macOS)" target */,
+			);
+			explicitFolders = (
+				Resources/Locales,
 			);
 			path = "Shared (App)";
 			sourceTree = "<group>";
@@ -376,6 +385,15 @@
 				es,
 				de,
 				ar,
+				ja,
+				it,
+				nl,
+				tr,
+				pl,
+				sv,
+				da,
+				nb,
+				fi,
 				Base,
 			);
 			mainGroup = F06F5B722E794F86002B8514;
@@ -473,7 +491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -485,7 +503,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -507,7 +525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -519,7 +537,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -544,7 +562,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -559,7 +577,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -585,7 +603,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -600,7 +618,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -625,7 +643,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -639,8 +657,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.6;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -661,7 +679,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -675,8 +693,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.6;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -699,7 +717,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -714,8 +732,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.6;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -741,7 +759,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -756,8 +774,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.6;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

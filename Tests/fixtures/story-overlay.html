@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"></head>
+<body>
+    <!-- Reduced, anonymized shape observed in Safari on 2026-10-04.
+         Navigation and the story viewer are siblings in a non-semantic shell. -->
+    <div id="app-shell">
+        <div></div>
+        <div id="feed-shell">
+            <div id="primary-navigation">
+                <div><a id="overlay-home-link" href="/">Home</a></div>
+                <div><a id="overlay-explore-link" href="/explore/">Explore</a></div>
+                <div><a id="overlay-reels-link" href="/reels/">Reels</a></div>
+                <div><a href="/direct/inbox/">Messages</a></div>
+                <div><a href="/notifications/">Notifications</a></div>
+            </div>
+            <div data-pagelet="story_tray"><a href="/stories/creator/">Story</a></div>
+            <article><a href="/p/feed-photo/">Photo</a></article>
+        </div>
+        <div id="story-viewer">
+            <div>
+                <a href="/creator/" role="link">Creator</a>
+                <a id="shared-reel-link" href="/p/shared-reel/" role="link">
+                    <svg aria-label="Reels" role="img"></svg>
+                    <span>Watch full reel</span>
+                    <svg aria-label="Right chevron" role="img"></svg>
+                </a>
+                <div><video></video></div>
+                <textarea placeholder="Reply to creator..."></textarea>
+                <button id="close-story">Close</button>
+            </div>
+        </div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

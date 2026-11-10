@@ -4,9 +4,11 @@ const EMAIL = "guillaume.claverie@mail.com";
 
 const defaultSettings = Object.freeze({
     hideReels: true,
+    hideFeedReels: true,
     keepReelsCollapsed: true,
     hideSearchReels: true,
     hideExploreTab: true,
+    hideExploreRecommendations: true,
     hideSuggestedPosts: true,
     hideSponsoredPosts: true,
     hideSuggestedUsers: true,
@@ -23,7 +25,9 @@ const storageCandidates = (() => {
     if (storage.sync && typeof storage.sync.get === "function") {
         candidates.push({ name: "sync", area: storage.sync });
     }
-    if (storage.local && typeof storage.local.get === "function") {
+    // sync and local are distinct stores. Only use local when sync is absent;
+    // a rejected operation must not overwrite or display a different baseline.
+    else if (storage.local && typeof storage.local.get === "function") {
         candidates.push({ name: "local", area: storage.local });
     }
     return candidates;
@@ -34,10 +38,33 @@ let activeStorage = storageCandidates[0] || null;
 const form = document.getElementById("settingsForm");
 const statusElement = document.getElementById("status");
 const contactEmailLink = document.getElementById("contactEmail");
+const showEverythingButton = document.getElementById("showEverything");
+const retrySettingsButton = document.getElementById("retrySettings");
+let savedSettings = null;
+let undoSettings = null;
+const undoEverythingButton = document.getElementById("undoEverything");
+let statusRevision = 0;
 const controls = new Map(
     Array.from(form.querySelectorAll("input[type='checkbox']"))
         .map((control) => [control.name, control])
 );
+
+// A stalled Safari read must not leave the popup permanently disabled.
+// Time out reads only: never retry an uncertain write or replace unknown settings.
+const SETTINGS_READ_TIMEOUT_MS = 10000;
+
+function readWithTimeout(operation) {
+    return new Promise((resolve, reject) => {
+        const timeout = window.setTimeout(() => reject(new Error("settings read timed out")), SETTINGS_READ_TIMEOUT_MS);
+        Promise.resolve().then(operation).then((result) => {
+            window.clearTimeout(timeout);
+            resolve(result);
+        }, (error) => {
+            window.clearTimeout(timeout);
+            reject(error);
+        });
+    });
+}
 
 function invokeStorage(area, method, payload) {
     if (!area || typeof area[method] !== "function") {
@@ -77,7 +104,7 @@ async function storageGet(keys) {
         }
 
         try {
-            const result = await invokeStorage(candidate.area, "get", keys);
+            const result = await readWithTimeout(() => invokeStorage(candidate.area, "get", keys));
             activeStorage = candidate;
             return result && typeof result === "object" ? result : {};
         } catch (error) {
@@ -122,7 +149,21 @@ async function storageSet(items) {
     }
 }
 
+function migrateCombinedSettings(settings = {}) {
+    const migrated = { ...settings };
+    for (const [key, legacyKey] of [
+        ["hideFeedReels", "hideReels"],
+        ["hideExploreRecommendations", "hideExploreTab"]
+    ]) {
+        if (typeof migrated[key] === "undefined" && typeof settings[legacyKey] === "boolean") {
+            migrated[key] = settings[legacyKey];
+        }
+    }
+    return migrated;
+}
+
 function sanitizeSettings(partial = {}) {
+    partial = migrateCombinedSettings(partial);
     const sanitized = {};
 
     for (const [key, defaultValue] of Object.entries(defaultSettings)) {
@@ -152,7 +193,7 @@ async function writeSettingsToStorage(settings) {
 
 async function loadSettingsWithFallback() {
     try {
-        const response = await sendMessage({ type: "getSettings" });
+        const response = await readWithTimeout(() => sendMessage({ type: "getSettings" }));
         if (response?.ok === false) {
             throw new Error(response.error || "background rejected settings load");
         }
@@ -207,13 +248,18 @@ function getMessage(key, substitutions) {
 }
 
 function localize() {
-    const uiLang = api?.i18n?.getUILanguage ? api.i18n.getUILanguage() : navigator.language;
-    if (uiLang) {
-        document.documentElement.lang = uiLang;
-    }
+    // Use the locale of the actual message bundle: Safari can report an English
+    // UI language while getMessage supplies Arabic text.
+    const messageLocale = (getMessage("popup_locale") || "").replace(/_/g, "-").toLowerCase();
+    const hasMessageLocale = /^(en|fr|de|es|ar|ja|it|nl|tr|pl|sv|da|nb|fi)(?:-[a-z0-9]+)*$/.test(messageLocale);
+    const uiLang = hasMessageLocale ? messageLocale
+        : (api?.i18n?.getUILanguage ? api.i18n.getUILanguage() : navigator.language);
+    const langCode = (uiLang || "en").replace(/_/g, "-").toLowerCase();
+    document.documentElement.lang = langCode;
 
-    const langCode = (document.documentElement.lang || "en").toLowerCase();
-    document.documentElement.dir = langCode.startsWith("ar") ? "rtl" : "ltr";
+    const messageDirection = getMessage("popup_direction");
+    document.documentElement.dir = hasMessageLocale && ["rtl", "ltr"].includes(messageDirection)
+        ? messageDirection : (/^ar(?:-|$)/.test(langCode) ? "rtl" : "ltr");
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
         const key = element.getAttribute("data-i18n");
@@ -286,15 +332,18 @@ function collectSettings() {
 }
 
 function setFormDisabled(isDisabled) {
+    showEverythingButton.disabled = isDisabled || !savedSettings;
+    undoEverythingButton.disabled = isDisabled || !undoSettings;
+    undoEverythingButton.hidden = !undoSettings;
     controls.forEach((control) => {
-        control.disabled = isDisabled;
+        control.disabled = isDisabled || !savedSettings;
     });
 
     if (!isDisabled) {
-        const hideReelsControl = controls.get("hideReels");
+        const hideReelsControl = controls.get("hideFeedReels");
         const collapsedControl = controls.get("keepReelsCollapsed");
         if (collapsedControl) {
-            collapsedControl.disabled = !hideReelsControl?.checked;
+            collapsedControl.disabled = !savedSettings || !hideReelsControl?.checked;
             collapsedControl.closest(".setting")?.toggleAttribute(
                 "data-disabled",
                 collapsedControl.disabled
@@ -304,29 +353,39 @@ function setFormDisabled(isDisabled) {
 }
 
 function setStatus(message, state = "idle") {
+    statusRevision += 1;
     statusElement.textContent = message;
     statusElement.dataset.state = state;
 }
 
 async function loadSettings() {
+    setFormDisabled(true);
+    retrySettingsButton.disabled = true;
     setStatus(getMessage("status_loading"));
 
     try {
         const settings = await loadSettingsWithFallback();
+        savedSettings = sanitizeSettings(settings);
+        retrySettingsButton.hidden = true;
         renderSettings(settings);
         setFormDisabled(false);
         setStatus("", "idle");
     } catch (error) {
         console.error("No Reel For Instagram: unable to load settings", error);
+        savedSettings = null;
+        retrySettingsButton.hidden = false;
         renderSettings(defaultSettings);
         setFormDisabled(false);
         setStatus(getMessage("status_load_error"), "error");
+    } finally {
+        retrySettingsButton.disabled = false;
     }
 }
 
 let pendingSave = null;
 
-async function persistSettings() {
+async function persistSettings(successMessageKey = "status_success", afterSuccess = null) {
+    if (!savedSettings) return;
     if (pendingSave) {
         return pendingSave;
     }
@@ -336,15 +395,23 @@ async function persistSettings() {
     setStatus(getMessage("status_saving"), "pending");
 
     pendingSave = saveSettingsWithFallback(payload).then((settings) => {
+        savedSettings = sanitizeSettings(settings);
         renderSettings(settings);
-        setStatus(getMessage("status_success"), "success");
-        window.setTimeout(() => {
-            if (statusElement.dataset.state === "success") {
-                setStatus("", "idle");
-            }
-        }, 1200);
+        afterSuccess?.();
+        setStatus(getMessage(successMessageKey), "success");
+        if (successMessageKey === "status_success") {
+            const revision = statusRevision;
+            window.setTimeout(() => {
+                if (statusRevision === revision && statusElement.dataset.state === "success") {
+                    setStatus("", "idle");
+                }
+            }, 1200);
+        }
     }).catch((error) => {
         console.error("No Reel For Instagram: save failed", error);
+        if (savedSettings) {
+            renderSettings(savedSettings);
+        }
         setStatus(getMessage("status_save_error"), "error");
     }).finally(() => {
         setFormDisabled(false);
@@ -355,9 +422,42 @@ async function persistSettings() {
 }
 
 form.addEventListener("change", () => {
+    if (!savedSettings) return;
     setFormDisabled(false);
-    persistSettings();
+    persistSettings("status_success", () => { undoSettings = null; });
 });
+
+showEverythingButton.addEventListener("click", () => {
+    if (pendingSave) {
+        return;
+    }
+    if (!savedSettings) return;
+    // This child choice is dormant while its parent is off; do not erase it.
+    const before = undoSettings || { ...savedSettings };
+    controls.forEach((control, key) => {
+        if (key !== "keepReelsCollapsed") control.checked = false;
+    });
+    persistSettings("status_restored", () => { undoSettings = before; });
+});
+
+undoEverythingButton.addEventListener("click", () => {
+    if (pendingSave || !undoSettings) return;
+    renderSettings(undoSettings);
+    persistSettings("status_undone", () => {
+        undoSettings = null;
+    }).then(() => {
+        // persistSettings settles after its finally re-enables this button.
+        if (!undoSettings) showEverythingButton.focus();
+    });
+});
+
+retrySettingsButton.addEventListener("click", () => {
+    loadSettings().then(() => {
+        if (savedSettings) showEverythingButton.focus();
+    });
+});
+
+setFormDisabled(true);
 
 localize();
 loadSettings();

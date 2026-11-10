@@ -1,0 +1,45 @@
+{
+    "title": "Başlarken",
+    "contact": {
+        "title": "İletişim",
+        "description": "Sorunuz veya geri bildiriminiz mi var? Bana yazın:"
+    },
+    "ios": {
+        "intro": "Gizlemeyi seçtiğiniz dikkat dağıtıcılar olmadan Instagram.",
+        "steps": [
+            "Ayarlar’ı açın, Safari’yi bulun (yeni iOS sürümlerinde Uygulamalar altında), ardından Uzantılar’a dokunun.",
+            "No Reel For Instagram’ı etkinleştirin ve instagram.com’a erişim izni verin.",
+            "Safari’de instagram.com’u açın. Uzantı menüsünü açın, filtrelerinizi seçin ve sayfayı yeniden yükleyin."
+        ],
+        "video": {
+            "title": "iOS kurulum videosunu izleyin",
+            "cta": "Rehberi Safari’de aç"
+        }
+    },
+    "mac": {
+        "stateOn": "Uzantı etkin. Safari’de instagram.com’a izin verin, ardından filtrelerinizi sitede kontrol edin.",
+        "stateOff": "No Reel For Instagram kapalı. Safari ▸ Ayarlar ▸ Uzantılar bölümünden etkinleştirin.",
+        "stateUnknown": "No Reel For Instagram’ı Safari ▸ Ayarlar ▸ Uzantılar bölümünden açın.",
+        "openPreferences": "Çık ve Safari Ayarları’nı Aç…",
+        "steps": [
+            "Safari ▸ Ayarlar ▸ Uzantılar’ı açın.",
+            "“No Reel For Instagram” kutusunu işaretleyin ve instagram.com’a erişim izni verin.",
+            "Tercihlerinizi uygulamak için instagram.com’u yenileyin."
+        ],
+        "preferencesError": "Safari uzantı ayarlarını açamadı. Safari > Ayarlar > Uzantılar’ı açın, ardından No Reel For Instagram’ı seçin."
+    },
+    "scope": "instagram.com’u Safari’de kullanın. No Reel, Instagram uygulamasını değiştirmez. Belirli paylaşım ve bildirim seçenekleri gibi bazı uygulama özellikleri web sitesinde bulunmayabilir.",
+    "wellbeing": {
+        "title": "Gizlemeyi seçtiğiniz dikkat dağıtıcılar olmadan Instagram.",
+        "body": "instagram.com’u Safari’de kullanın. No Reel, Instagram uygulamasını değiştirmez. Belirli paylaşım ve bildirim seçenekleri gibi bazı uygulama özellikleri web sitesinde bulunmayabilir."
+    },
+    "recovery": {
+        "title": "Yardım mı gerekiyor?",
+        "scope": "No Reel, Safari’de instagram.com üzerinde çalışır. Instagram uygulamasını veya diğer tarayıcıları değiştiremez.",
+        "steps": [
+            "Hiçbir şey değişmiyor mu? Uzantının etkin olduğunu ve instagram.com’da izinli olduğunu kontrol edin, ardından Safari sekmesini yeniden yükleyin.",
+            "Çok fazla şey mi gizlendi? No Reel’in Safari açılır penceresinde Her şeyi göster’i seçin. “Daraltılmış bir Reels satırı göster” ayarı korunur. Açılır pencere açık kaldığı sürece Geri al önceki seçimlerinizi geri yükler; filtreleri tek tek de açabilirsiniz.",
+            "Sorun devam mı ediyor? Uzantıyı instagram.com için kapatın ve karşılaştırmak için sayfayı yeniden yükleyin. Cihazınızı, Safari sürümünü, sayfayı ve etkilenen filtreyi belirterek bana yazın. Parola veya özel mesaj göndermeyin."
+        ]
+    }
+}

@@ -1,0 +1,203 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Döljer Reels, Stories, Utforska, föreslagna inlägg och konton samt sponsrade inlägg på Instagram Web.",
+        "description": "Description of what the extension does."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Heading for the popup window."
+    },
+    "popup_subtitle": {
+        "message": "Välj vilka distraktioner på Instagram som ska döljas.",
+        "description": "Subtitle explaining the popup purpose."
+    },
+    "toggle_hide_reels_title": {
+        "message": "Dölj fliken Reels",
+        "description": "Title for hide Reels toggle."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "Tar bort genvägen till Reels i navigeringen.",
+        "description": "Description for hide Reels toggle."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "Behåll en hopfälld Reel-rad",
+        "description": "Title for the compact Reel row sub-option."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "Visar kontonamnet och knappen Visa ändå utan att läsa in videon.",
+        "description": "Description for the compact Reel row sub-option."
+    },
+    "hidden_reel_placeholder": {
+        "message": "Reel dold",
+        "description": "Label displayed in place of a hidden Home Reel."
+    },
+    "hidden_reel_from": {
+        "message": "Reel från $AUTHOR$",
+        "description": "Label for a collapsed Reel with its author.",
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
+    },
+    "hidden_post_placeholder": {
+        "message": "Inlägg dolt",
+        "description": "Label for a compact hidden Home post."
+    },
+    "show_reel_anyway": {
+        "message": "Visa ändå",
+        "description": "Button that reveals one collapsed Reel."
+    },
+    "toggle_hide_search_reels_title": {
+        "message": "Dölj Reels i Sök",
+        "description": "Title for hiding Reel cards in Search."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "Tar bort Reel-kort i Sök och Utforska.",
+        "description": "Description for hiding Reel cards in Search."
+    },
+    "toggle_hide_explore_title": {
+        "message": "Dölj genvägen Sök/Utforska",
+        "description": "Title for hide Explore toggle."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "Tar bort genvägarna till Sök och Utforska i navigeringen.",
+        "description": "Description for hide Explore toggle."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "Dölj föreslagna inlägg",
+        "description": "Title for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "Döljer rekommenderade inlägg i flödet och byter Hem till Följer när det går.",
+        "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "Dölj sponsrade inlägg",
+        "description": "Title for hide sponsored posts toggle."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "Tar bort inlägg märkta Sponsrad från Hem-flödet.",
+        "description": "Description for hide sponsored posts toggle."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "Dölj föreslagna konton",
+        "description": "Title for hide suggested users toggle."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "Tar bort förslag på personer och karuseller.",
+        "description": "Description for hide suggested users toggle."
+    },
+    "toggle_hide_stories_title": {
+        "message": "Dölj Stories-fältet",
+        "description": "Title for hide stories toggle."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "Tar bort story-karusellen högst upp i flödet.",
+        "description": "Description for hide stories toggle."
+    },
+    "status_loading": {
+        "message": "Läser in inställningar…",
+        "description": "Status message while settings load."
+    },
+    "status_saving": {
+        "message": "Sparar…",
+        "description": "Status message while saving."
+    },
+    "status_success": {
+        "message": "Klart!",
+        "description": "Status message when save completes."
+    },
+    "status_load_error": {
+        "message": "Det gick inte att läsa dina inställningar. Läs in dem igen innan du ändrar några filter."
+    },
+    "status_save_error": {
+        "message": "Det gick inte att spara ändringarna.",
+        "description": "Error when save fails."
+    },
+    "hint_autosave": {
+        "message": "Ändringar sparas direkt och gäller i öppna instagram.com-flikar.",
+        "description": "Hint beneath toggles."
+    },
+    "instructions_title": {
+        "message": "Kom igång",
+        "description": "Heading for instructions section."
+    },
+    "instructions_step1": {
+        "message": "Aktivera No Reel For Instagram i Safari: på Mac öppnar du Safari ▸ Inställningar ▸ Tillägg; på iPhone/iPad går du till Inställningar ▸ Appar ▸ Safari ▸ Tillägg.",
+        "description": "First instruction step."
+    },
+    "instructions_step2": {
+        "message": "Öppna instagram.com och logga in. Läs in flikar som redan är öppna igen.",
+        "description": "Second instruction step."
+    },
+    "instructions_step3": {
+        "message": "Använd det här fönstret för att slå på eller av funktioner när du vill ha ett lugnare flöde.",
+        "description": "Third instruction step."
+    },
+    "instructions_note": {
+        "message": "Tips: tillåt tillägget i privat surfning om du surfar privat.",
+        "description": "Extra instructions note."
+    },
+    "contact_title": {
+        "message": "Kontakt",
+        "description": "Heading for contact section."
+    },
+    "contact_description": {
+        "message": "Frågor eller feedback? Mejla mig på",
+        "description": "Sentence before the email link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Label for email link.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    },
+    "restore_content_title": {
+        "message": "Visa allt"
+    },
+    "restore_content_desc": {
+        "message": "Stänger av aktiva filter. Ångra återställer dina tidigare val så länge det här fönstret är öppet. ”Behåll en hopfälld Reel-rad” behålls. Gäller bara Instagram Web i Safari."
+    },
+    "status_restored": {
+        "message": "Filtren är avstängda. ”Behåll en hopfälld Reel-rad” behålls. Du kan ångra här eller läsa in sidan igen vid behov."
+    },
+    "undo_restore": {
+        "message": "Ångra"
+    },
+    "status_undone": {
+        "message": "Dina tidigare filterval är återställda."
+    },
+    "retry_settings": {
+        "message": "Läs in inställningarna igen"
+    },
+    "popup_locale": {
+        "message": "sv"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "Dölj Reels i Hem",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "Döljer Reel-inlägg i Hem-flödet, oberoende av fliken Reels.",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "Dölj rekommendationer i Utforska",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "Döljer rekommenderade foton och Reels på upptäcktssidor, men du kan fortfarande söka manuellt.",
+        "description": "Independent navigation and content filter setting."
+    }
+}

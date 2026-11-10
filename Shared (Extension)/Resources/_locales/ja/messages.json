@@ -1,0 +1,203 @@
+{
+    "extension_name": {
+        "message": "No Reel For Instagram",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Instagram Webのリール、ストーリーズ、発見、おすすめの投稿やアカウント、広告を非表示にします。",
+        "description": "Description of what the extension does."
+    },
+    "popup_title": {
+        "message": "No Reel For Instagram",
+        "description": "Heading for the popup window."
+    },
+    "popup_subtitle": {
+        "message": "非表示にするInstagramの要素を選んでください。",
+        "description": "Subtitle explaining the popup purpose."
+    },
+    "toggle_hide_reels_title": {
+        "message": "リールタブを非表示",
+        "description": "Title for hide Reels toggle."
+    },
+    "toggle_hide_reels_desc": {
+        "message": "ナビゲーションからリールへのショートカットを消します。",
+        "description": "Description for hide Reels toggle."
+    },
+    "toggle_keep_reels_collapsed_title": {
+        "message": "リールを折りたたんで残す",
+        "description": "Title for the compact Reel row sub-option."
+    },
+    "toggle_keep_reels_collapsed_desc": {
+        "message": "動画を読み込まずに、投稿者と「表示する」ボタンだけを表示します。",
+        "description": "Description for the compact Reel row sub-option."
+    },
+    "hidden_reel_placeholder": {
+        "message": "非表示のリール",
+        "description": "Label displayed in place of a hidden Home Reel."
+    },
+    "hidden_reel_from": {
+        "message": "$AUTHOR$のリール",
+        "description": "Label for a collapsed Reel with its author.",
+        "placeholders": {
+            "author": {
+                "content": "$1"
+            }
+        }
+    },
+    "hidden_post_placeholder": {
+        "message": "非表示の投稿",
+        "description": "Label for a compact hidden Home post."
+    },
+    "show_reel_anyway": {
+        "message": "表示する",
+        "description": "Button that reveals one collapsed Reel."
+    },
+    "toggle_hide_search_reels_title": {
+        "message": "検索のリールを非表示",
+        "description": "Title for hiding Reel cards in Search."
+    },
+    "toggle_hide_search_reels_desc": {
+        "message": "検索と発見に出るリールを消します。",
+        "description": "Description for hiding Reel cards in Search."
+    },
+    "toggle_hide_explore_title": {
+        "message": "検索／発見のショートカットを非表示",
+        "description": "Title for hide Explore toggle."
+    },
+    "toggle_hide_explore_desc": {
+        "message": "ナビゲーションから検索と発見へのショートカットを消します。",
+        "description": "Description for hide Explore toggle."
+    },
+    "toggle_hide_suggested_posts_title": {
+        "message": "おすすめの投稿を非表示",
+        "description": "Title for hide suggested posts toggle."
+    },
+    "toggle_hide_suggested_posts_desc": {
+        "message": "フィードのおすすめ投稿を隠し、可能な場合はホームを「フォロー中」に切り替えます。",
+        "description": "Description for hide suggested posts toggle."
+    },
+    "toggle_hide_sponsored_posts_title": {
+        "message": "広告の投稿を非表示",
+        "description": "Title for hide sponsored posts toggle."
+    },
+    "toggle_hide_sponsored_posts_desc": {
+        "message": "ホームフィードから「広告」と表示された投稿を消します。",
+        "description": "Description for hide sponsored posts toggle."
+    },
+    "toggle_hide_suggested_users_title": {
+        "message": "おすすめユーザーを非表示",
+        "description": "Title for hide suggested users toggle."
+    },
+    "toggle_hide_suggested_users_desc": {
+        "message": "おすすめの人やカルーセルを消します。",
+        "description": "Description for hide suggested users toggle."
+    },
+    "toggle_hide_stories_title": {
+        "message": "ストーリーズ欄を非表示",
+        "description": "Title for hide stories toggle."
+    },
+    "toggle_hide_stories_desc": {
+        "message": "フィード上部のストーリーズの列を消します。",
+        "description": "Description for hide stories toggle."
+    },
+    "status_loading": {
+        "message": "設定を読み込み中…",
+        "description": "Status message while settings load."
+    },
+    "status_saving": {
+        "message": "保存中…",
+        "description": "Status message while saving."
+    },
+    "status_success": {
+        "message": "完了しました",
+        "description": "Status message when save completes."
+    },
+    "status_load_error": {
+        "message": "設定を読み込めませんでした。フィルタを変更する前に、もう一度読み込んでください。"
+    },
+    "status_save_error": {
+        "message": "変更を保存できませんでした。",
+        "description": "Error when save fails."
+    },
+    "hint_autosave": {
+        "message": "変更はすぐに保存され、開いているinstagram.comのタブに反映されます。",
+        "description": "Hint beneath toggles."
+    },
+    "instructions_title": {
+        "message": "はじめに",
+        "description": "Heading for instructions section."
+    },
+    "instructions_step1": {
+        "message": "SafariでNo Reel For Instagramを有効にします。Macでは Safari ▸ 設定 ▸ 機能拡張、iPhone/iPadでは 設定 › アプリ › Safari › 機能拡張 を開きます。",
+        "description": "First instruction step."
+    },
+    "instructions_step2": {
+        "message": "instagram.comを開いてログインします。すでに開いているタブは再読み込みしてください。",
+        "description": "Second instruction step."
+    },
+    "instructions_step3": {
+        "message": "フィードを落ち着かせたいときは、いつでもこのポップアップで機能をオン・オフできます。",
+        "description": "Third instruction step."
+    },
+    "instructions_note": {
+        "message": "ヒント：プライベートブラウズでも使う場合は、そこでの機能拡張の実行をSafariで許可してください。",
+        "description": "Extra instructions note."
+    },
+    "contact_title": {
+        "message": "お問い合わせ",
+        "description": "Heading for contact section."
+    },
+    "contact_description": {
+        "message": "ご質問やご意見は、こちらまでメールでどうぞ：",
+        "description": "Sentence before the email link."
+    },
+    "contact_email_label": {
+        "message": "$1",
+        "description": "Label for email link.",
+        "placeholders": {
+            "email": {
+                "content": "$1"
+            }
+        }
+    },
+    "restore_content_title": {
+        "message": "すべて表示"
+    },
+    "restore_content_desc": {
+        "message": "有効なフィルタをオフにします。このポップアップを開いている間は「元に戻す」で以前の設定に戻せます。「リールを折りたたんで残す」はそのまま残ります。SafariのInstagram Webのみが対象です。"
+    },
+    "status_restored": {
+        "message": "フィルタをオフにしました。「リールを折りたたんで残す」はそのまま残ります。ここで元に戻すことも、必要に応じてページを再読み込みすることもできます。"
+    },
+    "undo_restore": {
+        "message": "元に戻す"
+    },
+    "status_undone": {
+        "message": "以前のフィルタ設定に戻しました。"
+    },
+    "retry_settings": {
+        "message": "設定を再読み込み"
+    },
+    "popup_locale": {
+        "message": "ja"
+    },
+    "popup_direction": {
+        "message": "ltr"
+    },
+    "toggle_hide_feed_reels_title": {
+        "message": "ホームのリールを非表示",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_feed_reels_desc": {
+        "message": "リールタブとは別に、ホームフィードのリールを隠します。",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_title": {
+        "message": "発見のおすすめを非表示",
+        "description": "Independent navigation and content filter setting."
+    },
+    "toggle_hide_explore_recommendations_desc": {
+        "message": "発見ページのおすすめ写真やリールを隠します。手動での検索はそのまま使えます。",
+        "description": "Independent navigation and content filter setting."
+    }
+}
